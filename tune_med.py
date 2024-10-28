@@ -1,1 +1,113 @@
 import torch
+from torch.utils.data import Dataset
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    TrainingArguments,
+    Trainer
+)
+from peft import LoraConfig, get_peft_model, TaskType
+from datasets import load_dataset
+
+dataset = load_dataset(
+    'json',
+    data_files={'all': 'oneround.jsonl'},  
+    split='all',
+    json={'lines': True}  
+)
+
+train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
+val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
+
+train_dataset = train_val_test_split['train']
+val_dataset = val_test_split['train']
+test_dataset = val_test_split['test']
+
+tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
+model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b")
+
+
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(model, peft_config)
+
+
+class CustomQADataset(Dataset):
+    def __init__(self, data, tokenizer, max_length=2048):
+        self.tokenizer = tokenizer
+        self.data = data
+        self.max_length = max_length
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        item = self.data[idx]
+        context = item['context']
+        question = item['question']
+        answer = item['answer']
+
+        input_text = context + " " + question
+        target_text = answer
+
+        inputs = self.tokenizer(
+            input_text,
+            max_length=self.max_length,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt"
+        )
+
+        labels = self.tokenizer(
+            target_text,
+            max_length=self.max_length,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt"
+        )
+
+        labels_input_ids = labels["input_ids"].squeeze()
+        # labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
+
+        return {
+            'input_ids': inputs['input_ids'].squeeze(),
+            'attention_mask': inputs['attention_mask'].squeeze(),
+            'labels': labels_input_ids
+        }
+
+
+train_dataset = CustomQADataset(dataset['train'], tokenizer)
+eval_dataset = CustomQADataset(dataset['validation'], tokenizer)
+
+
+training_args = TrainingArguments(
+    output_dir="./meditron_qa_results",
+    num_train_epochs=100,
+    per_device_train_batch_size=2,  
+    per_device_eval_batch_size=2,
+    evaluation_strategy="steps",
+    eval_steps=500,
+    save_steps=500,
+    logging_steps=100,
+    learning_rate=5e-5,
+    fp16=True,  
+    save_total_limit=2,
+)
+
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=eval_dataset,
+    tokenizer=tokenizer,
+)
+
+trainer.train()
+trainer.save_model("fine_tuned_meditron_7b")
+
