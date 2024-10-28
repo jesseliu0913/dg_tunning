@@ -52,7 +52,7 @@ class CustomQADataset(Dataset):
         question = item['question']
         answer = item['answer']
 
-        input_text = context + " " + question
+        input_text = context + " " + question + "Answer:"
         target_text = answer
 
         inputs = self.tokenizer(
@@ -81,8 +81,15 @@ class CustomQADataset(Dataset):
         }
 
 
-train_dataset = CustomQADataset(dataset['train'], tokenizer)
-eval_dataset = CustomQADataset(dataset['validation'], tokenizer)
+train_dataset = CustomQADataset(train_dataset, tokenizer)
+val_dataset = CustomQADataset(val_dataset, tokenizer)
+test_dataset = CustomQADataset(test_dataset, tokenizer)
+
+def collate_fn(batch):
+    input_ids = torch.stack([item['input_ids'] for item in batch])
+    attention_mask = torch.stack([item['attention_mask'] for item in batch])
+    labels = torch.stack([item['labels'] for item in batch])
+    return {'input_ids': input_ids, 'attention_mask': attention_mask, 'labels': labels}
 
 
 training_args = TrainingArguments(
@@ -104,10 +111,11 @@ trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
-    eval_dataset=eval_dataset,
+    eval_dataset=val_dataset,
     tokenizer=tokenizer,
+    data_collator=collate_fn,
 )
 
 trainer.train()
-trainer.save_model("fine_tuned_meditron_7b")
+trainer.save_model("oneround_meditron_7b")
 
