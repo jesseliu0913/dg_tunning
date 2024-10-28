@@ -35,7 +35,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=2048):
+    def __init__(self, data, tokenizer, max_length=256):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -53,7 +53,7 @@ class CustomQADataset(Dataset):
 
         inputs = self.tokenizer(
             input_text,
-            # max_length=self.max_length,
+            max_length=self.max_length,
             truncation=True,
             padding=False,
             return_tensors='pt',
@@ -62,7 +62,7 @@ class CustomQADataset(Dataset):
 
         labels = self.tokenizer(
             answer,
-            # max_length=self.max_length,
+            max_length=self.max_length,
             truncation=True,
             padding=False,
             return_tensors='pt',
