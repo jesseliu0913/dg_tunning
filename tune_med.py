@@ -55,7 +55,7 @@ class CustomQADataset(Dataset):
             input_text,
             max_length=self.max_length,
             truncation=True,
-            padding=False,
+            padding=True,
             return_tensors='pt',
         )
 
@@ -64,7 +64,7 @@ class CustomQADataset(Dataset):
             answer,
             max_length=self.max_length,
             truncation=True,
-            padding=False,
+            padding=True,
             return_tensors='pt',
         )
         
