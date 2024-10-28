@@ -15,9 +15,9 @@ dataset = load_dataset('json', data_files='oneround.jsonl')['train']
 train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
 val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
 
-train_dataset_raw = train_val_test_split['train']
-val_dataset_raw = val_test_split['train']
-test_dataset_raw = val_test_split['test']
+trainset = train_val_test_split['train']
+valset = val_test_split['train']
+testset = val_test_split['test']
 
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
@@ -78,9 +78,9 @@ class CustomQADataset(Dataset):
             'labels': labels_ids
         }
 
-train_dataset = CustomQADataset(train_dataset_raw, tokenizer)
-val_dataset = CustomQADataset(val_dataset_raw, tokenizer)
-test_dataset = CustomQADataset(test_dataset_raw, tokenizer)
+train_dataset = CustomQADataset(trainset, tokenizer)
+val_dataset = CustomQADataset(valset, tokenizer)
+test_dataset = CustomQADataset(testset, tokenizer)
 
 
 data_collator = DataCollatorForLanguageModeling(
