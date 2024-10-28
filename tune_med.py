@@ -5,7 +5,7 @@ from transformers import (
     AutoTokenizer,
     TrainingArguments,
     Trainer,
-    DataCollatorForCausalLM  # Use the correct data collator
+    DataCollatorForLanguageModeling  # Use the alternative data collator
 )
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
@@ -83,9 +83,10 @@ train_dataset = CustomQADataset(train_dataset_raw, tokenizer)
 val_dataset = CustomQADataset(val_dataset_raw, tokenizer)
 test_dataset = CustomQADataset(test_dataset_raw, tokenizer)
 
-# Use DataCollatorForCausalLM
-data_collator = DataCollatorForCausalLM(
+# Use DataCollatorForLanguageModeling with mlm=False
+data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
+    mlm=False,
     padding='longest',
     return_tensors='pt',
 )
