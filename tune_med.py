@@ -70,7 +70,7 @@ class CustomQADataset(Dataset):
         labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
 
         return {
-            'input_ids': inputs.input_ids
+            'input_ids': inputs.input_ids,
             'labels': labels_input_ids.input_ids
         }
 
