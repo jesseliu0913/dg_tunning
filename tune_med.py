@@ -87,9 +87,9 @@ def collate_fn(batch):
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=100,
-    per_device_train_batch_size=2,  
-    per_device_eval_batch_size=2,
-    gradient_accumulation_steps=2
+    per_device_train_batch_size=12,  
+    per_device_eval_batch_size=12,
+    gradient_accumulation_steps=2,
     evaluation_strategy="steps",
     eval_steps=500,
     save_steps=500,
