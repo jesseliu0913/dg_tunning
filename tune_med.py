@@ -4,7 +4,8 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     TrainingArguments,
-    Trainer
+    Trainer,
+    DataCollatorForSeq2Seq
 )
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
@@ -55,21 +56,20 @@ class CustomQADataset(Dataset):
 
         inputs = self.tokenizer(
             input_text,
-            truncation=True,
+            return_tensors="pt",
         )
     
         labels = self.tokenizer(
             target_text,
-            truncation=True,
+            return_tensors="pt",
         )
 
         labels_input_ids = labels["input_ids"].squeeze()
         labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
 
         return {
-            'input_ids': inputs['input_ids'].squeeze(),
-            'attention_mask': inputs['attention_mask'].squeeze(),
-            'labels': labels_input_ids
+            'input_ids': inputs.input_ids
+            'labels': labels_input_ids.input_ids
         }
 
 
@@ -77,11 +77,12 @@ train_dataset = CustomQADataset(train_dataset, tokenizer)
 val_dataset = CustomQADataset(val_dataset, tokenizer)
 test_dataset = CustomQADataset(test_dataset, tokenizer)
 
-def collate_fn(batch):
-    input_ids = torch.stack([item['input_ids'] for item in batch])
-    attention_mask = torch.stack([item['attention_mask'] for item in batch])
-    labels = torch.stack([item['labels'] for item in batch])
-    return {'input_ids': input_ids, 'attention_mask': attention_mask, 'labels': labels}
+data_collator = DataCollatorForSeq2Seq(
+    tokenizer=tokenizer,
+    padding='longest',
+    return_tensors='pt',
+    label_pad_token_id=-100,
+)
 
 
 training_args = TrainingArguments(
@@ -106,7 +107,7 @@ trainer = Trainer(
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
     tokenizer=tokenizer,
-    data_collator=collate_fn,
+    data_collator=data_collator,
 )
 
 trainer.train()
