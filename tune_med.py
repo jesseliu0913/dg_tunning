@@ -5,12 +5,12 @@ from transformers import (
     AutoTokenizer,
     TrainingArguments,
     Trainer,
-    DataCollatorForLanguageModeling  # Use the alternative data collator
+    DataCollatorForLanguageModeling 
 )
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
 
-# Load and split the dataset
+
 dataset = load_dataset('json', data_files='oneround.jsonl')['train']
 train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
 val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
@@ -19,11 +19,11 @@ train_dataset_raw = train_val_test_split['train']
 val_dataset_raw = val_test_split['train']
 test_dataset_raw = val_test_split['test']
 
-# Load tokenizer and model
+
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
 model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b", device_map="auto")
 
-# Configure LoRA
+
 peft_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
     inference_mode=False,
@@ -33,7 +33,7 @@ peft_config = LoraConfig(
 )
 model = get_peft_model(model, peft_config)
 
-# Define the custom dataset
+
 class CustomQADataset(Dataset):
     def __init__(self, data, tokenizer, max_length=2048):
         self.tokenizer = tokenizer
@@ -49,41 +49,31 @@ class CustomQADataset(Dataset):
         question = item['question']
         answer = item['answer']
 
-        prompt_text = f"{context} {question} Answer: "
-        full_text = prompt_text + answer
+        input_text = f"{context}\n {question}\n Answer: "
 
-        # Tokenize the full text
         inputs = self.tokenizer(
-            full_text,
+            input_text,
             max_length=self.max_length,
             truncation=True,
         )
 
-        input_ids = inputs['input_ids']
-        labels = input_ids.copy()
 
-        # Compute the length of the prompt to mask it in labels
-        prompt_inputs = self.tokenizer(
-            prompt_text,
+        labels = self.tokenizer(
+            answer,
             max_length=self.max_length,
             truncation=True,
         )
-        prompt_length = len(prompt_inputs['input_ids'])
-
-        # Mask the prompt tokens in the labels
-        labels[:prompt_length] = [-100] * prompt_length
 
         return {
-            'input_ids': input_ids,
-            'labels': labels
+            'input_ids': inputs.input_ids,
+            'labels': labels.input_ids
         }
 
-# Create dataset instances
 train_dataset = CustomQADataset(train_dataset_raw, tokenizer)
 val_dataset = CustomQADataset(val_dataset_raw, tokenizer)
 test_dataset = CustomQADataset(test_dataset_raw, tokenizer)
 
-# Use DataCollatorForLanguageModeling with mlm=False
+
 data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
     mlm=False,
@@ -91,7 +81,7 @@ data_collator = DataCollatorForLanguageModeling(
     return_tensors='pt',
 )
 
-# Define training arguments
+
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=100,
@@ -107,7 +97,7 @@ training_args = TrainingArguments(
     save_total_limit=2,
 )
 
-# Initialize the Trainer
+
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -117,6 +107,6 @@ trainer = Trainer(
     data_collator=data_collator,
 )
 
-# Start training
+
 trainer.train()
 trainer.save_model("oneround_meditron_7b")
