@@ -54,7 +54,8 @@ class CustomQADataset(Dataset):
         inputs = self.tokenizer(
             input_text,
             max_length=self.max_length,
-            truncation='max_length',
+            truncation=True,
+            padding='only',
             return_tensors='pt',
         )
 
@@ -62,7 +63,7 @@ class CustomQADataset(Dataset):
         labels = self.tokenizer(
             answer,
             max_length=self.max_length,
-            truncation='max_length',
+            truncation=True,
             return_tensors='pt',
         )
 
