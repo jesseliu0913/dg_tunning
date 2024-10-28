@@ -57,11 +57,13 @@ class CustomQADataset(Dataset):
         inputs = self.tokenizer(
             input_text,
             return_tensors="pt",
+            max_length=max_length, 
         )
     
         labels = self.tokenizer(
             target_text,
             return_tensors="pt",
+            max_length=max_length, 
         )
 
         labels_input_ids = labels["input_ids"].squeeze()
