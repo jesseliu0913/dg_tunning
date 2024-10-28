@@ -22,7 +22,7 @@ val_dataset = val_test_split['train']
 test_dataset = val_test_split['test']
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
-model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b")
+model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b", device_map="auto")
 
 
 peft_config = LoraConfig(
@@ -55,22 +55,16 @@ class CustomQADataset(Dataset):
 
         inputs = self.tokenizer(
             input_text,
-            max_length=self.max_length,
-            padding="max_length",
             truncation=True,
-            return_tensors="pt"
         )
-
+    
         labels = self.tokenizer(
             target_text,
-            max_length=self.max_length,
-            padding="max_length",
             truncation=True,
-            return_tensors="pt"
         )
 
         labels_input_ids = labels["input_ids"].squeeze()
-        # labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
+        labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
 
         return {
             'input_ids': inputs['input_ids'].squeeze(),
@@ -95,6 +89,7 @@ training_args = TrainingArguments(
     num_train_epochs=100,
     per_device_train_batch_size=2,  
     per_device_eval_batch_size=2,
+    gradient_accumulation_steps=2
     evaluation_strategy="steps",
     eval_steps=500,
     save_steps=500,
