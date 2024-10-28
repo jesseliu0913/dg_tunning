@@ -66,7 +66,7 @@ class CustomQADataset(Dataset):
             max_length=self.max_length, 
         )
 
-        # labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
+        labels_input_ids[labels_input_ids == self.tokenizer.pad_token_id] = -100
 
         return {
             'input_ids': inputs.input_ids,
