@@ -12,7 +12,7 @@ from datasets import load_dataset
 dataset = load_dataset(
     'json',
     data_files={'all': 'oneround.jsonl'},  
-    split='all'  
+    split='train'  
 )
 
 train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
