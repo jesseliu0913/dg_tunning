@@ -77,7 +77,6 @@ test_dataset = CustomQADataset(test_dataset_raw, tokenizer)
 data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
     mlm=False,
-    padding='longest',
     return_tensors='pt',
 )
 
