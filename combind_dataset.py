@@ -3,7 +3,7 @@ import json
 import re
 
 def remove_special_symbols(text):
-    cleaned_text = re.sub(r"[^a-zA-Z0-9\s\.,?]", "", text)
+    cleaned_text = cleaned_text.replace("*", "").replace("-", "").replace("_", "").replace("**", "")
     return cleaned_text
 
 with open("oneround.jsonl", "r") as file_qa:
