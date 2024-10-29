@@ -2,6 +2,16 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 import torch
 from tqdm import tqdm
+from datasets import load_dataset
+
+
+dataset = load_dataset('json', data_files='oneround.jsonl')['train']
+train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
+val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
+
+trainset = train_val_test_split['train']
+valset = val_test_split['train']
+testset = val_test_split['test']
 
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
