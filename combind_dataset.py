@@ -20,6 +20,7 @@ for qa in data_qa:
         jsonl_file.write(json.dumps(qa_dict) + "\n")
 
 for mc in data_mc:
+    print(mc)
     mc_dict = {}
     context = qa['context']
     question = qa['question']
