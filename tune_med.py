@@ -63,8 +63,10 @@ def collate_fn(batch):
     input_text, answer = zip(*batch)
     input_ids = tokenizer(input_text, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
     answer_ids = tokenizer(answer, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
+    
+    labels[answer_ids == tokenizer.pad_token_id] = -100 
 
-    output_dict = {'input_ids': input_ids,'labels': answer_ids}
+    output_dict = {'input_ids': input_ids,'labels': labels}
     return output_dict
     
 
