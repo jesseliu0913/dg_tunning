@@ -68,48 +68,50 @@ def collate_fn(batch):
     return output_dict
     
 
-train_dataloader = DataLoader(
-    train_dataset,
-    batch_size=4,  
-    shuffle=True,
-    collate_fn=collate_fn  
+"""
+Test dataloader
+# train_dataloader = DataLoader(
+#     train_dataset,
+#     batch_size=4,  
+#     shuffle=True,
+#     collate_fn=collate_fn  
+# )
+# for batch in train_dataloader:
+#     input_ids = batch['input_ids']
+#     labels = batch['labels']
+    
+#     print(f"Batch input_ids shape: {input_ids.shape}")
+#     print(f"Batch labels shape: {labels.shape}")
+    
+#     print(f"Example input_ids: {input_ids[0]}")
+#     print(f"Example labels: {labels[0]}")
+#     break
+"""
+training_args = TrainingArguments(
+    output_dir="./meditron_qa_results",
+    num_train_epochs=100,
+    per_device_train_batch_size=12,
+    per_device_eval_batch_size=12,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="steps",
+    eval_steps=500,
+    save_steps=500,
+    logging_steps=100,
+    learning_rate=5e-5,
+    fp16=True,
+    save_total_limit=2,
 )
 
-for batch in train_dataloader:
-    input_ids = batch['input_ids']
-    labels = batch['labels']
-    
-    print(f"Batch input_ids shape: {input_ids.shape}")
-    print(f"Batch labels shape: {labels.shape}")
-    
-    print(f"Example input_ids: {input_ids[0]}")
-    print(f"Example labels: {labels[0]}")
-    break
-# training_args = TrainingArguments(
-#     output_dir="./meditron_qa_results",
-#     num_train_epochs=100,
-#     per_device_train_batch_size=12,
-#     per_device_eval_batch_size=12,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="steps",
-#     eval_steps=500,
-#     save_steps=500,
-#     logging_steps=100,
-#     learning_rate=5e-5,
-#     fp16=True,
-#     save_total_limit=2,
-# )
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator,
+)
 
 
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     tokenizer=tokenizer,
-#     data_collator=data_collator,
-# )
-
-
-# trainer.train()
-# trainer.save_model("oneround_meditron_7b")
+trainer.train()
+trainer.save_model("oneround_meditron_7b")
