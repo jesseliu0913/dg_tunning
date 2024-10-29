@@ -26,6 +26,7 @@ for mc in data_mc:
     answer = qa['answer']
     input_text = f"{context}\n {question}\n Answer: {answer} "
     mc_dict['text'] = input_text
+    print(mc_dict)
     
     with open("text_full.jsonl", "a+") as jsonl_file:
         jsonl_file.write(json.dumps(mc_dict) + "\n")
