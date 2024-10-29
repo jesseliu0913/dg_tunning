@@ -33,6 +33,7 @@ for mc in data_mc:
     print(mc)
     input_text = f"{context}\n {question}\n Answer: {answer} "
     mc_dict['text'] = remove_special_symbols(input_text)
+    break
     # print(mc_dict)
     
     # with open("text_full.jsonl", "a+") as jsonl_file:
