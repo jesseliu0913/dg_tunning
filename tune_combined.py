@@ -94,8 +94,8 @@ for batch in train_dataloader:
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=3,
-    per_device_train_batch_size=128,
-    per_device_eval_batch_size=128,
+    per_device_train_batch_size=64,
+    per_device_eval_batch_size=64,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
