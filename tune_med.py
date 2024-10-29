@@ -49,9 +49,9 @@ class CustomQADataset(Dataset):
         question = item['question']
         answer = item['answer']
 
-        input_text = f"{context}\n {question}\n Answer: "
+        input_text = f"{context}\n {question}\n Answer: {answer} "
 
-        return input_text, answer
+        return input_text
 
 
 train_dataset = CustomQADataset(trainset, tokenizer)
@@ -65,7 +65,7 @@ data_collator = DataCollatorForLanguageModeling(
     return_tensors='pt',
 )
     
-
+'''
 # Test dataloader
 train_dataloader = DataLoader(
     train_dataset,
@@ -83,42 +83,42 @@ for batch in train_dataloader:
     print(f"Example input_ids: {input_ids[0]}")
     print(f"Example labels: {labels[0]}")
     break
+'''
+
+training_args = TrainingArguments(
+    output_dir="./meditron_qa_results",
+    num_train_epochs=100,
+    per_device_train_batch_size=4,
+    per_device_eval_batch_size=4,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="steps",
+    save_steps=0.4,
+    logging_steps=100,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    fp16=False, 
+    bf16=True, 
+    save_total_limit=5,
+    ddp_find_unused_parameters=False  
+)
 
 
-# training_args = TrainingArguments(
-#     output_dir="./meditron_qa_results",
-#     num_train_epochs=100,
-#     per_device_train_batch_size=4,
-#     per_device_eval_batch_size=4,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="steps",
-#     save_steps=0.4,
-#     logging_steps=100,
-#     learning_rate=2e-5,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     fp16=False, 
-#     bf16=True, 
-#     save_total_limit=5,
-#     ddp_find_unused_parameters=False  
-# )
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=tokenizer,
+    data_collator=collate_fn,
+)
 
 
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     tokenizer=tokenizer,
-#     data_collator=collate_fn,
-# )
-
-
-# trainer.train()
-# trainer.save_model("oneround_meditron_7b")
+trainer.train()
+trainer.save_model("oneround_meditron_7b")
