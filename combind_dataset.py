@@ -31,13 +31,13 @@ for qa in data_qa:
     question = "What is the most likely diagnosis?"
     answer = qa['answer']
     input_text = f"""
-    <|im_start|>question
-    {context}
-    Question: {question}<|im_end|>
-    <|im_start|>answer
-    {answer} 
-    <|im_end|>
-    """
+<|im_start|>question
+{context}
+Question: {question}<|im_end|>
+<|im_start|>answer
+{answer} 
+<|im_end|>
+"""
     
     qa_dict['text'] = qa_prefix + input_text
     
@@ -53,14 +53,14 @@ for mc in data_mc:
     question = remove_special_symbols(mc['question'])
     answer = mc['answer']
     input_text = f"""
-    <|im_start|>question
-    {context}
-    Question: {question}
-    <|im_end|>
-    <|im_start|>answer
-    {answer} 
-    <|im_end|>
-    """
+<|im_start|>question
+{context}
+Question: {question}
+<|im_end|>
+<|im_start|>answer
+{answer} 
+<|im_end|>
+"""
     
     mc_dict['text'] = mc_prefix + input_text
     # print(mc_dict)
