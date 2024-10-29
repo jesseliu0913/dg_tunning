@@ -48,10 +48,18 @@ class CustomQADataset(Dataset):
         context = item['context']
         question = item['question']
         answer = item['answer']
-
         input_text = f"{context}\n {question}\n Answer: {answer} "
 
-        return input_text
+        input_ids = self.tokenizer(
+            input_text,
+            max_length=self.max_length,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt",
+        )
+        tokenized_input = {key: val.squeeze(0) for key, val in tokenized_input.items()}
+
+        return tokenized_input
 
 
 train_dataset = CustomQADataset(trainset, tokenizer)
