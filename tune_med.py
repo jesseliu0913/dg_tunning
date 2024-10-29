@@ -68,61 +68,60 @@ def collate_fn(batch):
     return output_dict
     
 
-"""
-Test dataloader
-# train_dataloader = DataLoader(
-#     train_dataset,
-#     batch_size=4,  
-#     shuffle=True,
-#     collate_fn=collate_fn  
+
+# Test dataloader
+train_dataloader = DataLoader(
+    train_dataset,
+    batch_size=4,  
+    shuffle=True,
+    collate_fn=collate_fn  
+)
+for batch in train_dataloader:
+    input_ids = batch['input_ids']
+    labels = batch['labels']
+    
+    print(f"Batch input_ids shape: {input_ids.shape}")
+    print(f"Batch labels shape: {labels.shape}")
+    
+    print(f"Example input_ids: {input_ids[0]}")
+    print(f"Example labels: {labels[0]}")
+    break
+
+
+# training_args = TrainingArguments(
+#     output_dir="./meditron_qa_results",
+#     num_train_epochs=100,
+#     per_device_train_batch_size=12,
+#     per_device_eval_batch_size=12,
+#     gradient_accumulation_steps=2,
+#     evaluation_strategy="epoch",
+#     save_strategy="steps",
+#     save_steps=0.4,
+#     logging_steps=100,
+#     learning_rate=2e-5,
+#     warmup_ratio=0.1,
+#     weight_decay=0.1,
+#     max_grad_norm=1.0,
+#     lr_scheduler_type="cosine",
+#     adam_beta1=0.9,
+#     adam_beta2=0.95,
+#     adam_epsilon=1e-5,
+#     fp16=False, 
+#     bf16=True, 
+#     save_total_limit=5,
+#     ddp_find_unused_parameters=False  
 # )
-# for batch in train_dataloader:
-#     input_ids = batch['input_ids']
-#     labels = batch['labels']
-    
-#     print(f"Batch input_ids shape: {input_ids.shape}")
-#     print(f"Batch labels shape: {labels.shape}")
-    
-#     print(f"Example input_ids: {input_ids[0]}")
-#     print(f"Example labels: {labels[0]}")
-#     break
-"""
-from transformers import TrainingArguments
-
-training_args = TrainingArguments(
-    output_dir="./meditron_qa_results",
-    num_train_epochs=100,
-    per_device_train_batch_size=12,
-    per_device_eval_batch_size=12,
-    gradient_accumulation_steps=2,
-    evaluation_strategy="epoch",
-    save_strategy="steps",
-    save_steps=0.4,
-    logging_steps=100,
-    learning_rate=2e-5,
-    warmup_ratio=0.1,
-    weight_decay=0.1,
-    max_grad_norm=1.0,
-    lr_scheduler_type="cosine",
-    adam_beta1=0.9,
-    adam_beta2=0.95,
-    adam_epsilon=1e-5,
-    fp16=False, 
-    bf16=True, 
-    save_total_limit=5,
-    ddp_find_unused_parameters=False  
-)
 
 
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=train_dataset,
-    eval_dataset=val_dataset,
-    tokenizer=tokenizer,
-    data_collator=collate_fn,
-)
+# trainer = Trainer(
+#     model=model,
+#     args=training_args,
+#     train_dataset=train_dataset,
+#     eval_dataset=val_dataset,
+#     tokenizer=tokenizer,
+#     data_collator=collate_fn,
+# )
 
 
-trainer.train()
-trainer.save_model("oneround_meditron_7b")
+# trainer.train()
+# trainer.save_model("oneround_meditron_7b")
