@@ -3,3 +3,4 @@ mc.jsonl
 /oneround_meditron_7b/*
 /meditron_qa_results/*
 /wandb/*
+text_full.jsonl
