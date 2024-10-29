@@ -17,22 +17,24 @@ for qa in data_qa:
     context = qa['context']
     question = qa['question']
     answer = qa['answer']
+    print(qa)
     input_text = f"{context}\n {question}\n Answer: {answer} "
     qa_dict['text'] = remove_special_symbols(input_text)
+    break
     
-    with open("text_full.jsonl", "a+") as jsonl_file:
-        jsonl_file.write(json.dumps(qa_dict) + "\n")
+    # with open("text_full.jsonl", "a+") as jsonl_file:
+    #     jsonl_file.write(json.dumps(qa_dict) + "\n")
 
-for mc in data_mc:
-    mc_dict = {}
-    context = mc['context']
-    question = mc['question']
-    answer = mc['answer']
-    input_text = f"{context}\n {question}\n Answer: {answer} "
-    mc_dict['text'] = remove_special_symbols(input_text)
+# for mc in data_mc:
+#     mc_dict = {}
+#     context = mc['context']
+#     question = mc['question']
+#     answer = mc['answer']
+#     input_text = f"{context}\n {question}\n Answer: {answer} "
+#     mc_dict['text'] = remove_special_symbols(input_text)
     # print(mc_dict)
     
-    with open("text_full.jsonl", "a+") as jsonl_file:
-        jsonl_file.write(json.dumps(mc_dict) + "\n")
+    # with open("text_full.jsonl", "a+") as jsonl_file:
+    #     jsonl_file.write(json.dumps(mc_dict) + "\n")
 
 
