@@ -1,6 +1,10 @@
 import os
 import json
+import re
 
+def remove_special_symbols(text):
+    cleaned_text = re.sub(r"[^a-zA-Z0-9\s\.,?]", "", text)
+    return cleaned_text
 
 with open("oneround.jsonl", "r") as file_qa:
     data_qa = [json.loads(line) for line in file_qa]
@@ -14,20 +18,19 @@ for qa in data_qa:
     question = qa['question']
     answer = qa['answer']
     input_text = f"{context}\n {question}\n Answer: {answer} "
-    qa_dict['text'] = input_text
+    qa_dict['text'] = remove_special_symbols(input_text)
     
     with open("text_full.jsonl", "a+") as jsonl_file:
         jsonl_file.write(json.dumps(qa_dict) + "\n")
 
 for mc in data_mc:
-    print(mc)
     mc_dict = {}
-    context = qa['context']
-    question = qa['question']
-    answer = qa['answer']
+    context = mc['context']
+    question = mc['question']
+    answer = mc['answer']
     input_text = f"{context}\n {question}\n Answer: {answer} "
-    mc_dict['text'] = input_text
-    print(mc_dict)
+    mc_dict['text'] = remove_special_symbols(input_text)
+    # print(mc_dict)
     
     with open("text_full.jsonl", "a+") as jsonl_file:
         jsonl_file.write(json.dumps(mc_dict) + "\n")
