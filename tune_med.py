@@ -109,9 +109,7 @@ training_args = TrainingArguments(
     adam_epsilon=1e-5,
     fp16=False, 
     bf16=True, 
-    save_total_limit=2,
-    min_lr=2e-6,
-    report_to="none", 
+    save_total_limit=5,
     ddp_find_unused_parameters=False  
 )
 
