@@ -11,7 +11,7 @@ val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, se
 
 trainset = train_val_test_split['train']
 valset = val_test_split['train']
-testset = val_test_split['test']
+testset = val_test_split['test'][0:10]
 
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
