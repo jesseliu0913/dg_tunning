@@ -95,13 +95,13 @@ for batch in train_dataloader:
 
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
-    num_train_epochs=50,
-    per_device_train_batch_size=32,
-    per_device_eval_batch_size=32,
+    num_train_epochs=3,
+    per_device_train_batch_size=128,
+    per_device_eval_batch_size=128,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
-    save_strategy="steps",
-    save_steps=0.4,
+    save_strategy="epoch",
+    # save_steps=0.4,
     logging_steps=100,
     learning_rate=2e-5,
     warmup_ratio=0.1,
@@ -114,6 +114,7 @@ training_args = TrainingArguments(
     fp16=False, 
     bf16=True, 
     save_total_limit=5,
+    report_to='wandb',
     ddp_find_unused_parameters=False  
 )
 
