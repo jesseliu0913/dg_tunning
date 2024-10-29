@@ -59,24 +59,19 @@ val_dataset = CustomQADataset(valset, tokenizer)
 test_dataset = CustomQADataset(testset, tokenizer)
 
 
-def collate_fn(batch):
-    input_text, answer = zip(*batch)
-    input_ids = tokenizer(input_text, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
-    answer_ids = tokenizer(answer, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
+data_collator = DataCollatorForLanguageModeling(
+    tokenizer=tokenizer,
+    mlm=False,
+    return_tensors='pt',
+)
     
-    answer_ids[answer_ids == tokenizer.pad_token_id] = -100 
-
-    output_dict = {'input_ids': input_ids,'labels': answer_ids}
-    return output_dict
-    
-
 
 # Test dataloader
 train_dataloader = DataLoader(
     train_dataset,
     batch_size=4,  
     shuffle=True,
-    collate_fn=collate_fn  
+    collate_fn=data_collator  
 )
 for batch in train_dataloader:
     input_ids = batch['input_ids']
