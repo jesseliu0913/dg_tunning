@@ -87,19 +87,32 @@ Test dataloader
 #     print(f"Example labels: {labels[0]}")
 #     break
 """
+from transformers import TrainingArguments
+
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=100,
     per_device_train_batch_size=12,
     per_device_eval_batch_size=12,
     gradient_accumulation_steps=2,
-    evaluation_strategy="steps",
-    eval_steps=500,
-    save_steps=500,
+    evaluation_strategy="epoch",
+    save_strategy="steps",
+    save_steps=0.4,
     logging_steps=100,
-    learning_rate=5e-5,
-    fp16=True,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    fp16=False, 
+    bf16=True, 
     save_total_limit=2,
+    min_lr=2e-6,
+    report_to="none", 
+    ddp_find_unused_parameters=False  
 )
 
 
