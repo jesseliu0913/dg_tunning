@@ -16,7 +16,7 @@ for qa in data_qa:
     input_text = f"{context}\n {question}\n Answer: {answer} "
     qa_dict['text'] = input_text
     
-    with open("text_qa.jsonl", "a+") as jsonl_file:
+    with open("text_full.jsonl", "a+") as jsonl_file:
         jsonl_file.write(json.dumps(qa_dict) + "\n")
 
 for mc in data_mc:
@@ -27,7 +27,7 @@ for mc in data_mc:
     input_text = f"{context}\n {question}\n Answer: {answer} "
     qa_dict['text'] = input_text
     
-    with open("text_qa.jsonl", "a+") as jsonl_file:
+    with open("text_full.jsonl", "a+") as jsonl_file:
         jsonl_file.write(json.dumps(mc_dict) + "\n")
 
 
