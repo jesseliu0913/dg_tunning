@@ -50,12 +50,14 @@ for item in tqdm(testset):
 
     generated_text = tokenizer.decode(output_ids[0][input_ids.shape[-1]:], skip_special_tokens=True)
     generated_answers.append(generated_text.strip())
+    print(generated_answers)
+    break
 
 
-for i, item in enumerate(testset):
-    print(f"Sample {i+1}:")
-    print(f"Context: {item['context']}")
-    print(f"Question: {item['question']}")
-    print(f"Generated Answer: {generated_answers[i]}")
-    print(f"Reference Answer: {item['answer']}")
-    print('-' * 80)
+# for i, item in enumerate(testset):
+#     print(f"Sample {i+1}:")
+#     print(f"Context: {item['context']}")
+#     print(f"Question: {item['question']}")
+#     print(f"Generated Answer: {generated_answers[i]}")
+#     print(f"Reference Answer: {item['answer']}")
+#     print('-' * 80)
