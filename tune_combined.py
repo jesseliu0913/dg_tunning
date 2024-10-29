@@ -11,8 +11,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
 
 
-dataset_qa = load_dataset('json', data_files='oneround.jsonl')['train']
-dataset_mc = load_dataset('json', data_files='mc.jsonl')['train']
+dataset = load_dataset('json', data_files='text_full.jsonl')['train']
 
 train_val_test_split_qa = dataset.train_test_split(test_size=0.2, seed=42) 
 val_test_split_mc = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
@@ -47,10 +46,7 @@ class CustomQADataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.data[idx]
-        context = item['context']
-        question = item['question']
-        answer = item['answer']
-        input_text = f"{context}\n {question}\n Answer: {answer} "
+        input_text = item['text']
 
         input_ids = self.tokenizer(
             input_text,
@@ -75,7 +71,7 @@ data_collator = DataCollatorForLanguageModeling(
     return_tensors='pt',
 )
     
-
+'''
 # Test dataloader
 train_dataloader = DataLoader(
     train_dataset,
@@ -93,43 +89,43 @@ for batch in train_dataloader:
     print(f"Example input_ids: {input_ids[0]}")
     print(f"Example labels: {labels[0]}")
     break
+'''
+
+training_args = TrainingArguments(
+    output_dir="./meditron_qa_results",
+    num_train_epochs=3,
+    per_device_train_batch_size=128,
+    per_device_eval_batch_size=128,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    # save_steps=0.4,
+    logging_steps=100,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    fp16=False, 
+    bf16=True, 
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False  
+)
 
 
-# training_args = TrainingArguments(
-#     output_dir="./meditron_qa_results",
-#     num_train_epochs=3,
-#     per_device_train_batch_size=128,
-#     per_device_eval_batch_size=128,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     # save_steps=0.4,
-#     logging_steps=100,
-#     learning_rate=2e-5,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     fp16=False, 
-#     bf16=True, 
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False  
-# )
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator,
+)
 
 
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     tokenizer=tokenizer,
-#     data_collator=data_collator,
-# )
-
-
-# trainer.train()
-# trainer.save_model("oneround_meditron_7b_withoutlora")
+trainer.train()
+trainer.save_model("full_meditron_7b")
