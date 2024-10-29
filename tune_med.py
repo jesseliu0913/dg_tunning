@@ -49,6 +49,10 @@ class CustomQADataset(Dataset):
         question = item['question']
         answer = item['answer']
 
+        print("context", context)
+        print("question", question)
+        print("answer", answer)
+
         input_text = f"{context}\n {question}\n Answer: "
 
         inputs = self.tokenizer(
