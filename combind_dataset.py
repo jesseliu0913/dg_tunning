@@ -9,7 +9,25 @@ with open("mc.jsonl", "r") as file_mc:
     data_mc = [json.loads(line) for line in file_mc]
 
 for qa in data_qa:
-    print(qa.keys())
-    text = f"{qa[]}"
-    break
+    qa_dict = {}
+    context = qa['context']
+    question = qa['question']
+    answer = qa['answer']
+    input_text = f"{context}\n {question}\n Answer: {answer} "
+    qa_dict['text'] = input_text
+    
+    with open("text_qa.jsonl", "a+") as jsonl_file:
+        jsonl_file.write(json.dumps(qa_dict) + "\n")
+
+for mc in data_mc:
+    mc_dict = {}
+    context = qa['context']
+    question = qa['question']
+    answer = qa['answer']
+    input_text = f"{context}\n {question}\n Answer: {answer} "
+    qa_dict['text'] = input_text
+    
+    with open("text_qa.jsonl", "a+") as jsonl_file:
+        jsonl_file.write(json.dumps(mc_dict) + "\n")
+
 
