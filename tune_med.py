@@ -24,14 +24,14 @@ tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
 model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b", device_map="auto")
 
 
-peft_config = LoraConfig(
-    task_type=TaskType.CAUSAL_LM,
-    inference_mode=False,
-    r=8,
-    lora_alpha=32,
-    lora_dropout=0.1
-)
-model = get_peft_model(model, peft_config)
+# peft_config = LoraConfig(
+#     task_type=TaskType.CAUSAL_LM,
+#     inference_mode=False,
+#     r=8,
+#     lora_alpha=32,
+#     lora_dropout=0.1
+# )
+# model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
@@ -130,4 +130,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("oneround_meditron_7b")
+trainer.save_model("oneround_meditron_7b_withoutlora")
