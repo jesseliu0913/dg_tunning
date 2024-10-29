@@ -49,55 +49,30 @@ class CustomQADataset(Dataset):
         question = item['question']
         answer = item['answer']
 
-        print("context", context)
-        print("question", question)
-        print("answer", answer)
-
         input_text = f"{context}\n {question}\n Answer: "
 
-        inputs = self.tokenizer(
-            input_text,
-            max_length=self.max_length,
-            truncation=True,
-            padding=True,
-            return_tensors='pt',
-        )
+        return input_text, answer
 
-
-        labels = self.tokenizer(
-            answer,
-            max_length=self.max_length,
-            truncation=True,
-            padding=True,
-            return_tensors='pt',
-        )
-        
-        input_ids = inputs['input_ids'].squeeze(0)
-        labels_ids = labels['input_ids'].squeeze(0)
-
-        labels_ids[labels_ids == self.tokenizer.pad_token_id] = -100
-
-        return {
-            'input_ids': input_ids,
-            'labels': labels_ids
-        }
 
 train_dataset = CustomQADataset(trainset, tokenizer)
 val_dataset = CustomQADataset(valset, tokenizer)
 test_dataset = CustomQADataset(testset, tokenizer)
 
 
-data_collator = DataCollatorForLanguageModeling(
-    tokenizer=tokenizer,
-    mlm=False,
-    return_tensors='pt',
-)
+def collate_fn(batch):
+    input_text, answer = zip(*batch)
+    input_ids = tokenizer(input_text, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
+    answer_ids = tokenizer(answer, max_length=2048, padding="longest", truncation=True, return_tensors="pt").input_ids
+
+    output_dict = {'input_ids': input_ids,'labels': answer_ids}
+    return output_dict
+    
 
 train_dataloader = DataLoader(
     train_dataset,
     batch_size=4,  
     shuffle=True,
-    collate_fn=data_collator  
+    collate_fn=collate_fn  
 )
 
 for batch in train_dataloader:
