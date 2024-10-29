@@ -15,7 +15,7 @@ with open("mc.jsonl", "r") as file_mc:
 
 mc_prefix = """
 <|im_start|>system
-You are a highly knowledgeable medical specialist tasked with answering multiple-choice questions based on rare medical case reports. Utilize your extensive understanding of rare medical conditions, clinical presentations, diagnostic imaging findings, laboratory results, and current medical guidelines to determine the most accurate diagnosis. When answering, consider the patient's history, clinical findings, and any imaging or diagnostic results presented in each case. Select one correct answer from the given options (A to D) based on the standard practices and the latest advancements in medical knowledge. 
+You are a highly knowledgeable medical specialist tasked with answering multiple-choice questions based on rare medical case reports. Utilize your extensive understanding of rare medical conditions, clinical presentations, diagnostic imaging findings, laboratory results, and current medical guidelines to determine the most accurate diagnosis. When answering, consider the patient's history, clinical findings, and any imaging or diagnostic results presented in each case. Select one correct answer from the given options based on the standard practices and the latest advancements in medical knowledge. 
 <|im_end|>
 """
 
