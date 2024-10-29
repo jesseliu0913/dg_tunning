@@ -57,7 +57,7 @@ class CustomQADataset(Dataset):
             truncation=True,
             return_tensors="pt",
         )
-        tokenized_input = {key: val.squeeze(0) for key, val in tokenized_input.items()}
+        tokenized_input = {key: val.squeeze(0) for key, val in input_ids.items()}
 
         return tokenized_input
 
