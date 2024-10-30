@@ -91,6 +91,12 @@ for batch in train_dataloader:
     break
 '''
 
+fsdp_config = {
+    "fsdp_min_num_params": 20000,
+    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_sharding_strategy": "FULL_SHARD",
+}
+
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=3,
@@ -112,8 +118,7 @@ training_args = TrainingArguments(
     fp16=False, 
     bf16=True, 
     fsdp='full_shard auto_wrap',
-    fsdp_min_num_params=20000, 
-    fsdp_transformer_layer_cls_to_wrap="LlamaDecoderLayer",
+    fsdp_config=fsdp_config,
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False  
