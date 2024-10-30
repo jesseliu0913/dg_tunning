@@ -22,7 +22,7 @@ testset = val_test_split['test']
 
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
-model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b")
 
 
 # peft_config = LoraConfig(
