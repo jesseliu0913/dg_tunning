@@ -16,7 +16,7 @@ testset = val_test_split['test']
 
 tokenizer = AutoTokenizer.from_pretrained("epfl-llm/meditron-7b")
 base_model = AutoModelForCausalLM.from_pretrained("epfl-llm/meditron-7b", device_map="auto")
-model = PeftModel.from_pretrained(base_model, "JesseLiu/oneround_meditron_7b")
+model = PeftModel.from_pretrained(base_model, "oneround_meditron_7b")
 model.eval()
 
 
@@ -31,6 +31,7 @@ for item in tqdm(testset):
     context = item['context']
     question = item['question']
     input_text = f"{context}\n {question}\n Answer: "
+    print(input_text)
 
     input_ids = tokenizer.encode(input_text, return_tensors='pt').to(device)
 

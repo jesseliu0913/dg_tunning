@@ -5,3 +5,6 @@ mc.jsonl
 /wandb/*
 /oneround_meditron_7b_copy/*
 text_full.jsonl
+/model_ckpt/*
+oneround_dealed.jsonl
+mc_dealed.jsonl
