@@ -113,6 +113,7 @@ training_args = TrainingArguments(
     bf16=True, 
     fsdp='full_shard auto_wrap',
     fsdp_min_num_params=20000, 
+    fsdp_transformer_layer_cls_to_wrap="LlamaDecoderLayer",
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False  
