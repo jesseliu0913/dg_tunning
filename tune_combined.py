@@ -33,7 +33,7 @@ peft_config = LoraConfig(
     lora_dropout=0.1
 )
 model = get_peft_model(model, peft_config)
-
+model.load_adapter("lora4_meditron_7b")
 
 class CustomQADataset(Dataset):
     def __init__(self, data, tokenizer, max_length=256):
@@ -99,7 +99,7 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
-    num_train_epochs=3,
+    num_train_epochs=5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=2,
     gradient_accumulation_steps=2,
@@ -121,7 +121,7 @@ training_args = TrainingArguments(
     fsdp='full_shard auto_wrap',
     fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",
-    save_total_limit=5,
+    save_total_limit=1,
     report_to='wandb',
     ddp_find_unused_parameters=False  
 )
@@ -138,4 +138,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("lora4_meditron_7b")
+trainer.save_model("lora4_meditron_7b_new")
