@@ -91,16 +91,16 @@ for batch in train_dataloader:
     break
 '''
 
-fsdp_config = {
-    "fsdp_min_num_params": 20000,
-    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-    "fsdp_sharding_strategy": "FULL_SHARD",
-}
+# fsdp_config = {
+#     "fsdp_min_num_params": 20000,
+#     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+#     "fsdp_sharding_strategy": "FULL_SHARD",
+# }
 
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=10,
-    per_device_train_batch_size=8,
+    per_device_train_batch_size=64,
     per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
@@ -115,11 +115,12 @@ training_args = TrainingArguments(
     adam_beta1=0.9,
     adam_beta2=0.95,
     adam_epsilon=1e-5,
-    # ddp_backend='nccl',
+    ddp_backend='nccl',
     fp16=False, 
     bf16=True, 
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
+    deepspeed="ds_config.json",
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False  
