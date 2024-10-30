@@ -34,7 +34,7 @@ peft_config = LoraConfig(
 )
 model = get_peft_model(model, peft_config)
 model.load_adapter("/mnt/dg_tunning/lora4_meditron_7b", adapter_name="default")
-print(model.peft_adapter_names)
+# print(model.peft_adapter_names)
 
 
 class CustomQADataset(Dataset):
