@@ -115,6 +115,7 @@ training_args = TrainingArguments(
     adam_beta1=0.9,
     adam_beta2=0.95,
     adam_epsilon=1e-5,
+    ddp_backend='nccl',
     fp16=False, 
     bf16=True, 
     fsdp='full_shard auto_wrap',
