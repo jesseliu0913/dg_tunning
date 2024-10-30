@@ -33,7 +33,7 @@ peft_config = LoraConfig(
     lora_dropout=0.1
 )
 model = get_peft_model(model, peft_config)
-model.load_adapter("lora4_meditron_7b")
+model.load_adapter("/mnt/dg_tunning/lora4_meditron_7b")
 
 class CustomQADataset(Dataset):
     def __init__(self, data, tokenizer, max_length=256):
