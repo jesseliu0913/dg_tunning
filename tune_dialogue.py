@@ -45,7 +45,7 @@ class CustomQADataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.data[idx]
-        context = str(item['case'])
+        input_text = str(item['case'])
 
         input_ids = self.tokenizer(
             input_text,
