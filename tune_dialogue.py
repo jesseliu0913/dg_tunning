@@ -11,7 +11,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
 
 
-dataset = load_dataset('json', data_files='oneround.jsonl')['train']
+dataset = load_dataset('json', data_files='cleaned_dialogue.jsonl')['train']
 train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
 val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
 
@@ -127,4 +127,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("oneround_meditron_7b_withoutlora")
+trainer.save_model("dialogue_meditron_7b")
