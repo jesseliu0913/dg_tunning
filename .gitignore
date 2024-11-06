@@ -8,3 +8,7 @@ text_full.jsonl
 /model_ckpt/*
 oneround_dealed.jsonl
 mc_dealed.jsonl
+cleaned_dialogue.jsonl
+/lora4_meditron_7b/*
+/lora4_meditron_7b_new/*
+/results/*

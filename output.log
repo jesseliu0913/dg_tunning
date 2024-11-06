@@ -1,623 +1,371 @@
 nohup: ignoring input
-W1030 11:14:35.989362 140295730153280 torch/distributed/run.py:779] 
-W1030 11:14:35.989362 140295730153280 torch/distributed/run.py:779] *****************************************
-W1030 11:14:35.989362 140295730153280 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W1030 11:14:35.989362 140295730153280 torch/distributed/run.py:779] *****************************************
-Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.87s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.95s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.88s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.95s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.93s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.95s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.97s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.84s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.85s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.92s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.89s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.92s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.92s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.92s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:08,  1.78s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:08,  1.79s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.85s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.82s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.84s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.85s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.84s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.78s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.80s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.85s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.82s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.84s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.84s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.84s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:05,  1.77s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:05,  1.78s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.83s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.80s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.82s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.82s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.82s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.71s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.72s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.77s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.74s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.76s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.76s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.75s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.69s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.70s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.74s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.27s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.57s/it]
-Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.70s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.26s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.57s/it]
-Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.71s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.71s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.70s/it]/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+W1030 20:17:47.558000 9454 site-packages/torch/distributed/run.py:793] 
+W1030 20:17:47.558000 9454 site-packages/torch/distributed/run.py:793] *****************************************
+W1030 20:17:47.558000 9454 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1030 20:17:47.558000 9454 site-packages/torch/distributed/run.py:793] *****************************************
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:10,  1.46s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:10,  1.47s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:10,  1.57s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:10,  1.49s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:12,  1.82s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.89s/it]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.95s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:08,  1.45s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:08,  1.46s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:08,  1.48s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:09,  1.53s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:10,  1.75s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:10,  1.83s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.85s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.42s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.43s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.44s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.50s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:08,  1.66s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:08,  1.73s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:08,  1.76s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.42s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.43s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.44s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:05,  1.50s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.62s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.67s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.42s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.43s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.44s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:06,  1.70s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.50s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:04,  1.60s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.40s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.40s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.42s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:04,  1.66s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.49s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:05,  1.70s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:09<00:03,  1.55s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.39s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.40s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:01,  1.42s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.27s/it]
+Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.61s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.28s/it]
+Loading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:01,  1.46s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.06s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.29s/it]
+Loading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.64s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.35s/it]
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
   warnings.warn(
-Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.30s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.62s/it]
-Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.27s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.59s/it]
-Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.59s/it]
-Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.27s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.60s/it]
-Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.27s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.60s/it]
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
   warnings.warn(
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Loading checkpoint shards:  88%|████████▊ | 7/8 [00:11<00:01,  1.52s/it]/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.14s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.43s/it]
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Loading checkpoint shards:  88%|████████▊ | 7/8 [00:11<00:01,  1.57s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:11<00:01,  1.61s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.19s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.48s/it]
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
 Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.24s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.53s/it]
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/mnt/dg_tunning/tune_combined.py:132: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-/mnt/dg_tunning/tune_combined.py:129: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-fa8b5d290355:55629:55629 [0] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55629:55629 [0] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55629:55629 [0] NCCL INFO cudaDriverVersion 12040
-NCCL version 2.20.5+cuda12.4
-fa8b5d290355:55634:55634 [5] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55633:55633 [4] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55633:55633 [4] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55634:55634 [5] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55633:55633 [4] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55634:55634 [5] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55629:55747 [0] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55629:55747 [0] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55629:55747 [0] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55629:55747 [0] NCCL INFO Using network Socket
-fa8b5d290355:55634:55748 [5] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55634:55748 [5] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55634:55748 [5] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55634:55748 [5] NCCL INFO Using network Socket
-fa8b5d290355:55633:55749 [4] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55633:55749 [4] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55633:55749 [4] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55633:55749 [4] NCCL INFO Using network Socket
-fa8b5d290355:55630:55630 [1] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55630:55630 [1] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55630:55630 [1] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55631:55631 [2] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55631:55631 [2] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55631:55631 [2] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55630:55750 [1] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55630:55750 [1] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55630:55750 [1] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55630:55750 [1] NCCL INFO Using network Socket
-fa8b5d290355:55631:55751 [2] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55631:55751 [2] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55631:55751 [2] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55631:55751 [2] NCCL INFO Using network Socket
-fa8b5d290355:55632:55632 [3] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55632:55632 [3] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55632:55632 [3] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55635:55635 [6] NCCL INFO cudaDriverVersion 12040
-fa8b5d290355:55635:55635 [6] NCCL INFO Bootstrap : Using eth0:172.17.0.2<0>
-fa8b5d290355:55635:55635 [6] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
-fa8b5d290355:55632:55752 [3] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55632:55752 [3] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55632:55752 [3] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55632:55752 [3] NCCL INFO Using network Socket
-fa8b5d290355:55635:55753 [6] NCCL INFO Failed to open libibverbs.so[.1]
-fa8b5d290355:55635:55753 [6] NCCL INFO NET/Socket : Using [0]eth0:172.17.0.2<0>
-fa8b5d290355:55635:55753 [6] NCCL INFO Using non-device net plugin version 0
-fa8b5d290355:55635:55753 [6] NCCL INFO Using network Socket
-fa8b5d290355:55635:55753 [6] NCCL INFO comm 0x5571e4699f80 rank 6 nranks 7 cudaDev 6 nvmlDev 7 busId 87000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55632:55752 [3] NCCL INFO comm 0x55e83011d140 rank 3 nranks 7 cudaDev 3 nvmlDev 4 busId 84000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55629:55747 [0] NCCL INFO comm 0x556acd80aac0 rank 0 nranks 7 cudaDev 0 nvmlDev 1 busId 45000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55630:55750 [1] NCCL INFO comm 0x55ebc8837b80 rank 1 nranks 7 cudaDev 1 nvmlDev 2 busId 46000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55631:55751 [2] NCCL INFO comm 0x5621aa3e7f40 rank 2 nranks 7 cudaDev 2 nvmlDev 3 busId 47000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55634:55748 [5] NCCL INFO comm 0x560cbe1cde80 rank 5 nranks 7 cudaDev 5 nvmlDev 6 busId 86000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55633:55749 [4] NCCL INFO comm 0x5561af7dfd00 rank 4 nranks 7 cudaDev 4 nvmlDev 5 busId 85000 commId 0x4d4b7ea161ca370d - Init START
-fa8b5d290355:55634:55748 [5] NCCL INFO Setting affinity for GPU 6 to ffffffff,fffffffe,00000000,00000000
-fa8b5d290355:55632:55752 [3] NCCL INFO Setting affinity for GPU 4 to ffffffff,fffffffe,00000000,00000000
-fa8b5d290355:55634:55748 [5] NCCL INFO NVLS multicast support is not available on dev 5
-fa8b5d290355:55632:55752 [3] NCCL INFO NVLS multicast support is not available on dev 3
-fa8b5d290355:55631:55751 [2] NCCL INFO NVLS multicast support is not available on dev 2
-fa8b5d290355:55635:55753 [6] NCCL INFO Setting affinity for GPU 7 to ffffffff,fffffffe,00000000,00000000
-fa8b5d290355:55635:55753 [6] NCCL INFO NVLS multicast support is not available on dev 6
-fa8b5d290355:55630:55750 [1] NCCL INFO NVLS multicast support is not available on dev 1
-fa8b5d290355:55633:55749 [4] NCCL INFO Setting affinity for GPU 5 to ffffffff,fffffffe,00000000,00000000
-fa8b5d290355:55633:55749 [4] NCCL INFO NVLS multicast support is not available on dev 4
-fa8b5d290355:55629:55747 [0] NCCL INFO NVLS multicast support is not available on dev 0
-fa8b5d290355:55635:55753 [6] NCCL INFO comm 0x5571e4699f80 rank 6 nRanks 7 nNodes 1 localRanks 7 localRank 6 MNNVL 0
-fa8b5d290355:55635:55753 [6] NCCL INFO Trees [0] -1/-1/-1->6->5 [1] -1/-1/-1->6->5
-fa8b5d290355:55634:55748 [5] NCCL INFO comm 0x560cbe1cde80 rank 5 nRanks 7 nNodes 1 localRanks 7 localRank 5 MNNVL 0
-fa8b5d290355:55635:55753 [6] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55633:55749 [4] NCCL INFO comm 0x5561af7dfd00 rank 4 nRanks 7 nNodes 1 localRanks 7 localRank 4 MNNVL 0
-fa8b5d290355:55629:55747 [0] NCCL INFO comm 0x556acd80aac0 rank 0 nRanks 7 nNodes 1 localRanks 7 localRank 0 MNNVL 0
-fa8b5d290355:55634:55748 [5] NCCL INFO Trees [0] 6/-1/-1->5->4 [1] 6/-1/-1->5->4
-fa8b5d290355:55632:55752 [3] NCCL INFO comm 0x55e83011d140 rank 3 nRanks 7 nNodes 1 localRanks 7 localRank 3 MNNVL 0
-fa8b5d290355:55633:55749 [4] NCCL INFO Trees [0] 5/-1/-1->4->3 [1] 5/-1/-1->4->3
-fa8b5d290355:55634:55748 [5] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 00/02 :    0   2   1   3   5   6   4
-fa8b5d290355:55631:55751 [2] NCCL INFO comm 0x5621aa3e7f40 rank 2 nRanks 7 nNodes 1 localRanks 7 localRank 2 MNNVL 0
-fa8b5d290355:55633:55749 [4] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55632:55752 [3] NCCL INFO Trees [0] 4/-1/-1->3->2 [1] 4/-1/-1->3->2
-fa8b5d290355:55630:55750 [1] NCCL INFO comm 0x55ebc8837b80 rank 1 nRanks 7 nNodes 1 localRanks 7 localRank 1 MNNVL 0
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 01/02 :    0   2   1   3   5   6   4
-fa8b5d290355:55632:55752 [3] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55631:55751 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
-fa8b5d290355:55629:55747 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
-fa8b5d290355:55631:55751 [2] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55630:55750 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
-fa8b5d290355:55629:55747 [0] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55630:55750 [1] NCCL INFO P2P Chunksize set to 524288
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 00/0 : 4[5] -> 0[1] via P2P/CUMEM
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 01/0 : 4[5] -> 0[1] via P2P/CUMEM
-fa8b5d290355:55634:55748 [5] NCCL INFO Channel 00/0 : 5[6] -> 6[7] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 00/0 : 1[2] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 00/0 : 0[1] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 01/0 : 1[2] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 01/0 : 0[1] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55634:55748 [5] NCCL INFO Channel 01/0 : 5[6] -> 6[7] via P2P/CUMEM
-fa8b5d290355:55631:55751 [2] NCCL INFO Channel 00/0 : 2[3] -> 1[2] via P2P/CUMEM
-fa8b5d290355:55635:55753 [6] NCCL INFO Channel 00/0 : 6[7] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55631:55751 [2] NCCL INFO Channel 01/0 : 2[3] -> 1[2] via P2P/CUMEM
-fa8b5d290355:55635:55753 [6] NCCL INFO Channel 01/0 : 6[7] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 00/0 : 3[4] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 01/0 : 3[4] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55629:55747 [0] NCCL INFO Connected all rings
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 00/0 : 0[1] -> 1[2] via P2P/CUMEM
-fa8b5d290355:55629:55747 [0] NCCL INFO Channel 01/0 : 0[1] -> 1[2] via P2P/CUMEM
-fa8b5d290355:55631:55751 [2] NCCL INFO Connected all rings
-fa8b5d290355:55630:55750 [1] NCCL INFO Connected all rings
-fa8b5d290355:55631:55751 [2] NCCL INFO Channel 00/0 : 2[3] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 00/0 : 1[2] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55631:55751 [2] NCCL INFO Channel 01/0 : 2[3] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 01/0 : 1[2] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 00/0 : 1[2] -> 0[1] via P2P/CUMEM
-fa8b5d290355:55634:55748 [5] NCCL INFO Connected all rings
-fa8b5d290355:55632:55752 [3] NCCL INFO Connected all rings
-fa8b5d290355:55633:55749 [4] NCCL INFO Connected all rings
-fa8b5d290355:55635:55753 [6] NCCL INFO Connected all rings
-fa8b5d290355:55635:55753 [6] NCCL INFO Channel 00/0 : 6[7] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55630:55750 [1] NCCL INFO Channel 01/0 : 1[2] -> 0[1] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 00/0 : 3[4] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 00/0 : 4[5] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 01/0 : 3[4] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 01/0 : 4[5] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55635:55753 [6] NCCL INFO Channel 01/0 : 6[7] -> 5[6] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 00/0 : 3[4] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55634:55748 [5] NCCL INFO Channel 00/0 : 5[6] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 00/0 : 4[5] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55632:55752 [3] NCCL INFO Channel 01/0 : 3[4] -> 2[3] via P2P/CUMEM
-fa8b5d290355:55634:55748 [5] NCCL INFO Channel 01/0 : 5[6] -> 4[5] via P2P/CUMEM
-fa8b5d290355:55633:55749 [4] NCCL INFO Channel 01/0 : 4[5] -> 3[4] via P2P/CUMEM
-fa8b5d290355:55629:55747 [0] NCCL INFO Connected all trees
-fa8b5d290355:55630:55750 [1] NCCL INFO Connected all trees
-fa8b5d290355:55630:55750 [1] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55630:55750 [1] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-fa8b5d290355:55629:55747 [0] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55629:55747 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+wandb: Using wandb-core as the SDK backend. Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: l-zijie. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.18.5
+wandb: Run data is saved locally in /mnt/dg_tunning/wandb/run-20241030_201827-5lec59ku
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ./meditron_qa_results
+wandb: ⭐️ View project at https://wandb.ai/l-zijie/huggingface
+wandb: 🚀 View run at https://wandb.ai/l-zijie/huggingface/runs/5lec59ku
+  0%|          | 0/135 [00:00<?, ?it/s]  1%|          | 1/135 [00:41<1:33:08, 41.71s/it]  1%|▏         | 2/135 [01:23<1:32:30, 41.73s/it]  2%|▏         | 3/135 [02:05<1:32:01, 41.83s/it]  3%|▎         | 4/135 [02:47<1:31:18, 41.82s/it]  4%|▎         | 5/135 [03:29<1:30:39, 41.84s/it]  4%|▍         | 6/135 [04:10<1:29:58, 41.85s/it]  5%|▌         | 7/135 [04:52<1:29:18, 41.86s/it]  6%|▌         | 8/135 [05:34<1:28:38, 41.88s/it]  7%|▋         | 9/135 [06:16<1:27:55, 41.87s/it]  7%|▋         | 10/135 [06:58<1:27:13, 41.87s/it]  8%|▊         | 11/135 [07:40<1:26:32, 41.87s/it]  9%|▉         | 12/135 [08:22<1:25:48, 41.86s/it] 10%|▉         | 13/135 [09:04<1:25:06, 41.86s/it] 10%|█         | 14/135 [09:45<1:24:25, 41.86s/it] 11%|█         | 15/135 [10:27<1:23:48, 41.91s/it] 12%|█▏        | 16/135 [11:09<1:23:06, 41.91s/it] 13%|█▎        | 17/135 [11:51<1:22:21, 41.88s/it] 13%|█▎        | 18/135 [12:33<1:21:41, 41.89s/it] 14%|█▍        | 19/135 [13:15<1:20:59, 41.89s/it] 15%|█▍        | 20/135 [13:57<1:20:17, 41.89s/it] 16%|█▌        | 21/135 [14:39<1:19:35, 41.89s/it] 16%|█▋        | 22/135 [15:21<1:18:53, 41.89s/it] 17%|█▋        | 23/135 [16:03<1:18:11, 41.89s/it] 18%|█▊        | 24/135 [16:44<1:17:27, 41.87s/it] 19%|█▊        | 25/135 [17:26<1:16:40, 41.82s/it] 19%|█▉        | 26/135 [18:08<1:15:58, 41.82s/it] 20%|██        | 27/135 [18:50<1:15:16, 41.82s/it]
+  0%|          | 0/54 [00:00<?, ?it/s][A
+  4%|▎         | 2/54 [00:02<01:13,  1.40s/it][A
+  6%|▌         | 3/54 [00:05<01:41,  1.99s/it][A
+  7%|▋         | 4/54 [00:08<01:54,  2.29s/it][A
+  9%|▉         | 5/54 [00:11<02:01,  2.47s/it][A
+ 11%|█         | 6/54 [00:14<02:03,  2.58s/it][A
+ 13%|█▎        | 7/54 [00:16<02:04,  2.65s/it][A
+ 15%|█▍        | 8/54 [00:19<02:04,  2.70s/it][A
+ 17%|█▋        | 9/54 [00:22<02:02,  2.73s/it][A
+ 19%|█▊        | 10/54 [00:25<02:01,  2.75s/it][A
+ 20%|██        | 11/54 [00:28<01:59,  2.77s/it][A
+ 22%|██▏       | 12/54 [00:30<01:56,  2.78s/it][A
+ 24%|██▍       | 13/54 [00:33<01:54,  2.79s/it][A
+ 26%|██▌       | 14/54 [00:36<01:51,  2.79s/it][A
+ 28%|██▊       | 15/54 [00:39<01:49,  2.80s/it][A
+ 30%|██▉       | 16/54 [00:42<01:46,  2.80s/it][A
+ 31%|███▏      | 17/54 [00:44<01:43,  2.80s/it][A
+ 33%|███▎      | 18/54 [00:47<01:41,  2.81s/it][A
+ 35%|███▌      | 19/54 [00:50<01:38,  2.80s/it][A
+ 37%|███▋      | 20/54 [00:53<01:35,  2.80s/it][A
+ 39%|███▉      | 21/54 [00:56<01:32,  2.80s/it][A
+ 41%|████      | 22/54 [00:58<01:29,  2.80s/it][A
+ 43%|████▎     | 23/54 [01:01<01:26,  2.80s/it][A
+ 44%|████▍     | 24/54 [01:04<01:24,  2.80s/it][A
+ 46%|████▋     | 25/54 [01:07<01:21,  2.80s/it][A
+ 48%|████▊     | 26/54 [01:10<01:18,  2.81s/it][A
+ 50%|█████     | 27/54 [01:12<01:15,  2.81s/it][A
+ 52%|█████▏    | 28/54 [01:15<01:13,  2.81s/it][A
+ 54%|█████▎    | 29/54 [01:18<01:10,  2.81s/it][A
+ 56%|█████▌    | 30/54 [01:21<01:07,  2.81s/it][A
+ 57%|█████▋    | 31/54 [01:24<01:04,  2.80s/it][A
+ 59%|█████▉    | 32/54 [01:26<01:01,  2.80s/it][A
+ 61%|██████    | 33/54 [01:29<00:58,  2.80s/it][A
+ 63%|██████▎   | 34/54 [01:32<00:56,  2.80s/it][A
+ 65%|██████▍   | 35/54 [01:35<00:53,  2.80s/it][A
+ 67%|██████▋   | 36/54 [01:38<00:50,  2.80s/it][A
+ 69%|██████▊   | 37/54 [01:40<00:47,  2.80s/it][A
+ 70%|███████   | 38/54 [01:43<00:44,  2.80s/it][A
+ 72%|███████▏  | 39/54 [01:46<00:41,  2.80s/it][A
+ 74%|███████▍  | 40/54 [01:49<00:39,  2.80s/it][A
+ 76%|███████▌  | 41/54 [01:52<00:36,  2.80s/it][A
+ 78%|███████▊  | 42/54 [01:54<00:33,  2.80s/it][A
+ 80%|███████▉  | 43/54 [01:57<00:30,  2.80s/it][A
+ 81%|████████▏ | 44/54 [02:00<00:28,  2.80s/it][A
+ 83%|████████▎ | 45/54 [02:03<00:25,  2.80s/it][A
+ 85%|████████▌ | 46/54 [02:06<00:22,  2.81s/it][A
+ 87%|████████▋ | 47/54 [02:08<00:19,  2.81s/it][A
+ 89%|████████▉ | 48/54 [02:11<00:16,  2.80s/it][A
+ 91%|█████████ | 49/54 [02:14<00:14,  2.81s/it][A
+ 93%|█████████▎| 50/54 [02:17<00:11,  2.80s/it][A
+ 94%|█████████▍| 51/54 [02:20<00:08,  2.80s/it][A
+ 96%|█████████▋| 52/54 [02:22<00:05,  2.80s/it][A
+ 98%|█████████▊| 53/54 [02:25<00:02,  2.80s/it][A
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A                                                  
+                                               [A{'eval_loss': 1.031662106513977, 'eval_runtime': 151.5203, 'eval_samples_per_second': 4.989, 'eval_steps_per_second': 0.356, 'epoch': 1.0}
+ 20%|██        | 27/135 [21:21<1:15:16, 41.82s/it]
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A
+                                               [A/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+ 21%|██        | 28/135 [23:04<3:08:24, 105.65s/it] 21%|██▏       | 29/135 [23:46<2:32:47, 86.49s/it]  22%|██▏       | 30/135 [24:28<2:07:51, 73.06s/it] 23%|██▎       | 31/135 [25:10<1:50:25, 63.71s/it] 24%|██▎       | 32/135 [25:52<1:38:06, 57.15s/it] 24%|██▍       | 33/135 [26:33<1:29:18, 52.54s/it] 25%|██▌       | 34/135 [27:15<1:23:02, 49.33s/it] 26%|██▌       | 35/135 [27:57<1:18:28, 47.08s/it] 27%|██▋       | 36/135 [28:39<1:15:03, 45.49s/it] 27%|██▋       | 37/135 [29:21<1:12:30, 44.39s/it] 28%|██▊       | 38/135 [30:02<1:10:31, 43.63s/it] 29%|██▉       | 39/135 [30:44<1:08:57, 43.10s/it] 30%|██▉       | 40/135 [31:26<1:07:39, 42.73s/it] 30%|███       | 41/135 [32:08<1:06:31, 42.46s/it] 31%|███       | 42/135 [32:50<1:05:31, 42.28s/it] 32%|███▏      | 43/135 [33:32<1:04:40, 42.17s/it] 33%|███▎      | 44/135 [34:14<1:03:49, 42.09s/it] 33%|███▎      | 45/135 [34:55<1:03:00, 42.00s/it] 34%|███▍      | 46/135 [35:37<1:02:15, 41.97s/it] 35%|███▍      | 47/135 [36:19<1:01:29, 41.92s/it] 36%|███▌      | 48/135 [37:01<1:00:46, 41.92s/it] 36%|███▋      | 49/135 [37:43<1:00:02, 41.89s/it] 37%|███▋      | 50/135 [38:25<59:20, 41.89s/it]   38%|███▊      | 51/135 [39:07<58:37, 41.87s/it] 39%|███▊      | 52/135 [39:49<58:00, 41.93s/it] 39%|███▉      | 53/135 [40:31<57:16, 41.91s/it] 40%|████      | 54/135 [41:12<56:33, 41.89s/it]
+  0%|          | 0/54 [00:00<?, ?it/s][A
+  4%|▎         | 2/54 [00:02<01:12,  1.40s/it][A
+  6%|▌         | 3/54 [00:05<01:41,  1.98s/it][A
+  7%|▋         | 4/54 [00:08<01:54,  2.29s/it][A
+  9%|▉         | 5/54 [00:11<02:00,  2.47s/it][A
+ 11%|█         | 6/54 [00:14<02:03,  2.58s/it][A
+ 13%|█▎        | 7/54 [00:16<02:04,  2.65s/it][A
+ 15%|█▍        | 8/54 [00:19<02:04,  2.70s/it][A
+ 17%|█▋        | 9/54 [00:22<02:03,  2.73s/it][A
+ 19%|█▊        | 10/54 [00:25<02:01,  2.75s/it][A
+ 20%|██        | 11/54 [00:28<01:59,  2.77s/it][A
+ 22%|██▏       | 12/54 [00:30<01:56,  2.78s/it][A
+ 24%|██▍       | 13/54 [00:33<01:54,  2.79s/it][A
+ 26%|██▌       | 14/54 [00:36<01:51,  2.79s/it][A
+ 28%|██▊       | 15/54 [00:39<01:49,  2.80s/it][A
+ 30%|██▉       | 16/54 [00:42<01:46,  2.80s/it][A
+ 31%|███▏      | 17/54 [00:44<01:43,  2.80s/it][A
+ 33%|███▎      | 18/54 [00:47<01:40,  2.80s/it][A
+ 35%|███▌      | 19/54 [00:50<01:37,  2.80s/it][A
+ 37%|███▋      | 20/54 [00:53<01:35,  2.80s/it][A
+ 39%|███▉      | 21/54 [00:56<01:32,  2.80s/it][A
+ 41%|████      | 22/54 [00:58<01:29,  2.80s/it][A
+ 43%|████▎     | 23/54 [01:01<01:26,  2.80s/it][A
+ 44%|████▍     | 24/54 [01:04<01:24,  2.80s/it][A
+ 46%|████▋     | 25/54 [01:07<01:21,  2.80s/it][A
+ 48%|████▊     | 26/54 [01:10<01:18,  2.80s/it][A
+ 50%|█████     | 27/54 [01:12<01:15,  2.80s/it][A
+ 52%|█████▏    | 28/54 [01:15<01:12,  2.80s/it][A
+ 54%|█████▎    | 29/54 [01:18<01:09,  2.80s/it][A
+ 56%|█████▌    | 30/54 [01:21<01:07,  2.80s/it][A
+ 57%|█████▋    | 31/54 [01:24<01:04,  2.80s/it][A
+ 59%|█████▉    | 32/54 [01:26<01:01,  2.80s/it][A
+ 61%|██████    | 33/54 [01:29<00:58,  2.80s/it][A
+ 63%|██████▎   | 34/54 [01:32<00:55,  2.80s/it][A
+ 65%|██████▍   | 35/54 [01:35<00:53,  2.80s/it][A
+ 67%|██████▋   | 36/54 [01:38<00:50,  2.80s/it][A
+ 69%|██████▊   | 37/54 [01:40<00:47,  2.80s/it][A
+ 70%|███████   | 38/54 [01:43<00:44,  2.80s/it][A
+ 72%|███████▏  | 39/54 [01:46<00:41,  2.80s/it][A
+ 74%|███████▍  | 40/54 [01:49<00:39,  2.80s/it][A
+ 76%|███████▌  | 41/54 [01:52<00:36,  2.81s/it][A
+ 78%|███████▊  | 42/54 [01:54<00:33,  2.81s/it][A
+ 80%|███████▉  | 43/54 [01:57<00:30,  2.81s/it][A
+ 81%|████████▏ | 44/54 [02:00<00:28,  2.81s/it][A
+ 83%|████████▎ | 45/54 [02:03<00:25,  2.80s/it][A
+ 85%|████████▌ | 46/54 [02:06<00:22,  2.80s/it][A
+ 87%|████████▋ | 47/54 [02:08<00:19,  2.80s/it][A
+ 89%|████████▉ | 48/54 [02:11<00:16,  2.80s/it][A
+ 91%|█████████ | 49/54 [02:14<00:14,  2.80s/it][A
+ 93%|█████████▎| 50/54 [02:17<00:11,  2.81s/it][A
+ 94%|█████████▍| 51/54 [02:20<00:08,  2.81s/it][A
+ 96%|█████████▋| 52/54 [02:22<00:05,  2.81s/it][A
+ 98%|█████████▊| 53/54 [02:25<00:02,  2.81s/it][A
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A                                                
+                                               [A{'eval_loss': 0.7340935468673706, 'eval_runtime': 151.4569, 'eval_samples_per_second': 4.992, 'eval_steps_per_second': 0.357, 'epoch': 2.0}
+ 40%|████      | 54/135 [43:44<56:33, 41.89s/it]
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A
+                                               [A/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+ 41%|████      | 55/135 [45:29<2:21:52, 106.41s/it] 41%|████▏     | 56/135 [46:11<1:54:33, 87.01s/it]  42%|████▏     | 57/135 [46:53<1:35:27, 73.43s/it] 43%|████▎     | 58/135 [47:35<1:22:04, 63.95s/it] 44%|████▎     | 59/135 [48:16<1:12:35, 57.32s/it] 44%|████▍     | 60/135 [48:58<1:05:50, 52.67s/it] 45%|████▌     | 61/135 [49:40<1:00:57, 49.42s/it] 46%|████▌     | 62/135 [50:22<57:22, 47.16s/it]   47%|████▋     | 63/135 [51:04<54:41, 45.58s/it] 47%|████▋     | 64/135 [51:46<52:39, 44.50s/it] 48%|████▊     | 65/135 [52:28<50:58, 43.69s/it] 49%|████▉     | 66/135 [53:10<49:36, 43.13s/it] 50%|████▉     | 67/135 [53:51<48:25, 42.73s/it] 50%|█████     | 68/135 [54:33<47:24, 42.45s/it] 51%|█████     | 69/135 [55:15<46:29, 42.27s/it] 52%|█████▏    | 70/135 [55:57<45:38, 42.13s/it] 53%|█████▎    | 71/135 [56:39<44:52, 42.06s/it] 53%|█████▎    | 72/135 [57:21<44:05, 41.99s/it] 54%|█████▍    | 73/135 [58:02<43:21, 41.96s/it] 55%|█████▍    | 74/135 [58:44<42:36, 41.90s/it] 56%|█████▌    | 75/135 [59:26<41:51, 41.87s/it] 56%|█████▋    | 76/135 [1:00:08<41:09, 41.85s/it] 57%|█████▋    | 77/135 [1:00:50<40:27, 41.86s/it] 58%|█████▊    | 78/135 [1:01:31<39:45, 41.85s/it] 59%|█████▊    | 79/135 [1:02:13<39:04, 41.86s/it] 59%|█████▉    | 80/135 [1:02:55<38:22, 41.87s/it] 60%|██████    | 81/135 [1:03:37<37:39, 41.85s/it]
+  0%|          | 0/54 [00:00<?, ?it/s][A
+  4%|▎         | 2/54 [00:02<01:12,  1.40s/it][A
+  6%|▌         | 3/54 [00:05<01:41,  1.99s/it][A
+  7%|▋         | 4/54 [00:08<01:54,  2.29s/it][A
+  9%|▉         | 5/54 [00:11<02:00,  2.47s/it][A
+ 11%|█         | 6/54 [00:13<02:03,  2.58s/it][A
+ 13%|█▎        | 7/54 [00:16<02:04,  2.65s/it][A
+ 15%|█▍        | 8/54 [00:19<02:04,  2.70s/it][A
+ 17%|█▋        | 9/54 [00:22<02:02,  2.73s/it][A
+ 19%|█▊        | 10/54 [00:25<02:01,  2.76s/it][A
+ 20%|██        | 11/54 [00:28<01:59,  2.77s/it][A
+ 22%|██▏       | 12/54 [00:30<01:56,  2.78s/it][A
+ 24%|██▍       | 13/54 [00:33<01:54,  2.79s/it][A
+ 26%|██▌       | 14/54 [00:36<01:51,  2.79s/it][A
+ 28%|██▊       | 15/54 [00:39<01:49,  2.80s/it][A
+ 30%|██▉       | 16/54 [00:42<01:46,  2.80s/it][A
+ 31%|███▏      | 17/54 [00:44<01:43,  2.80s/it][A
+ 33%|███▎      | 18/54 [00:47<01:40,  2.80s/it][A
+ 35%|███▌      | 19/54 [00:50<01:37,  2.80s/it][A
+ 37%|███▋      | 20/54 [00:53<01:35,  2.80s/it][A
+ 39%|███▉      | 21/54 [00:56<01:32,  2.80s/it][A
+ 41%|████      | 22/54 [00:58<01:29,  2.80s/it][A
+ 43%|████▎     | 23/54 [01:01<01:26,  2.80s/it][A
+ 44%|████▍     | 24/54 [01:04<01:24,  2.80s/it][A
+ 46%|████▋     | 25/54 [01:07<01:21,  2.80s/it][A
+ 48%|████▊     | 26/54 [01:10<01:18,  2.80s/it][A
+ 50%|█████     | 27/54 [01:12<01:15,  2.80s/it][A
+ 52%|█████▏    | 28/54 [01:15<01:12,  2.80s/it][A
+ 54%|█████▎    | 29/54 [01:18<01:10,  2.80s/it][A
+ 56%|█████▌    | 30/54 [01:21<01:07,  2.80s/it][A
+ 57%|█████▋    | 31/54 [01:24<01:04,  2.80s/it][A
+ 59%|█████▉    | 32/54 [01:26<01:01,  2.80s/it][A
+ 61%|██████    | 33/54 [01:29<00:58,  2.80s/it][A
+ 63%|██████▎   | 34/54 [01:32<00:56,  2.80s/it][A
+ 65%|██████▍   | 35/54 [01:35<00:53,  2.80s/it][A
+ 67%|██████▋   | 36/54 [01:38<00:50,  2.80s/it][A
+ 69%|██████▊   | 37/54 [01:40<00:47,  2.80s/it][A
+ 70%|███████   | 38/54 [01:43<00:44,  2.80s/it][A
+ 72%|███████▏  | 39/54 [01:46<00:41,  2.80s/it][A
+ 74%|███████▍  | 40/54 [01:49<00:39,  2.80s/it][A
+ 76%|███████▌  | 41/54 [01:52<00:36,  2.80s/it][A
+ 78%|███████▊  | 42/54 [01:54<00:33,  2.80s/it][A
+ 80%|███████▉  | 43/54 [01:57<00:30,  2.80s/it][A
+ 81%|████████▏ | 44/54 [02:00<00:28,  2.80s/it][A
+ 83%|████████▎ | 45/54 [02:03<00:25,  2.80s/it][A
+ 85%|████████▌ | 46/54 [02:06<00:22,  2.80s/it][A
+ 87%|████████▋ | 47/54 [02:08<00:19,  2.80s/it][A
+ 89%|████████▉ | 48/54 [02:11<00:16,  2.80s/it][A
+ 91%|█████████ | 49/54 [02:14<00:14,  2.80s/it][A
+ 93%|█████████▎| 50/54 [02:17<00:11,  2.80s/it][A
+ 94%|█████████▍| 51/54 [02:20<00:08,  2.80s/it][A
+ 96%|█████████▋| 52/54 [02:22<00:05,  2.80s/it][A
+ 98%|█████████▊| 53/54 [02:25<00:02,  2.80s/it][A
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A                                                  
+                                               [A{'eval_loss': 0.6898856163024902, 'eval_runtime': 151.4093, 'eval_samples_per_second': 4.993, 'eval_steps_per_second': 0.357, 'epoch': 3.0}
+ 60%|██████    | 81/135 [1:06:08<37:39, 41.85s/it]
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A
+                                               [A/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+ 61%|██████    | 82/135 [1:07:50<1:32:52, 105.14s/it] 61%|██████▏   | 83/135 [1:08:32<1:14:37, 86.11s/it]  62%|██████▏   | 84/135 [1:09:13<1:01:53, 72.82s/it] 63%|██████▎   | 85/135 [1:09:55<52:57, 63.55s/it]   64%|██████▎   | 86/135 [1:10:37<46:34, 57.04s/it] 64%|██████▍   | 87/135 [1:11:19<41:59, 52.49s/it] 65%|██████▌   | 88/135 [1:12:01<38:36, 49.30s/it] 66%|██████▌   | 89/135 [1:12:43<36:03, 47.03s/it] 67%|██████▋   | 90/135 [1:13:24<34:05, 45.47s/it] 67%|██████▋   | 91/135 [1:14:06<32:32, 44.37s/it] 68%|██████▊   | 92/135 [1:14:48<31:17, 43.67s/it] 69%|██████▉   | 93/135 [1:15:30<30:11, 43.13s/it] 70%|██████▉   | 94/135 [1:16:12<29:12, 42.75s/it] 70%|███████   | 95/135 [1:16:54<28:19, 42.48s/it] 71%|███████   | 96/135 [1:17:36<27:28, 42.28s/it] 72%|███████▏  | 97/135 [1:18:18<26:41, 42.15s/it] 73%|███████▎  | 98/135 [1:18:59<25:56, 42.07s/it] 73%|███████▎  | 99/135 [1:19:41<25:13, 42.04s/it] 74%|███████▍  | 100/135 [1:20:23<24:29, 42.00s/it]                                                   {'loss': 0.9124, 'grad_norm': 0.26423442363739014, 'learning_rate': 3.852482488956992e-06, 'epoch': 3.7}
+ 74%|███████▍  | 100/135 [1:20:23<24:29, 42.00s/it] 75%|███████▍  | 101/135 [1:21:05<23:46, 41.96s/it] 76%|███████▌  | 102/135 [1:21:47<23:03, 41.91s/it] 76%|███████▋  | 103/135 [1:22:29<22:21, 41.91s/it] 77%|███████▋  | 104/135 [1:23:11<21:39, 41.92s/it] 78%|███████▊  | 105/135 [1:23:53<20:56, 41.90s/it] 79%|███████▊  | 106/135 [1:24:34<20:14, 41.87s/it] 79%|███████▉  | 107/135 [1:25:16<19:32, 41.88s/it] 80%|████████  | 108/135 [1:25:58<18:49, 41.85s/it]
+  0%|          | 0/54 [00:00<?, ?it/s][A
+  4%|▎         | 2/54 [00:02<01:12,  1.40s/it][A
+  6%|▌         | 3/54 [00:05<01:41,  1.98s/it][A
+  7%|▋         | 4/54 [00:08<01:54,  2.29s/it][A
+  9%|▉         | 5/54 [00:11<02:00,  2.46s/it][A
+ 11%|█         | 6/54 [00:14<02:03,  2.58s/it][A
+ 13%|█▎        | 7/54 [00:16<02:04,  2.66s/it][A
+ 15%|█▍        | 8/54 [00:19<02:04,  2.70s/it][A
+ 17%|█▋        | 9/54 [00:22<02:02,  2.73s/it][A
+ 19%|█▊        | 10/54 [00:25<02:01,  2.75s/it][A
+ 20%|██        | 11/54 [00:28<01:59,  2.77s/it][A
+ 22%|██▏       | 12/54 [00:30<01:56,  2.78s/it][A
+ 24%|██▍       | 13/54 [00:33<01:54,  2.79s/it][A
+ 26%|██▌       | 14/54 [00:36<01:51,  2.80s/it][A
+ 28%|██▊       | 15/54 [00:39<01:49,  2.80s/it][A
+ 30%|██▉       | 16/54 [00:42<01:46,  2.80s/it][A
+ 31%|███▏      | 17/54 [00:44<01:43,  2.80s/it][A
+ 33%|███▎      | 18/54 [00:47<01:40,  2.80s/it][A
+ 35%|███▌      | 19/54 [00:50<01:38,  2.80s/it][A
+ 37%|███▋      | 20/54 [00:53<01:35,  2.80s/it][A
+ 39%|███▉      | 21/54 [00:56<01:32,  2.81s/it][A
+ 41%|████      | 22/54 [00:58<01:29,  2.80s/it][A
+ 43%|████▎     | 23/54 [01:01<01:26,  2.80s/it][A
+ 44%|████▍     | 24/54 [01:04<01:24,  2.80s/it][A
+ 46%|████▋     | 25/54 [01:07<01:21,  2.80s/it][A
+ 48%|████▊     | 26/54 [01:10<01:18,  2.80s/it][A
+ 50%|█████     | 27/54 [01:12<01:15,  2.80s/it][A
+ 52%|█████▏    | 28/54 [01:15<01:12,  2.80s/it][A
+ 54%|█████▎    | 29/54 [01:18<01:10,  2.80s/it][A
+ 56%|█████▌    | 30/54 [01:21<01:07,  2.80s/it][A
+ 57%|█████▋    | 31/54 [01:24<01:04,  2.80s/it][A
+ 59%|█████▉    | 32/54 [01:26<01:01,  2.80s/it][A
+ 61%|██████    | 33/54 [01:29<00:58,  2.80s/it][A
+ 63%|██████▎   | 34/54 [01:32<00:56,  2.80s/it][A
+ 65%|██████▍   | 35/54 [01:35<00:53,  2.80s/it][A
+ 67%|██████▋   | 36/54 [01:38<00:50,  2.80s/it][A
+ 69%|██████▊   | 37/54 [01:40<00:47,  2.80s/it][A
+ 70%|███████   | 38/54 [01:43<00:44,  2.81s/it][A
+ 72%|███████▏  | 39/54 [01:46<00:42,  2.81s/it][A
+ 74%|███████▍  | 40/54 [01:49<00:39,  2.80s/it][A
+ 76%|███████▌  | 41/54 [01:52<00:36,  2.80s/it][A
+ 78%|███████▊  | 42/54 [01:54<00:33,  2.80s/it][A
+ 80%|███████▉  | 43/54 [01:57<00:30,  2.81s/it][A
+ 81%|████████▏ | 44/54 [02:00<00:28,  2.80s/it][A
+ 83%|████████▎ | 45/54 [02:03<00:25,  2.80s/it][A
+ 85%|████████▌ | 46/54 [02:06<00:22,  2.80s/it][A
+ 87%|████████▋ | 47/54 [02:08<00:19,  2.80s/it][A
+ 89%|████████▉ | 48/54 [02:11<00:16,  2.80s/it][A
+ 91%|█████████ | 49/54 [02:14<00:14,  2.81s/it][A
+ 93%|█████████▎| 50/54 [02:17<00:11,  2.80s/it][A
+ 94%|█████████▍| 51/54 [02:20<00:08,  2.81s/it][A
+ 96%|█████████▋| 52/54 [02:22<00:05,  2.80s/it][A
+ 98%|█████████▊| 53/54 [02:25<00:02,  2.80s/it][A
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A                                                   
+                                               [A{'eval_loss': 0.6736101508140564, 'eval_runtime': 151.4911, 'eval_samples_per_second': 4.99, 'eval_steps_per_second': 0.356, 'epoch': 4.0}
+ 80%|████████  | 108/135 [1:28:30<18:49, 41.85s/it]
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A
+                                               [A/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+ 81%|████████  | 109/135 [1:30:06<44:53, 103.60s/it] 81%|████████▏ | 110/135 [1:30:48<35:26, 85.07s/it]  82%|████████▏ | 111/135 [1:31:29<28:50, 72.09s/it] 83%|████████▎ | 112/135 [1:32:11<24:09, 63.04s/it] 84%|████████▎ | 113/135 [1:32:53<20:47, 56.68s/it] 84%|████████▍ | 114/135 [1:33:35<18:16, 52.23s/it] 85%|████████▌ | 115/135 [1:34:17<16:22, 49.11s/it] 86%|████████▌ | 116/135 [1:34:59<14:51, 46.92s/it] 87%|████████▋ | 117/135 [1:35:41<13:37, 45.40s/it] 87%|████████▋ | 118/135 [1:36:22<12:33, 44.32s/it] 88%|████████▊ | 119/135 [1:37:04<11:37, 43.59s/it] 89%|████████▉ | 120/135 [1:37:46<10:46, 43.07s/it] 90%|████████▉ | 121/135 [1:38:28<09:57, 42.70s/it] 90%|█████████ | 122/135 [1:39:10<09:11, 42.45s/it] 91%|█████████ | 123/135 [1:39:52<08:27, 42.29s/it] 92%|█████████▏| 124/135 [1:40:34<07:43, 42.15s/it] 93%|█████████▎| 125/135 [1:41:15<07:00, 42.08s/it] 93%|█████████▎| 126/135 [1:41:57<06:18, 42.02s/it] 94%|█████████▍| 127/135 [1:42:39<05:35, 41.99s/it] 95%|█████████▍| 128/135 [1:43:21<04:53, 41.95s/it] 96%|█████████▌| 129/135 [1:44:03<04:11, 41.90s/it] 96%|█████████▋| 130/135 [1:44:45<03:29, 41.86s/it] 97%|█████████▋| 131/135 [1:45:26<02:47, 41.84s/it] 98%|█████████▊| 132/135 [1:46:08<02:05, 41.84s/it] 99%|█████████▊| 133/135 [1:46:50<01:23, 41.83s/it] 99%|█████████▉| 134/135 [1:47:32<00:41, 41.84s/it]100%|██████████| 135/135 [1:48:14<00:00, 41.83s/it]/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
 
-fa8b5d290355:55630:55759 [1] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-9xUa1U to 5767524 bytes
-
-fa8b5d290355:55630:55759 [1] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-9xUa1U (size 5767520)
-fa8b5d290355:55630:55759 [1] NCCL INFO proxy.cc:1252 -> 2
-fa8b5d290355:55630:55759 [1] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55630:55750 [1] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55630:55750 [1] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55630:55750 [1] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55630:55750 [1] NCCL INFO group.cc:64 -> 2 [Async thread]
-
-fa8b5d290355:55629:55757 [0] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-jT1KxT to 5767524 bytes
-
-fa8b5d290355:55629:55757 [0] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-jT1KxT (size 5767520)
-fa8b5d290355:55629:55757 [0] NCCL INFO proxy.cc:1252 -> 2
-fa8b5d290355:55629:55757 [0] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55630:55630 [1] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55629:55747 [0] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55630:55630 [1] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55629:55747 [0] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55629:55747 [0] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55629:55747 [0] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55629:55629 [0] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55629:55629 [0] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55630:55759 [1] NCCL INFO [Service thread] Connection closed by localRank 1
-fa8b5d290355:55629:55757 [0] NCCL INFO [Service thread] Connection closed by localRank 0
-fa8b5d290355:55631:55751 [2] NCCL INFO Connected all trees
-fa8b5d290355:55635:55753 [6] NCCL INFO Connected all trees
-fa8b5d290355:55631:55751 [2] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55632:55752 [3] NCCL INFO Connected all trees
-fa8b5d290355:55634:55748 [5] NCCL INFO Connected all trees
-fa8b5d290355:55633:55749 [4] NCCL INFO Connected all trees
-fa8b5d290355:55631:55751 [2] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-fa8b5d290355:55635:55753 [6] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55632:55752 [3] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55634:55748 [5] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55633:55749 [4] NCCL INFO threadThresholds 8/8/64 | 56/8/64 | 512 | 512
-fa8b5d290355:55635:55753 [6] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-fa8b5d290355:55632:55752 [3] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-fa8b5d290355:55634:55748 [5] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-fa8b5d290355:55633:55749 [4] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-
-fa8b5d290355:55631:55762 [2] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-b3EOKy to 5767524 bytes
-
-fa8b5d290355:55632:55756 [3] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-fiQ54D to 5767524 bytes
-
-fa8b5d290355:55631:55762 [2] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-b3EOKy (size 5767520)
-
-fa8b5d290355:55633:55761 [4] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-U4oHOU to 5767524 bytes
-
-fa8b5d290355:55635:55754 [6] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-gAIclk to 5767524 bytes
-
-fa8b5d290355:55632:55756 [3] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-fiQ54D (size 5767520)
-
-fa8b5d290355:55634:55755 [5] misc/shmutils.cc:72 NCCL WARN Error: failed to extend /dev/shm/nccl-N3Fi3j to 5767524 bytes
-fa8b5d290355:55631:55762 [2] NCCL INFO proxy.cc:1252 -> 2
-
-fa8b5d290355:55633:55761 [4] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-U4oHOU (size 5767520)
-
-fa8b5d290355:55635:55754 [6] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-gAIclk (size 5767520)
-fa8b5d290355:55632:55756 [3] NCCL INFO proxy.cc:1252 -> 2
-
-fa8b5d290355:55634:55755 [5] misc/shmutils.cc:113 NCCL WARN Error while creating shared memory segment /dev/shm/nccl-N3Fi3j (size 5767520)
-fa8b5d290355:55631:55762 [2] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55633:55761 [4] NCCL INFO proxy.cc:1252 -> 2
-fa8b5d290355:55632:55756 [3] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55635:55754 [6] NCCL INFO proxy.cc:1252 -> 2
-fa8b5d290355:55634:55755 [5] NCCL INFO proxy.cc:1252 -> 2
-fa8b5d290355:55633:55761 [4] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55635:55754 [6] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55634:55755 [5] NCCL INFO proxy.cc:1315 -> 2
-fa8b5d290355:55631:55751 [2] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55632:55752 [3] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55631:55751 [2] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55632:55752 [3] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55633:55749 [4] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55631:55751 [2] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55633:55749 [4] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55632:55752 [3] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55631:55751 [2] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55634:55748 [5] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55635:55753 [6] NCCL INFO proxy.cc:1064 -> 2
-fa8b5d290355:55633:55749 [4] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55632:55752 [3] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55634:55748 [5] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55635:55753 [6] NCCL INFO init.cc:1328 -> 2
-fa8b5d290355:55633:55749 [4] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55634:55748 [5] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55634:55748 [5] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55635:55753 [6] NCCL INFO init.cc:1501 -> 2
-fa8b5d290355:55635:55753 [6] NCCL INFO group.cc:64 -> 2 [Async thread]
-fa8b5d290355:55631:55631 [2] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55632:55632 [3] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55631:55631 [2] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55633:55633 [4] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55634:55634 [5] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55632:55632 [3] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55633:55633 [4] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55634:55634 [5] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55635:55635 [6] NCCL INFO group.cc:418 -> 2
-fa8b5d290355:55635:55635 [6] NCCL INFO init.cc:1876 -> 2
-fa8b5d290355:55632:55756 [3] NCCL INFO [Service thread] Connection closed by localRank 3
-fa8b5d290355:55633:55761 [4] NCCL INFO [Service thread] Connection closed by localRank 4
-fa8b5d290355:55631:55762 [2] NCCL INFO [Service thread] Connection closed by localRank 2
-fa8b5d290355:55634:55755 [5] NCCL INFO [Service thread] Connection closed by localRank 5
-fa8b5d290355:55635:55754 [6] NCCL INFO [Service thread] Connection closed by localRank 6
-fa8b5d290355:55629:55629 [0] NCCL INFO comm 0x556acd80aac0 rank 0 nranks 7 cudaDev 0 busId 45000 - Abort COMPLETE
-fa8b5d290355:55630:55630 [1] NCCL INFO comm 0x55ebc8837b80 rank 1 nranks 7 cudaDev 1 busId 46000 - Abort COMPLETE
-[rank1]: Traceback (most recent call last):
-[rank1]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank1]:     trainer.train()
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank1]:     return inner_training_loop(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank1]:     self.model = self.accelerator.prepare(self.model)
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank1]:     result = tuple(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank1]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank1]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank1]:     model = FSDP(model, **kwargs)
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank1]:     _auto_wrap(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank1]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank1]:   [Previous line repeated 6 more times]
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank1]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank1]:     return wrapper_cls(module, **kwargs)
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank1]:     _init_param_handle_from_module(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank1]:     _sync_module_params_and_buffers(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank1]:     _sync_params_and_buffers(
-[rank1]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank1]:     dist._broadcast_coalesced(
-[rank1]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank1]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank1]: Last error:
-[rank1]: Error while creating shared memory segment /dev/shm/nccl-9xUa1U (size 5767520)
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank0]:     trainer.train()
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank0]:     return inner_training_loop(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank0]:     self.model = self.accelerator.prepare(self.model)
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank0]:     result = tuple(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank0]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank0]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank0]:     model = FSDP(model, **kwargs)
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank0]:     _auto_wrap(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank0]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank0]:   [Previous line repeated 6 more times]
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank0]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank0]:     return wrapper_cls(module, **kwargs)
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank0]:     _init_param_handle_from_module(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank0]:     _sync_module_params_and_buffers(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank0]:     _sync_params_and_buffers(
-[rank0]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank0]:     dist._broadcast_coalesced(
-[rank0]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank0]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank0]: Last error:
-[rank0]: Error while creating shared memory segment /dev/shm/nccl-jT1KxT (size 5767520)
-fa8b5d290355:55635:55635 [6] NCCL INFO comm 0x5571e4699f80 rank 6 nranks 7 cudaDev 6 busId 87000 - Abort COMPLETE
-fa8b5d290355:55631:55631 [2] NCCL INFO comm 0x5621aa3e7f40 rank 2 nranks 7 cudaDev 2 busId 47000 - Abort COMPLETE
-[rank6]: Traceback (most recent call last):
-[rank6]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank6]:     trainer.train()
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank6]:     return inner_training_loop(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank6]:     self.model = self.accelerator.prepare(self.model)
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank6]:     result = tuple(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank6]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank6]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank6]:     model = FSDP(model, **kwargs)
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank6]:     _auto_wrap(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank6]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank6]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank6]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank6]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank6]:   [Previous line repeated 6 more times]
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank6]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank6]:     return wrapper_cls(module, **kwargs)
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank6]:     _init_param_handle_from_module(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank6]:     _sync_module_params_and_buffers(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank6]:     _sync_params_and_buffers(
-[rank6]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank6]:     dist._broadcast_coalesced(
-[rank6]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank6]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank6]: Last error:
-[rank6]: Error while creating shared memory segment /dev/shm/nccl-gAIclk (size 5767520)
-fa8b5d290355:55634:55634 [5] NCCL INFO comm 0x560cbe1cde80 rank 5 nranks 7 cudaDev 5 busId 86000 - Abort COMPLETE
-[rank2]: Traceback (most recent call last):
-[rank2]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank2]:     trainer.train()
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank2]:     return inner_training_loop(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank2]:     self.model = self.accelerator.prepare(self.model)
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank2]:     result = tuple(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank2]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank2]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank2]:     model = FSDP(model, **kwargs)
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank2]:     _auto_wrap(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank2]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank2]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank2]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank2]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank2]:   [Previous line repeated 6 more times]
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank2]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank2]:     return wrapper_cls(module, **kwargs)
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank2]:     _init_param_handle_from_module(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank2]:     _sync_module_params_and_buffers(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank2]:     _sync_params_and_buffers(
-[rank2]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank2]:     dist._broadcast_coalesced(
-[rank2]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank2]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank2]: Last error:
-[rank2]: Error while creating shared memory segment /dev/shm/nccl-b3EOKy (size 5767520)
-[rank5]: Traceback (most recent call last):
-[rank5]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank5]:     trainer.train()
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank5]:     return inner_training_loop(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank5]:     self.model = self.accelerator.prepare(self.model)
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank5]:     result = tuple(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank5]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank5]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank5]:     model = FSDP(model, **kwargs)
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank5]:     _auto_wrap(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank5]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank5]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank5]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank5]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank5]:   [Previous line repeated 6 more times]
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank5]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank5]:     return wrapper_cls(module, **kwargs)
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank5]:     _init_param_handle_from_module(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank5]:     _sync_module_params_and_buffers(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank5]:     _sync_params_and_buffers(
-[rank5]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank5]:     dist._broadcast_coalesced(
-[rank5]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank5]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank5]: Last error:
-[rank5]: Error while creating shared memory segment /dev/shm/nccl-N3Fi3j (size 5767520)
-fa8b5d290355:55633:55633 [4] NCCL INFO comm 0x5561af7dfd00 rank 4 nranks 7 cudaDev 4 busId 85000 - Abort COMPLETE
-fa8b5d290355:55632:55632 [3] NCCL INFO comm 0x55e83011d140 rank 3 nranks 7 cudaDev 3 busId 84000 - Abort COMPLETE
-[rank4]: Traceback (most recent call last):
-[rank4]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank4]:     trainer.train()
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank4]:     return inner_training_loop(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank4]:     self.model = self.accelerator.prepare(self.model)
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank4]:     result = tuple(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank4]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank4]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank4]:     model = FSDP(model, **kwargs)
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank4]:     _auto_wrap(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank4]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank4]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank4]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank4]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank4]:   [Previous line repeated 6 more times]
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank4]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank4]:     return wrapper_cls(module, **kwargs)
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank4]:     _init_param_handle_from_module(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank4]:     _sync_module_params_and_buffers(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank4]:     _sync_params_and_buffers(
-[rank4]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank4]:     dist._broadcast_coalesced(
-[rank4]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank4]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank4]: Last error:
-[rank4]: Error while creating shared memory segment /dev/shm/nccl-U4oHOU (size 5767520)
-[rank3]: Traceback (most recent call last):
-[rank3]:   File "/mnt/dg_tunning/tune_combined.py", line 139, in <module>
-[rank3]:     trainer.train()
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2122, in train
-[rank3]:     return inner_training_loop(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/transformers/trainer.py", line 2264, in _inner_training_loop
-[rank3]:     self.model = self.accelerator.prepare(self.model)
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1350, in prepare
-[rank3]:     result = tuple(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1351, in <genexpr>
-[rank3]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1226, in _prepare_one
-[rank3]:     return self.prepare_model(obj, device_placement=device_placement)
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/accelerate/accelerator.py", line 1511, in prepare_model
-[rank3]:     model = FSDP(model, **kwargs)
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
-[rank3]:     _auto_wrap(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 102, in _auto_wrap
-[rank3]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank3]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank3]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 544, in _recursive_wrap
-[rank3]:     wrapped_child, num_wrapped_params = _recursive_wrap(
-[rank3]:   [Previous line repeated 6 more times]
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 562, in _recursive_wrap
-[rank3]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/wrap.py", line 491, in _wrap
-[rank3]:     return wrapper_cls(module, **kwargs)
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
-[rank3]:     _init_param_handle_from_module(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 596, in _init_param_handle_from_module
-[rank3]:     _sync_module_params_and_buffers(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/fsdp/_init_utils.py", line 1094, in _sync_module_params_and_buffers
-[rank3]:     _sync_params_and_buffers(
-[rank3]:   File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
-[rank3]:     dist._broadcast_coalesced(
-[rank3]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:275, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.20.5
-[rank3]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
-[rank3]: Last error:
-[rank3]: Error while creating shared memory segment /dev/shm/nccl-fiQ54D (size 5767520)
-[rank0]:[W1030 11:15:00.302195219 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-W1030 11:15:04.035354 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55629 closing signal SIGTERM
-W1030 11:15:04.035922 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55631 closing signal SIGTERM
-W1030 11:15:04.036076 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55632 closing signal SIGTERM
-W1030 11:15:04.036228 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55633 closing signal SIGTERM
-W1030 11:15:04.037980 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55634 closing signal SIGTERM
-W1030 11:15:04.039620 140295730153280 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 55635 closing signal SIGTERM
-E1030 11:15:04.569470 140295730153280 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 1 (pid: 55630) of binary: /root/anaconda3/envs/meditron/bin/python
-Traceback (most recent call last):
-  File "/root/anaconda3/envs/meditron/bin/torchrun", line 8, in <module>
-    sys.exit(main())
-  File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
-    return f(*args, **kwargs)
-  File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/run.py", line 901, in main
-    run(args)
-  File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/run.py", line 892, in run
-    elastic_launch(
-  File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/root/anaconda3/envs/meditron/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-tune_combined.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2024-10-30_11:15:04
-  host      : fa8b5d290355
-  rank      : 1 (local_rank: 1)
-  exitcode  : 1 (pid: 55630)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
+  0%|          | 0/54 [00:00<?, ?it/s][A
+  4%|▎         | 2/54 [00:02<01:13,  1.40s/it][A
+  6%|▌         | 3/54 [00:05<01:41,  1.98s/it][A
+  7%|▋         | 4/54 [00:08<01:54,  2.29s/it][A
+  9%|▉         | 5/54 [00:11<02:00,  2.46s/it][A
+ 11%|█         | 6/54 [00:13<02:03,  2.58s/it][A
+ 13%|█▎        | 7/54 [00:16<02:04,  2.65s/it][A
+ 15%|█▍        | 8/54 [00:19<02:04,  2.70s/it][A
+ 17%|█▋        | 9/54 [00:22<02:02,  2.73s/it][A
+ 19%|█▊        | 10/54 [00:25<02:00,  2.75s/it][A
+ 20%|██        | 11/54 [00:27<01:58,  2.76s/it][A
+ 22%|██▏       | 12/54 [00:30<01:56,  2.77s/it][A
+ 24%|██▍       | 13/54 [00:33<01:54,  2.78s/it][A
+ 26%|██▌       | 14/54 [00:36<01:51,  2.79s/it][A
+ 28%|██▊       | 15/54 [00:39<01:48,  2.79s/it][A
+ 30%|██▉       | 16/54 [00:41<01:46,  2.79s/it][A
+ 31%|███▏      | 17/54 [00:44<01:43,  2.80s/it][A
+ 33%|███▎      | 18/54 [00:47<01:40,  2.80s/it][A
+ 35%|███▌      | 19/54 [00:50<01:38,  2.80s/it][A
+ 37%|███▋      | 20/54 [00:53<01:35,  2.80s/it][A
+ 39%|███▉      | 21/54 [00:55<01:32,  2.80s/it][A
+ 41%|████      | 22/54 [00:58<01:29,  2.80s/it][A
+ 43%|████▎     | 23/54 [01:01<01:26,  2.80s/it][A
+ 44%|████▍     | 24/54 [01:04<01:24,  2.80s/it][A
+ 46%|████▋     | 25/54 [01:07<01:21,  2.80s/it][A
+ 48%|████▊     | 26/54 [01:09<01:18,  2.80s/it][A
+ 50%|█████     | 27/54 [01:12<01:15,  2.80s/it][A
+ 52%|█████▏    | 28/54 [01:15<01:12,  2.80s/it][A
+ 54%|█████▎    | 29/54 [01:18<01:10,  2.80s/it][A
+ 56%|█████▌    | 30/54 [01:21<01:07,  2.80s/it][A
+ 57%|█████▋    | 31/54 [01:23<01:04,  2.80s/it][A
+ 59%|█████▉    | 32/54 [01:26<01:01,  2.80s/it][A
+ 61%|██████    | 33/54 [01:29<00:58,  2.80s/it][A
+ 63%|██████▎   | 34/54 [01:32<00:55,  2.80s/it][A
+ 65%|██████▍   | 35/54 [01:35<00:53,  2.80s/it][A
+ 67%|██████▋   | 36/54 [01:37<00:50,  2.80s/it][A
+ 69%|██████▊   | 37/54 [01:40<00:47,  2.80s/it][A
+ 70%|███████   | 38/54 [01:43<00:44,  2.80s/it][A
+ 72%|███████▏  | 39/54 [01:46<00:41,  2.80s/it][A
+ 74%|███████▍  | 40/54 [01:49<00:39,  2.80s/it][A
+ 76%|███████▌  | 41/54 [01:51<00:36,  2.80s/it][A
+ 78%|███████▊  | 42/54 [01:54<00:33,  2.80s/it][A
+ 80%|███████▉  | 43/54 [01:57<00:30,  2.80s/it][A
+ 81%|████████▏ | 44/54 [02:00<00:27,  2.80s/it][A
+ 83%|████████▎ | 45/54 [02:03<00:25,  2.80s/it][A
+ 85%|████████▌ | 46/54 [02:05<00:22,  2.80s/it][A
+ 87%|████████▋ | 47/54 [02:08<00:19,  2.80s/it][A
+ 89%|████████▉ | 48/54 [02:11<00:16,  2.80s/it][A
+ 91%|█████████ | 49/54 [02:14<00:14,  2.80s/it][A
+ 93%|█████████▎| 50/54 [02:17<00:11,  2.80s/it][A
+ 94%|█████████▍| 51/54 [02:19<00:08,  2.80s/it][A
+ 96%|█████████▋| 52/54 [02:22<00:05,  2.80s/it][A
+ 98%|█████████▊| 53/54 [02:25<00:02,  2.80s/it][A
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A                                                   
+                                               [A{'eval_loss': 0.6699956655502319, 'eval_runtime': 151.2847, 'eval_samples_per_second': 4.997, 'eval_steps_per_second': 0.357, 'epoch': 5.0}
+100%|██████████| 135/135 [1:51:40<00:00, 41.83s/it]
+100%|██████████| 54/54 [02:28<00:00,  2.80s/it][A
+                                               [A/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+                                                   {'train_runtime': 6759.6396, 'train_samples_per_second': 4.472, 'train_steps_per_second': 0.02, 'train_loss': 0.8509163044117115, 'epoch': 5.0}
+100%|██████████| 135/135 [1:52:38<00:00, 41.83s/it]100%|██████████| 135/135 [1:52:38<00:00, 50.06s/it]
+/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+[1;34mwandb[0m: 🚀 View run [33m./meditron_qa_results[0m at: [34mhttps://wandb.ai/l-zijie/huggingface/runs/5lec59ku[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20241030_201827-5lec59ku/logs[0m
