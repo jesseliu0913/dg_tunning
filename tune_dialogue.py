@@ -21,6 +21,7 @@ testset = val_test_split['test']
 
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
+tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
 
 
