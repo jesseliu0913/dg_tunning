@@ -20,9 +20,9 @@ valset = val_test_split['train']
 testset = val_test_split['test']
 
 
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
 
 peft_config = LoraConfig(
@@ -98,9 +98,9 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./meditron_qa_results",
+    output_dir="./llama_qa_results",
     num_train_epochs=10,
-    per_device_train_batch_size=8,
+    per_device_train_batch_size=32,
     per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
