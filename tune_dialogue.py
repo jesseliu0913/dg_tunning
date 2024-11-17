@@ -36,7 +36,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=512):
+    def __init__(self, data, tokenizer):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -50,9 +50,9 @@ class CustomQADataset(Dataset):
 
         input_ids = self.tokenizer(
             input_text,
-            max_length=self.max_length,
-            padding="max_length",
-            truncation=True,
+            # max_length=self.max_length,
+            padding=True,
+            # truncation=True,
             return_tensors="pt",
         )
         tokenized_input = {key: val.squeeze(0) for key, val in input_ids.items()}
@@ -100,7 +100,7 @@ fsdp_config = {
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
     num_train_epochs=10,
-    per_device_train_batch_size=16,
+    per_device_train_batch_size=4,
     per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
