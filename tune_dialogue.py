@@ -36,10 +36,10 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer):
+    def __init__(self, data, tokenizer, max_length=2048):
         self.tokenizer = tokenizer
         self.data = data
-        # self.max_length = max_length
+        self.max_length = max_length
 
     def __len__(self):
         return len(self.data)
@@ -50,9 +50,9 @@ class CustomQADataset(Dataset):
 
         input_ids = self.tokenizer(
             input_text,
-            # max_length=self.max_length,
+            max_length=self.max_length,
             padding=True,
-            # truncation=True,
+            truncation=True,
             return_tensors="pt",
         )
         tokenized_input = {key: val.squeeze(0) for key, val in input_ids.items()}
