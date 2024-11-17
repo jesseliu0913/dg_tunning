@@ -36,7 +36,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=256):
+    def __init__(self, data, tokenizer, max_length=512):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -100,8 +100,8 @@ fsdp_config = {
 training_args = TrainingArguments(
     output_dir="./meditron_qa_results",
     num_train_epochs=10,
-    per_device_train_batch_size=64,
-    per_device_eval_batch_size=64,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
@@ -121,7 +121,7 @@ training_args = TrainingArguments(
     fsdp='full_shard auto_wrap',
     fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",
-    save_total_limit=2,
+    save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False  
 )
