@@ -39,7 +39,7 @@ class CustomQADataset(Dataset):
     def __init__(self, data, tokenizer):
         self.tokenizer = tokenizer
         self.data = data
-        self.max_length = max_length
+        # self.max_length = max_length
 
     def __len__(self):
         return len(self.data)
