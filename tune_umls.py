@@ -120,7 +120,6 @@ training_args = TrainingArguments(
     ddp_find_unused_parameters=False,
     fsdp='full_shard auto_wrap',
     fsdp_transformer_layer_cls_to_wrap='LlamaDecoderLayer',
-    fsdp_min_num_params=20000,
 )
 
 
