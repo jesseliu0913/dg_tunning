@@ -102,6 +102,11 @@ data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', 
 # print("First example input IDs:", batch['input_ids'][0])
 # print("First example labels:", batch['labels'][0])
 
+fsdp_config = {
+    "fsdp_min_num_params": 20000,
+    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_sharding_strategy": "FULL_SHARD",
+}
 
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
