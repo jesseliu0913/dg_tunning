@@ -64,23 +64,23 @@ class CustomQADataset(Dataset):
             input_text,
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None,  
+            return_tensors=None,  # Return lists, not tensors
         )
 
-        input_ids = encoding['input_ids'].squeeze(0)  
-        attention_mask = encoding['attention_mask'].squeeze(0)
+        input_ids = encoding['input_ids']  # No .squeeze(0)
+        attention_mask = encoding['attention_mask']  # No .squeeze(0)
 
         answer_start = input_text.find('Answer:')
         prompt_encoding = self.tokenizer(
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None,  
+            return_tensors=None,  # Return lists, not tensors
         )
-        prompt_length = prompt_encoding['input_ids'].size(1)
+        prompt_length = len(prompt_encoding['input_ids'])
 
-        labels = input_ids.clone()
-        labels[:prompt_length] = -100  
+        labels = input_ids.copy()
+        labels[:prompt_length] = [-100] * prompt_length  # Mask out prompt tokens
 
         return {
             'input_ids': input_ids,
