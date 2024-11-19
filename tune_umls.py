@@ -76,7 +76,7 @@ class CustomQADataset(Dataset):
         prompt_encoding = self.tokenizer(
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
-            padding='max_length',
+            padding='longest',
             truncation=True,
             return_tensors="pt",
         )
