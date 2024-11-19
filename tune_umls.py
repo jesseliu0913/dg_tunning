@@ -64,29 +64,30 @@ class CustomQADataset(Dataset):
             input_text,
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None,  
+            return_tensors='pt',  
         )
 
-        input_ids = encoding['input_ids']
-        attention_mask = encoding['attention_mask']
+        input_ids = encoding['input_ids'].squeeze(0)  
+        attention_mask = encoding['attention_mask'].squeeze(0)
 
         answer_start = input_text.find('Answer:')
         prompt_encoding = self.tokenizer(
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None,  
+            return_tensors='pt',  
         )
-        prompt_length = len(prompt_encoding['input_ids'])
+        prompt_length = prompt_encoding['input_ids'].size(1)
 
-        labels = input_ids.copy()
-        labels[:prompt_length] = [-100] * prompt_length  
+        labels = input_ids.clone()
+        labels[:prompt_length] = -100  
 
         return {
             'input_ids': input_ids,
             'attention_mask': attention_mask,
             'labels': labels
         }
+
 
 
 train_dataset = CustomQADataset(train_dataset, tokenizer)
