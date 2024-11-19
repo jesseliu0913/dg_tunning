@@ -84,6 +84,9 @@ train_dataset = CustomQADataset(trainset, tokenizer)
 val_dataset = CustomQADataset(valset, tokenizer)
 test_dataset = CustomQADataset(testset, tokenizer)
 
+
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', return_tensors='pt')
+
 from torch.utils.data import DataLoader
 
 train_dataloader = DataLoader(
@@ -99,8 +102,6 @@ print(f"Labels shape: {batch['labels'].shape}")
 print(f"Attention mask shape: {batch['attention_mask'].shape}")
 print("First example input IDs:", batch['input_ids'][0])
 print("First example labels:", batch['labels'][0])
-
-# data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', return_tensors='pt')
 
 
 # training_args = TrainingArguments(
