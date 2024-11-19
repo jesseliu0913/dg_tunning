@@ -14,7 +14,7 @@ dataset = load_dataset("GBaker/MedQA-USMLE-4-options")
 train_val_split = dataset["train"].train_test_split(test_size=0.1, seed=42)
 train_dataset = train_val_split["train"]
 val_dataset = train_val_split["test"]
-test_dataset = dataset["validation"]  
+test_dataset = dataset["test"]  
 
 
 def preprocess(example):
