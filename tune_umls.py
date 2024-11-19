@@ -64,7 +64,7 @@ class CustomQADataset(Dataset):
             input_text,
             max_length=self.max_length,
             truncation=True,
-            return_tensors='pt',  
+            return_tensors=None,  
         )
 
         input_ids = encoding['input_ids'].squeeze(0)  
@@ -75,7 +75,7 @@ class CustomQADataset(Dataset):
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
             truncation=True,
-            return_tensors='pt',  
+            return_tensors=None,  
         )
         prompt_length = prompt_encoding['input_ids'].size(1)
 
@@ -95,7 +95,20 @@ val_dataset = CustomQADataset(val_dataset, tokenizer)
 if test_dataset:
     test_dataset = CustomQADataset(test_dataset, tokenizer)
 
-data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+class CustomDataCollator(DataCollatorWithPadding):
+    def __call__(self, features):
+        batch = self.tokenizer.pad(
+            features,
+            padding=True,
+            return_tensors='pt',
+        )
+
+        labels = batch['labels']
+        labels[labels == self.tokenizer.pad_token_id] = -100
+        batch['labels'] = labels
+        return batch
+
+data_collator = CustomDataCollator(tokenizer=tokenizer)
 
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
