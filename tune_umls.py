@@ -48,12 +48,11 @@ class CustomQADataset(Dataset):
         correct_answer = item['answer_idx']
 
         input_text = f"Question: {question}\nOptions:\n"
-        for i, option in enumerate(options):
-            option_letter = self.answer_mapping[i]
-            input_text += f"{option_letter}) {option}\n"
-        input_text += "Answer:"
+        for idx, option in enumerate(options):
+            input_text += f"{idx}: {option}\n"
+        input_text += "Answer: "
 
-        target_text = f" {correct_answer}"
+        target_text = f"{correct_answer}"
 
         full_text = input_text + target_text
 
