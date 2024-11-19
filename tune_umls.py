@@ -86,63 +86,63 @@ test_dataset = CustomQADataset(testset, tokenizer)
 
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', return_tensors='pt')
 
-from torch.utils.data import DataLoader
+# from torch.utils.data import DataLoader
 
-train_dataloader = DataLoader(
-    train_dataset,
-    batch_size=2,  
-    shuffle=True,
-    collate_fn=data_collator  
+# train_dataloader = DataLoader(
+#     train_dataset,
+#     batch_size=2,  
+#     shuffle=True,
+#     collate_fn=data_collator  
+# )
+
+# batch = next(iter(train_dataloader))
+# print(f"Input IDs shape: {batch['input_ids'].shape}")
+# print(f"Labels shape: {batch['labels'].shape}")
+# print(f"Attention mask shape: {batch['attention_mask'].shape}")
+# print("First example input IDs:", batch['input_ids'][0])
+# print("First example labels:", batch['labels'][0])
+
+
+training_args = TrainingArguments(
+    output_dir="./llama_qa_results",
+    num_train_epochs=10,
+    per_device_train_batch_size=1,
+    per_device_eval_batch_size=1,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    # save_steps=0.4,
+    logging_steps=100,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    ddp_backend='nccl',
+    fp16=False, 
+    bf16=True, 
+    fsdp='full_shard auto_wrap',
+    fsdp_config=fsdp_config,
+    # deepspeed="ds_config.json",
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False  
 )
 
-batch = next(iter(train_dataloader))
-print(f"Input IDs shape: {batch['input_ids'].shape}")
-print(f"Labels shape: {batch['labels'].shape}")
-print(f"Attention mask shape: {batch['attention_mask'].shape}")
-print("First example input IDs:", batch['input_ids'][0])
-print("First example labels:", batch['labels'][0])
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator,
+)
 
 
-# training_args = TrainingArguments(
-#     output_dir="./llama_qa_results",
-#     num_train_epochs=10,
-#     per_device_train_batch_size=1,
-#     per_device_eval_batch_size=1,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     # save_steps=0.4,
-#     logging_steps=100,
-#     learning_rate=2e-5,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     ddp_backend='nccl',
-#     fp16=False, 
-#     bf16=True, 
-#     fsdp='full_shard auto_wrap',
-#     fsdp_config=fsdp_config,
-#     # deepspeed="ds_config.json",
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False  
-# )
-
-
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     tokenizer=tokenizer,
-#     data_collator=data_collator,
-# )
-
-
-# trainer.train()
-# trainer.save_model("dialogue_llama_7bchat")
+trainer.train()
+trainer.save_model("dialogue_llama_7bchat")
 
