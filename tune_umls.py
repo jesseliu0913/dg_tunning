@@ -64,7 +64,7 @@ class CustomQADataset(Dataset):
             input_text,
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None, 
+            return_tensors=None,  
         )
 
         input_ids = encoding['input_ids']
@@ -75,7 +75,7 @@ class CustomQADataset(Dataset):
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
             truncation=True,
-            return_tensors=None, 
+            return_tensors=None,  
         )
         prompt_length = len(prompt_encoding['input_ids'])
 
