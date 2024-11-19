@@ -5,6 +5,7 @@ from transformers import (
     AutoTokenizer,
     TrainingArguments,
     Trainer,
+    DataCollatorWithPadding,
 )
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
@@ -62,29 +63,24 @@ class CustomQADataset(Dataset):
         encoding = self.tokenizer(
             input_text,
             max_length=self.max_length,
-            padding="longest",  
             truncation=True,
-            return_tensors="pt",
+            return_tensors=None, 
         )
 
-
-        input_ids = encoding['input_ids'].squeeze()
-        attention_mask = encoding['attention_mask'].squeeze()
-
+        input_ids = encoding['input_ids']
+        attention_mask = encoding['attention_mask']
 
         answer_start = input_text.find('Answer:')
         prompt_encoding = self.tokenizer(
             input_text[:answer_start + len('Answer:')],
             max_length=self.max_length,
-            padding='longest',
             truncation=True,
-            return_tensors="pt",
+            return_tensors=None, 
         )
-        prompt_length = len(prompt_encoding['input_ids'].squeeze())
+        prompt_length = len(prompt_encoding['input_ids'])
 
-
-        labels = input_ids.clone()
-        labels[:prompt_length] = -100  
+        labels = input_ids.copy()
+        labels[:prompt_length] = [-100] * prompt_length  
 
         return {
             'input_ids': input_ids,
@@ -98,6 +94,7 @@ val_dataset = CustomQADataset(val_dataset, tokenizer)
 if test_dataset:
     test_dataset = CustomQADataset(test_dataset, tokenizer)
 
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
@@ -129,6 +126,7 @@ trainer = Trainer(
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
     tokenizer=tokenizer,
+    data_collator=data_collator,
 )
 
 trainer.train()
