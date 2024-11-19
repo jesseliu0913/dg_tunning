@@ -62,8 +62,8 @@ class CustomQADataset(Dataset):
         encoding = self.tokenizer(
             input_text,
             max_length=self.max_length,
-            padding=True,
-            truncation="max_length",
+            padding="longest",  
+            truncation=True,
             return_tensors="pt",
         )
 
