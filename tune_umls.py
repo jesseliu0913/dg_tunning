@@ -1,27 +1,38 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     TrainingArguments,
     Trainer,
-    DataCollatorForLanguageModeling 
 )
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import load_dataset
 
 
-dataset = load_dataset('json', data_files='./data/cleaned_dialogue.jsonl')['train']
-train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
-val_test_split = train_val_test_split['test'].train_test_split(test_size=0.5, seed=42) 
+dataset = load_dataset("GBaker/MedQA-USMLE-4-options")
+train_val_split = dataset["train"].train_test_split(test_size=0.1, seed=42)
+train_dataset = train_val_split["train"]
+val_dataset = train_val_split["test"]
+test_dataset = dataset["validation"]  
 
-trainset = train_val_test_split['train']
-valset = val_test_split['train']
-testset = val_test_split['test']
+
+def preprocess(example):
+    options = " ".join([f"({key}) {value}" for key, value in example['options'].items()])
+    input_text = f"Question: {example['question']} Options: {options} Answer: {example['answer']}"
+    return {
+        "input_text": input_text
+    }
+
+train_dataset = train_dataset.map(preprocess)
+val_dataset = val_dataset.map(preprocess)
+if test_dataset:
+    test_dataset = test_dataset.map(preprocess)
 
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer.pad_token = tokenizer.eos_token  
+
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
 
@@ -36,7 +47,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=2048):
+    def __init__(self, data, tokenizer, max_length=512):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -46,84 +57,70 @@ class CustomQADataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.data[idx]
-        input_text = str(item['case'])
+        input_text = item['input_text']
 
-        input_ids = self.tokenizer(
+        encoding = self.tokenizer(
             input_text,
             max_length=self.max_length,
             padding=True,
             truncation=True,
             return_tensors="pt",
         )
-        tokenized_input = {key: val.squeeze(0) for key, val in input_ids.items()}
-
-        return tokenized_input
 
 
-train_dataset = CustomQADataset(trainset, tokenizer)
-val_dataset = CustomQADataset(valset, tokenizer)
-test_dataset = CustomQADataset(testset, tokenizer)
+        input_ids = encoding['input_ids'].squeeze()
+        attention_mask = encoding['attention_mask'].squeeze()
 
 
-data_collator = DataCollatorForLanguageModeling(
-    tokenizer=tokenizer,
-    mlm=False,
-    return_tensors='pt',
-)
-    
-'''
-# Test dataloader
-train_dataloader = DataLoader(
-    train_dataset,
-    batch_size=4,  
-    shuffle=True,
-    collate_fn=data_collator  
-)
-for batch in train_dataloader:
-    input_ids = batch['input_ids']
-    labels = batch['labels']
-    
-    print(f"Batch input_ids shape: {input_ids.shape}")
-    print(f"Batch labels shape: {labels.shape}")
-    
-    print(f"Example input_ids: {input_ids[0]}")
-    print(f"Example labels: {labels[0]}")
-    break
-'''
+        answer_start = input_text.find('Answer:')
+        prompt_encoding = self.tokenizer(
+            input_text[:answer_start + len('Answer:')],
+            max_length=self.max_length,
+            padding='max_length',
+            truncation=True,
+            return_tensors="pt",
+        )
+        prompt_length = len(prompt_encoding['input_ids'].squeeze())
 
-fsdp_config = {
-    "fsdp_min_num_params": 20000,
-    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-    "fsdp_sharding_strategy": "FULL_SHARD",
-}
+
+        labels = input_ids.clone()
+        labels[:prompt_length] = -100  
+
+        return {
+            'input_ids': input_ids,
+            'attention_mask': attention_mask,
+            'labels': labels
+        }
+
+
+train_dataset = CustomQADataset(train_dataset, tokenizer)
+val_dataset = CustomQADataset(val_dataset, tokenizer)
+if test_dataset:
+    test_dataset = CustomQADataset(test_dataset, tokenizer)
+
 
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
-    num_train_epochs=10,
+    num_train_epochs=3,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    # save_steps=0.4,
     logging_steps=100,
     learning_rate=2e-5,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
     lr_scheduler_type="cosine",
-    adam_beta1=0.9,
-    adam_beta2=0.95,
-    adam_epsilon=1e-5,
-    ddp_backend='nccl',
-    fp16=False, 
-    bf16=True, 
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
-    # deepspeed="ds_config.json",
+    fp16=False,
+    bf16=True,
     save_total_limit=5,
-    report_to='wandb',
-    ddp_find_unused_parameters=False  
+    report_to='none',  
+    ddp_find_unused_parameters=False,
+    fsdp='full_shard auto_wrap',
+    fsdp_transformer_layer_cls_to_wrap='LlamaDecoderLayer',
+    fsdp_min_num_params=20000,
 )
 
 
@@ -133,9 +130,7 @@ trainer = Trainer(
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
     tokenizer=tokenizer,
-    data_collator=data_collator,
 )
 
-
 trainer.train()
-trainer.save_model("dialogue_llama_7bchat")
+trainer.save_model("MC_llama_3b_instruct")
