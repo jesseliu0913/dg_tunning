@@ -33,7 +33,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=1024):
+    def __init__(self, data, tokenizer, max_length=512):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -110,9 +110,9 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./llama_qa_results",
-    num_train_epochs=10,
-    per_device_train_batch_size=1,
-    per_device_eval_batch_size=1,
+    num_train_epochs=3,
+    per_device_train_batch_size=4,
+    per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
