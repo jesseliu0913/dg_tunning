@@ -107,22 +107,20 @@ model = get_peft_model(model, peft_config)
 
 
 
-# class CustomDataCollatorWithPadding(DataCollatorWithPadding):
-#     def __call__(self, features):
-#         input_features = [{k: v for k, v in f.items() if k != 'labels'} for f in features]
-#         label_features = [f['labels'] for f in features]
-        
-#         batch = super().__call__(input_features)
-        
-#         labels = torch.nn.utils.rnn.pad_sequence(
-#             [torch.tensor(l) for l in label_features], 
-#             batch_first=True, 
-#             padding_value=self.tokenizer.pad_token_id
-#         )
-#         batch['labels'] = labels
-#         return batch
-# data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
-data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest')
+class CustomDataCollatorWithPadding(DataCollatorWithPadding):
+    def __call__(self, features):
+        labels = [feature['labels'] for feature in features]
+        features = [{k: v for k, v in feature.items() if k != 'labels'} for feature in features]
+        batch = super().__call__(features)
+        max_label_length = max(len(l) for l in labels)
+        padded_labels = torch.full((len(labels), max_label_length), -100)
+        for i, label in enumerate(labels):
+            padded_labels[i, :len(label)] = torch.tensor(label)
+        batch['labels'] = padded_labels
+        return batch
+
+data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
+# data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest')
 
 data_loader = DataLoader(
     train_dataset,
