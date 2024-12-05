@@ -130,7 +130,7 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./llama_qa_results",
+    output_dir="./llama_dialogue_results",
     num_train_epochs=2,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
@@ -168,5 +168,5 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("dialogue_llama_7bchat")
+trainer.save_model("dialogue_llama_umls")
 
