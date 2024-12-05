@@ -122,11 +122,11 @@ class CustomDataCollatorWithPadding(DataCollatorWithPadding):
 data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
 # data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest')
 
-data_loader = DataLoader(
-    train_dataset,
-    batch_size=4, 
-    collate_fn=data_collator 
-)
+# data_loader = DataLoader(
+#     train_dataset,
+#     batch_size=4, 
+#     collate_fn=data_collator 
+# )
 
 
 fsdp_config = {
