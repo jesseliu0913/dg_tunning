@@ -79,14 +79,14 @@ class LazyConversationDataset(IterableDataset):
         return input_texts, output_texts
 
 
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+tokenizer.pad_token = tokenizer.eos_token
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+
 file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = LazyConversationDataset(file_path, tokenizer, split="train")
 val_dataset = LazyConversationDataset(file_path, tokenizer, split="val")
 
-
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
-tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
 
 peft_config = LoraConfig(
