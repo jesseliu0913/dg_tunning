@@ -105,26 +105,50 @@ data_loader = DataLoader(
 )
 
 
+fsdp_config = {
+    "fsdp_min_num_params": 20000,
+    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_sharding_strategy": "FULL_SHARD",
+}
+
 training_args = TrainingArguments(
-    output_dir='./results',
-    num_train_epochs=3,
-    per_device_train_batch_size=4,  # Adjust based on your GPU memory
-    gradient_accumulation_steps=1,
-    evaluation_strategy='no',  # Set to 'steps' or 'epoch' if you have an evaluation dataset
+    output_dir="./llama_qa_results",
+    num_train_epochs=2,
+    per_device_train_batch_size=1,
+    per_device_eval_batch_size=1,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
     logging_steps=100,
-    save_steps=500,
-    save_total_limit=2,
-    learning_rate=5e-5,
-    fp16=torch.cuda.is_available(),  # Enable mixed precision if using a GPU with FP16 support
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    ddp_backend='nccl',
+    fp16=False, 
+    bf16=True, 
+    fsdp='full_shard auto_wrap',
+    fsdp_config=fsdp_config,
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False  
 )
+
 
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
-    data_collator=data_collator,
+    eval_dataset=val_dataset,
     tokenizer=tokenizer,
+    data_collator=data_collator,
 )
 
+
 trainer.train()
+trainer.save_model("dialogue_llama_7bchat")
 
