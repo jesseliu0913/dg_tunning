@@ -13,36 +13,52 @@ from peft import LoraConfig, get_peft_model, TaskType
 
 
 class LazyConversationDataset(IterableDataset):
-    def __init__(self, file_path, tokenizer):
+    def __init__(self, file_path, tokenizer, split="train", val_split_ratio=0.1, seed=42):
         self.file_path = file_path
         self.tokenizer = tokenizer
+        self.split = split
+        self.val_split_ratio = val_split_ratio
+        self.seed = seed
+        self._data_lines = self._read_data()
+
+    def _read_data(self):
+        with open(self.file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        random.seed(self.seed)
+        random.shuffle(lines)
+        split_idx = int(len(lines) * self.val_split_ratio)
+        if self.split == "train":
+            return lines[split_idx:]
+        elif self.split == "val":
+            return lines[:split_idx]
+        else:
+            raise ValueError("Invalid split value. Use 'train' or 'val'.")
 
     def __iter__(self):
         return self.example_generator()
 
     def example_generator(self):
-        with open(self.file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                data = json.loads(line)
-                if 'clean_dialogue' in data:
-                    conversation = data['clean_dialogue']
-                    input_texts, output_texts = self.preprocess_conversation(conversation)
-                    for input_text, output_text in zip(input_texts, output_texts):
-                        input_tokens = self.tokenizer(
-                            input_text,
-                            truncation=True,
-                            max_length=512,
-                        )
-                        output_tokens = self.tokenizer(
-                            output_text,
-                            truncation=True,
-                            max_length=128,
-                        )
-                        yield {
-                            'input_ids': input_tokens['input_ids'],
-                            'attention_mask': input_tokens['attention_mask'],
-                            'labels': output_tokens['input_ids'],
-                        }
+        for line in self._data_lines:
+            data = json.loads(line)
+            if 'clean_dialogue' in data:
+                conversation = data['clean_dialogue']
+                input_texts, output_texts = self.preprocess_conversation(conversation)
+                for input_text, output_text in zip(input_texts, output_texts):
+                    input_tokens = self.tokenizer(
+                        input_text,
+                        truncation=True,
+                        max_length=512,
+                    )
+                    output_tokens = self.tokenizer(
+                        output_text,
+                        truncation=True,
+                        max_length=128,
+                    )
+                    yield {
+                        'input_ids': input_tokens['input_ids'],
+                        'attention_mask': input_tokens['attention_mask'],
+                        'labels': output_tokens['input_ids'],
+                    }
 
     def preprocess_conversation(self, conversation):
         input_texts = []
@@ -62,6 +78,12 @@ class LazyConversationDataset(IterableDataset):
                         output_texts.append(output_text)
         return input_texts, output_texts
 
+
+file_path = './data/clean_dialogue_llama.jsonl'  
+train_dataset = LazyConversationDataset(file_path, tokenizer, split="train")
+val_dataset = LazyConversationDataset(file_path, tokenizer, split="val")
+
+
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
@@ -76,11 +98,7 @@ peft_config = LoraConfig(
 )
 model = get_peft_model(model, peft_config)
 
-file_path = './clean_dialogue_llama.jsonl'  
-train_dataset = LazyConversationDataset(file_path, tokenizer)
 
-from transformers import DataCollatorWithPadding
-import torch
 
 class CustomDataCollatorWithPadding(DataCollatorWithPadding):
     def __call__(self, features):
