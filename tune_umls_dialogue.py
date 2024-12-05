@@ -154,7 +154,8 @@ training_args = TrainingArguments(
     fsdp_config=fsdp_config,
     save_total_limit=5,
     report_to='wandb',
-    ddp_find_unused_parameters=False  
+    ddp_find_unused_parameters=False,
+    max_steps=10000
 )
 
 
