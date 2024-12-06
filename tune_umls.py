@@ -22,14 +22,16 @@ tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
 
-peft_config = LoraConfig(
-    task_type=TaskType.CAUSAL_LM,
-    inference_mode=False,
-    r=8,
-    lora_alpha=32,
-    lora_dropout=0.1
-)
-model = get_peft_model(model, peft_config)
+# peft_config = LoraConfig(
+#     task_type=TaskType.CAUSAL_LM,
+#     inference_mode=False,
+#     r=8,
+#     lora_alpha=32,
+#     lora_dropout=0.1
+# )
+# model = get_peft_model(model, peft_config)
+lora_weights_path = "JesseLiu/umls_dialogue"
+model = PeftModel.from_pretrained(model, lora_weights_path)
 
 
 class CustomQADataset(Dataset):
