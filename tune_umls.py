@@ -30,7 +30,7 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 #     lora_dropout=0.1
 # )
 # model = get_peft_model(model, peft_config)
-lora_weights_path = "JesseLiu/umls_dialogue"
+lora_weights_path = "JesseLiu/umls_mc"
 model = PeftModel.from_pretrained(model, lora_weights_path)
 
 
