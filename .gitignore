@@ -13,3 +13,5 @@ cleaned_dialogue.jsonl
 /lora4_meditron_7b_new/*
 /results/*
 /data/*
+/dialogue_llama_7bchat/*
+/llama_dialogue_ep2/*
