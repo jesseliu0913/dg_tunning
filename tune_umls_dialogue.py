@@ -10,7 +10,7 @@ from transformers import (
     Trainer,
     TrainingArguments,
 )
-from peft import PeftModel, LoraConfig, TaskType, PeftConfig
+from peft import PeftModel, LoraConfig, TaskType, PeftConfig, get_peft_model
 
 
 class ConversationDataset(Dataset):
