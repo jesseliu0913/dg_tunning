@@ -107,7 +107,7 @@ val_dataset = ConversationDataset(file_path, tokenizer, split="val")
 
 lora_weights_path = "JesseLiu/umls_dialogue"
 model = PeftModel.from_pretrained(model, lora_weights_path)
-
+model.train()
 
 
 class CustomDataCollatorWithPadding(DataCollatorWithPadding):
