@@ -111,6 +111,7 @@ class DPODataCollator:
         self.max_length = max_length
 
     def __call__(self, batch):
+        print(batch)
         prompts = batch["prompt"]
         chosens = batch["chosen"]
         rejecteds = batch["rejected"]
