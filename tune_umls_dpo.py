@@ -23,11 +23,11 @@ from trl import (
 )
 
 
-import json
-import random
 from datasets import Dataset
+import random
+import json
 
-class ConversationDataset(Dataset):
+class ConversationDataset:
     def __init__(self, file_path, tokenizer, data_split="train", val_split_ratio=0.1, seed=42):
         self.file_path = file_path
         self.tokenizer = tokenizer  
@@ -36,7 +36,9 @@ class ConversationDataset(Dataset):
         self.seed = seed
         self.examples = []
         self._prepare_data()
-        # self.dataset = Dataset.from_list(self.examples)
+
+        # Now create a Hugging Face Dataset from the examples list
+        self.dataset = Dataset.from_list(self.examples)
 
     def _prepare_data(self):
         with open(self.file_path, 'r', encoding='utf-8') as f:
@@ -75,7 +77,6 @@ class ConversationDataset(Dataset):
             line = conversation[i].strip()
             if line.startswith("Doctor:") and i > 0 and conversation[i-1].strip().startswith("Patient:"):
                 chosen_line = line[len("Doctor:"):].strip()
-
                 prompt = "\n".join(conversation[:i]).strip()
 
                 possible_rejects = [d for d in doctor_lines if d != conversation[i]]
@@ -91,14 +92,10 @@ class ConversationDataset(Dataset):
         return prompts, chosens, rejecteds
 
     def __len__(self):
-        return len(self.examples)
+        return len(self.dataset)
 
     def __getitem__(self, idx):
-        return self.examples[idx]
-
-    # def to_hf_dataset(self):
-    #     return self.dataset
-
+        return self.dataset[idx]
 
 
 
