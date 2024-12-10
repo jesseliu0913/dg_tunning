@@ -26,7 +26,7 @@ model = get_peft_model(model, peft_config)
 
 # Dataset preparation
 class PPOConversationDataset:
-    def __init__(self, file_path, tokenizer, max_length=512):
+    def __init__(self, file_path, tokenizer, max_length=1024):
         self.file_path = file_path
         self.tokenizer = tokenizer
         self.examples = []
