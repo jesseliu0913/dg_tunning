@@ -190,7 +190,7 @@ fsdp_config = {
     "fsdp_sharding_strategy": "FULL_SHARD",
 }
 
-training_args = TrainingArguments(
+training_args = DPOConfig(
     output_dir="./llama_dialogue_results",
     num_train_epochs=3,
     per_device_train_batch_size=8,
