@@ -130,7 +130,7 @@ data_collator = DPODataCollator(tokenizer=tokenizer)
 
 train_dataloader = DataLoader(
     dataset=train_dataset,
-    batch_size=2,
+    batch_size=1,
     shuffle=True,
     collate_fn=data_collator
 )
