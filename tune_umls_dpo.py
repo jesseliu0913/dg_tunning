@@ -132,7 +132,7 @@ file_path = './data/clean_dialogue_llama.jsonl'
 train_dataset = ConversationDataset(
     file_path=file_path,
     tokenizer=tokenizer,
-    split="train",
+    data_split="train",
     val_split_ratio=0.1,
     seed=42
 )
