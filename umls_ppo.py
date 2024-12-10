@@ -10,6 +10,13 @@ from trl import PPOTrainer, PPOConfig, set_seed
 import torch.nn.functional as F
 
 
+dist.init_process_group(backend='nccl', init_method='env://')
+torch.cuda.set_device(dist.get_rank() % torch.cuda.device_count())
+
+local_rank = dist.get_rank()
+world_size = dist.get_world_size()
+device = torch.device("cuda", local_rank)
+
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
@@ -103,11 +110,11 @@ ppo_trainer = PPOTrainer(
 
 set_seed(42)
 for epoch in range(3):  
+    # If using a DistributedSampler, you would call: sampler.set_epoch(epoch)
     for idx, (input_text, output_text) in enumerate(dataset):
+        inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True, padding="max_length").to(device)
+        labels = tokenizer(output_text, return_tensors="pt", max_length=512, truncation=True, padding="max_length").to(device)
 
-        inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True, padding="max_length")
-        labels = tokenizer(output_text, return_tensors="pt", max_length=512, truncation=True, padding="max_length")
-      
         with torch.no_grad():
             output_logits = model(**labels).logits
 
@@ -116,8 +123,13 @@ for epoch in range(3):
 
         reward = reward_fn_with_logits(output_logits, generated_logits)
 
-        ppo_trainer.step(inputs['input_ids'], response, torch.tensor([reward]))
-    
-    print(f"Epoch {epoch + 1} completed.")
+        ppo_trainer.step(inputs['input_ids'], response, torch.tensor([reward]).to(device))
 
-model.save_pretrained("ppo_dialogue_llama_umls")
+    if local_rank == 0:
+        print(f"Epoch {epoch + 1} completed.")
+
+if local_rank == 0:
+    with FSDP.state_dict_type(base_model, StateDictType.FULL_STATE_DICT, FullStateDictConfig(offload_to_cpu=True, rank0_only=True)):
+        full_state_dict = model.state_dict()
+        
+    torch.save(full_state_dict, "ppo_dialogue_llama_umls.pt")
