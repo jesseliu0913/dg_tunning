@@ -172,20 +172,6 @@ model = get_peft_model(model, peft_config)
 
 
 
-class CustomDataCollatorWithPadding(DataCollatorWithPadding):
-    def __call__(self, features):
-        labels = [feature['labels'] for feature in features]
-        features = [{k: v for k, v in feature.items() if k != 'labels'} for feature in features]
-        batch = super().__call__(features)
-        max_label_length = max(len(l) for l in labels)
-        padded_labels = torch.full((len(labels), max_label_length), -100)
-        for i, label in enumerate(labels):
-            padded_labels[i, :len(label)] = torch.tensor(label)
-        batch['labels'] = padded_labels
-        return batch
-
-data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
-
 
 fsdp_config = {
     "fsdp_min_num_params": 20000,
