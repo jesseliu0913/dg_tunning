@@ -36,6 +36,7 @@ class ConversationDataset(Dataset):
         self.seed = seed
         self.examples = []
         self._prepare_data()
+        self.dataset = Dataset.from_list(self.examples)
 
     def _prepare_data(self):
         with open(self.file_path, 'r', encoding='utf-8') as f:
