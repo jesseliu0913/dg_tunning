@@ -25,7 +25,7 @@ from trl import (
 
 import json
 import random
-from torch.utils.data import Dataset
+from datasets import Dataset
 
 class ConversationDataset(Dataset):
     def __init__(self, file_path, tokenizer, split="train", val_split_ratio=0.1, seed=42):
