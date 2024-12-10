@@ -36,7 +36,7 @@ class ConversationDataset(Dataset):
         self.seed = seed
         self.examples = []
         self._prepare_data()
-        self.dataset = Dataset.from_list(self.examples)
+        # self.dataset = Dataset.from_list(self.examples)
 
     def _prepare_data(self):
         with open(self.file_path, 'r', encoding='utf-8') as f:
@@ -224,8 +224,8 @@ training_args = DPOConfig(
 trainer = DPOTrainer(
     model=model,
     args=training_args,
-    train_dataset=hf_train_dataset,
-    eval_dataset=hf_val_dataset,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
     processing_class=tokenizer,
     data_collator=data_collator,
 )
