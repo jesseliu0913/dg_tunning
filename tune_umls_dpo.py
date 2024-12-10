@@ -114,7 +114,7 @@ class DPODataCollator:
             "rejected_attention_mask": tokenized_rejecteds["attention_mask"]
         }
 
-
+file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = ConversationDataset(
     file_path=file_path,
     tokenizer=tokenizer,
