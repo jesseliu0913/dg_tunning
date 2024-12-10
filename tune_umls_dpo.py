@@ -28,10 +28,10 @@ import random
 from datasets import Dataset
 
 class ConversationDataset(Dataset):
-    def __init__(self, file_path, tokenizer, split="train", val_split_ratio=0.1, seed=42):
+    def __init__(self, file_path, tokenizer, data_split="train", val_split_ratio=0.1, seed=42):
         self.file_path = file_path
         self.tokenizer = tokenizer  
-        self.split = split
+        self.split = data_split
         self.val_split_ratio = val_split_ratio
         self.seed = seed
         self.examples = []
