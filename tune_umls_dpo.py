@@ -95,6 +95,9 @@ class ConversationDataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
+    def to_hf_dataset(self):
+        return self.dataset
+
 
 
 
@@ -110,9 +113,6 @@ class DPODataCollator:
         prompts = [x["prompt"] for x in batch]
         chosens = [x["chosen"] for x in batch]
         rejecteds = [x["rejected"] for x in batch]
-        print("prompts", prompts)
-        print("chosens", chosens)
-        print("rejecteds", rejecteds)
 
         tokenized_prompts = self.tokenizer(prompts, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
         tokenized_chosens = self.tokenizer(chosens, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
@@ -155,6 +155,8 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
 val_dataset = ConversationDataset(file_path, tokenizer, split="val")
+hf_train_dataset = train_dataset.to_hf_dataset()
+hf_val_dataset = val_dataset.to_hf_dataset()
 
 
 
@@ -221,8 +223,8 @@ training_args = DPOConfig(
 trainer = DPOTrainer(
     model=model,
     args=training_args,
-    train_dataset=train_dataset,
-    eval_dataset=val_dataset,
+    train_dataset=hf_train_dataset,
+    eval_dataset=hf_val_dataset,
     processing_class=tokenizer,
     data_collator=data_collator,
 )
