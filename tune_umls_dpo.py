@@ -111,15 +111,15 @@ class DPODataCollator:
         self.max_length = max_length
 
     def __call__(self, batch):
-        print(batch)
-        prompts = [x["prompt"] for x in batch]
-        chosens = [x["chosen"] for x in batch]
-        rejecteds = [x["rejected"] for x in batch]
+        prompt_ids = torch.tensor([example["prompt_ids"] for example in batch], dtype=torch.long)
+        prompt_attention_mask = torch.tensor([example["prompt_attention_mask"] for example in batch], dtype=torch.long)
         
-        tokenized_prompts = self.tokenizer(prompts, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
-        tokenized_chosens = self.tokenizer(chosens, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
-        tokenized_rejecteds = self.tokenizer(rejecteds, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
-    
+        chosen_ids = torch.tensor([example["chosen_ids"] for example in batch], dtype=torch.long)
+        chosen_attention_mask = torch.tensor([example["chosen_attention_mask"] for example in batch], dtype=torch.long)
+        
+        rejected_ids = torch.tensor([example["rejected_ids"] for example in batch], dtype=torch.long)
+        rejected_attention_mask = torch.tensor([example["rejected_attention_mask"] for example in batch], dtype=torch.long)
+
         return {
             "prompt_ids": tokenized_prompts["input_ids"],
             "prompt_attention_mask": tokenized_prompts["attention_mask"],
