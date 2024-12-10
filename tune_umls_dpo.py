@@ -105,40 +105,33 @@ class ConversationDataset:
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
 
-# class DPODataCollator:
-#     def __init__(self, tokenizer, max_length=1024):
-#         self.tokenizer = tokenizer
-#         self.max_length = max_length
+class DPODataCollator:
+    def __init__(self, tokenizer, max_length=1024):
+        self.tokenizer = tokenizer
+        self.max_length = max_length
 
-#     def __call__(self, batch):
-#         prompt_ids = torch.tensor([example["prompt_ids"] for example in batch], dtype=torch.long)
-#         prompt_attention_mask = torch.tensor([example["prompt_attention_mask"] for example in batch], dtype=torch.long)
+    def __call__(self, batch):
+        prompts = [x["prompt"] for x in batch]
+        chosens = [x["chosen"] for x in batch]
+        rejecteds = [x["rejected"] for x in batch]
         
-#         chosen_ids = torch.tensor([example["chosen_ids"] for example in batch], dtype=torch.long)
-#         chosen_attention_mask = torch.tensor([example["chosen_attention_mask"] for example in batch], dtype=torch.long)
-        
-#         rejected_ids = torch.tensor([example["rejected_ids"] for example in batch], dtype=torch.long)
-#         rejected_attention_mask = torch.tensor([example["rejected_attention_mask"] for example in batch], dtype=torch.long)
+        tokenized_prompts = self.tokenizer(prompts, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
+        tokenized_chosens = self.tokenizer(chosens, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
+        tokenized_rejecteds = self.tokenizer(rejecteds, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
+    
+        return {
+            "prompt_input_ids": tokenized_prompts["input_ids"],
+            "prompt_attention_mask": tokenized_prompts["attention_mask"],
+            "chosen_input_ids": tokenized_chosens["input_ids"],
+            "chosen_attention_mask": tokenized_chosens["attention_mask"],
+            "rejected_input_ids": tokenized_rejecteds["input_ids"],
+            "rejected_attention_mask": tokenized_rejecteds["attention_mask"]
+        }
 
-#         return {
-#             "prompt_ids": tokenized_prompts["input_ids"],
-#             "prompt_attention_mask": tokenized_prompts["attention_mask"],
-#             "chosen_ids": tokenized_chosens["input_ids"],
-#             "chosen_attention_mask": tokenized_chosens["attention_mask"],
-#             "rejected_ids": tokenized_rejecteds["input_ids"],
-#             "rejected_attention_mask": tokenized_rejecteds["attention_mask"]
-#         }
 
-# file_path = './data/clean_dialogue_llama.jsonl'  
-# train_dataset = ConversationDataset(
-#     file_path=file_path,
-#     tokenizer=tokenizer,
-#     data_split="train",
-#     val_split_ratio=0.1,
-#     seed=42
-# )
+data_collator = DPODataCollator(tokenizer=tokenizer)
 
-# data_collator = DPODataCollator(tokenizer=tokenizer)
+
 
 # train_dataloader = DataLoader(
 #     dataset=train_dataset,
@@ -213,8 +206,8 @@ trainer = DPOTrainer(
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
-    processing_class=tokenizer,
-    # data_collator=data_collator,
+    # processing_class=tokenizer,
+    data_collator=data_collator,
 )
 
 
