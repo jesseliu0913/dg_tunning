@@ -128,94 +128,94 @@ class DPODataCollator:
             "rejected_attention_mask": tokenized_rejecteds["attention_mask"]
         }
 
-file_path = './data/clean_dialogue_llama.jsonl'  
-train_dataset = ConversationDataset(
-    file_path=file_path,
-    tokenizer=tokenizer,
-    data_split="train",
-    val_split_ratio=0.1,
-    seed=42
-)
+# file_path = './data/clean_dialogue_llama.jsonl'  
+# train_dataset = ConversationDataset(
+#     file_path=file_path,
+#     tokenizer=tokenizer,
+#     data_split="train",
+#     val_split_ratio=0.1,
+#     seed=42
+# )
 
 data_collator = DPODataCollator(tokenizer=tokenizer)
 
-train_dataloader = DataLoader(
-    dataset=train_dataset,
-    batch_size=2,
-    shuffle=True,
-    collate_fn=data_collator
+# train_dataloader = DataLoader(
+#     dataset=train_dataset,
+#     batch_size=2,
+#     shuffle=True,
+#     collate_fn=data_collator
+# )
+
+
+# for batch in train_dataloader:
+#     print(batch)
+#     break  
+    
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+
+file_path = './data/clean_dialogue_llama.jsonl'  
+train_dataset = ConversationDataset(file_path, tokenizer, data_split="train")
+val_dataset = ConversationDataset(file_path, tokenizer, data_split="val")
+# hf_train_dataset = train_dataset.to_hf_dataset()
+# hf_val_dataset = val_dataset.to_hf_dataset()
+
+
+
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(model, peft_config)
+
+
+
+
+fsdp_config = {
+    "fsdp_min_num_params": 20000,
+    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_sharding_strategy": "FULL_SHARD",
+}
+
+training_args = DPOConfig(
+    output_dir="./llama_dialogue_results",
+    num_train_epochs=3,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    logging_steps=100,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    ddp_backend='nccl',
+    fp16=False, 
+    bf16=True, 
+    fsdp='full_shard auto_wrap',
+    fsdp_config=fsdp_config,
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False,
 )
 
 
-for batch in train_dataloader:
-    print(batch)
-    break  
-    
-# model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
-
-# file_path = './data/clean_dialogue_llama.jsonl'  
-# train_dataset = ConversationDataset(file_path, tokenizer, data_split="train")
-# val_dataset = ConversationDataset(file_path, tokenizer, data_split="val")
-# # hf_train_dataset = train_dataset.to_hf_dataset()
-# # hf_val_dataset = val_dataset.to_hf_dataset()
+trainer = DPOTrainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    processing_class=tokenizer,
+    data_collator=data_collator,
+)
 
 
-
-# peft_config = LoraConfig(
-#     task_type=TaskType.CAUSAL_LM,
-#     inference_mode=False,
-#     r=8,
-#     lora_alpha=32,
-#     lora_dropout=0.1
-# )
-# model = get_peft_model(model, peft_config)
-
-
-
-
-# fsdp_config = {
-#     "fsdp_min_num_params": 20000,
-#     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-#     "fsdp_sharding_strategy": "FULL_SHARD",
-# }
-
-# training_args = DPOConfig(
-#     output_dir="./llama_dialogue_results",
-#     num_train_epochs=3,
-#     per_device_train_batch_size=8,
-#     per_device_eval_batch_size=8,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     logging_steps=100,
-#     learning_rate=2e-5,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     ddp_backend='nccl',
-#     fp16=False, 
-#     bf16=True, 
-#     fsdp='full_shard auto_wrap',
-#     fsdp_config=fsdp_config,
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False,
-# )
-
-
-# trainer = DPOTrainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     processing_class=tokenizer,
-#     data_collator=data_collator,
-# )
-
-
-# trainer.train()
-# trainer.save_model("dialogue_llama_umls_dpo")
+trainer.train()
+trainer.save_model("dialogue_llama_umls_dpo")
