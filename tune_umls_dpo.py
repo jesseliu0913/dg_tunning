@@ -97,6 +97,9 @@ class ConversationDataset:
     def __getitem__(self, idx):
         return self.dataset[idx]
 
+    def __getattr__(self, name):
+        return getattr(self.dataset, name)
+
 
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
