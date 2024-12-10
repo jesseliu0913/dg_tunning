@@ -111,6 +111,7 @@ class DPODataCollator:
         self.max_length = max_length
 
     def __call__(self, batch):
+        print(batch)
         prompts = [x["prompt"] for x in batch]
         chosens = [x["chosen"] for x in batch]
         rejecteds = [x["rejected"] for x in batch]
@@ -182,8 +183,8 @@ fsdp_config = {
 training_args = DPOConfig(
     output_dir="./llama_dialogue_results",
     num_train_epochs=3,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    per_device_train_batch_size=2,
+    per_device_eval_batch_size=2,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
