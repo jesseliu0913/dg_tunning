@@ -31,7 +31,7 @@ class ConversationDataset(Dataset):
     def __init__(self, file_path, tokenizer, data_split="train", val_split_ratio=0.1, seed=42):
         self.file_path = file_path
         self.tokenizer = tokenizer  
-        self.split = data_split
+        self.data_split = data_split
         self.val_split_ratio = val_split_ratio
         self.seed = seed
         self.examples = []
@@ -45,9 +45,9 @@ class ConversationDataset(Dataset):
         random.shuffle(lines)
         split_idx = int(len(lines) * self.val_split_ratio)
 
-        if self.split == "train":
+        if self.data_split == "train":
             lines = lines[split_idx:]
-        elif self.split == "val":
+        elif self.data_split == "val":
             lines = lines[:split_idx]
         else:
             raise ValueError("Invalid split value. Use 'train' or 'val'.")
