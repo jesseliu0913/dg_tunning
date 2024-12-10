@@ -92,7 +92,7 @@ tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
 
 class DPODataCollator:
-    def __init__(self, tokenizer, max_length=512):
+    def __init__(self, tokenizer, max_length=1024):
         self.tokenizer = tokenizer
         self.max_length = max_length
 
