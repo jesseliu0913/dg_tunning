@@ -134,10 +134,8 @@ train_dataloader = DataLoader(
 
 
 for batch in train_dataloader:
-    print("Prompt IDs Shape:", batch["prompt_ids"].shape)
-    print("Chosen IDs Shape:", batch["chosen_ids"].shape)
-    print("Rejected IDs Shape:", batch["rejected_ids"].shape)
-    break  #
+    print(batch)
+    break  
     
 # model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
