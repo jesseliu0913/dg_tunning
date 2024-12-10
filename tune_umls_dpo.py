@@ -206,8 +206,8 @@ trainer = DPOTrainer(
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
-    # processing_class=tokenizer,
-    data_collator=data_collator,
+    processing_class=tokenizer,
+    # data_collator=data_collator,
 )
 
 
