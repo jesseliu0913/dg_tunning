@@ -156,8 +156,8 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = ConversationDataset(file_path, tokenizer, data_split="train")
 val_dataset = ConversationDataset(file_path, tokenizer, data_split="val")
-hf_train_dataset = train_dataset.to_hf_dataset()
-hf_val_dataset = val_dataset.to_hf_dataset()
+# hf_train_dataset = train_dataset.to_hf_dataset()
+# hf_val_dataset = val_dataset.to_hf_dataset()
 
 
 
