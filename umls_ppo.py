@@ -10,16 +10,16 @@ from trl import PPOTrainer, PPOConfig, set_seed
 import torch.nn.functional as F
 
 
-dist.init_process_group(backend='nccl', init_method='env://')
-torch.cuda.set_device(dist.get_rank() % torch.cuda.device_count())
+# dist.init_process_group(backend='nccl', init_method='env://')
+# torch.cuda.set_device(dist.get_rank() % torch.cuda.device_count())
 
-local_rank = dist.get_rank()
-world_size = dist.get_world_size()
-device = torch.device("cuda", local_rank)
+# local_rank = dist.get_rank()
+# world_size = dist.get_world_size()
+# device = torch.device("cuda", local_rank)
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct", padding_side="left", trust_remote_code="True")
 
 
 peft_config = LoraConfig(
