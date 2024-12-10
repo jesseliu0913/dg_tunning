@@ -111,14 +111,14 @@ class DPODataCollator:
         self.max_length = max_length
 
     def __call__(self, batch):
-        prompts = [x["prompt"] for x in batch]
-        chosens = [x["chosen"] for x in batch]
-        rejecteds = [x["rejected"] for x in batch]
-
+        prompts = batch["prompt"]
+        chosens = batch["chosen"]
+        rejecteds = batch["rejected"]
+        
         tokenized_prompts = self.tokenizer(prompts, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
         tokenized_chosens = self.tokenizer(chosens, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
         tokenized_rejecteds = self.tokenizer(rejecteds, truncation=True, max_length=self.max_length, padding=True, return_tensors="pt")
-
+    
         return {
             "prompt_ids": tokenized_prompts["input_ids"],
             "prompt_attention_mask": tokenized_prompts["attention_mask"],
