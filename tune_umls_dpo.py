@@ -96,8 +96,8 @@ class ConversationDataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
-    def to_hf_dataset(self):
-        return self.dataset
+    # def to_hf_dataset(self):
+    #     return self.dataset
 
 
 
