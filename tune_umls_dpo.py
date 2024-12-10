@@ -117,106 +117,106 @@ class DPODataCollator:
             "rejected_attention_mask": tokenized_rejecteds["attention_mask"]
         }
 
-file_path = './data/clean_dialogue_llama.jsonl'  
-train_dataset = ConversationDataset(
-    file_path=file_path,
-    tokenizer=tokenizer,
-    split="train",
-    val_split_ratio=0.1,
-    seed=42
-)
+# file_path = './data/clean_dialogue_llama.jsonl'  
+# train_dataset = ConversationDataset(
+#     file_path=file_path,
+#     tokenizer=tokenizer,
+#     split="train",
+#     val_split_ratio=0.1,
+#     seed=42
+# )
 
 data_collator = DPODataCollator(tokenizer=tokenizer)
 
-train_dataloader = DataLoader(
-    dataset=train_dataset,
-    batch_size=1,
-    shuffle=True,
-    collate_fn=data_collator
+# train_dataloader = DataLoader(
+#     dataset=train_dataset,
+#     batch_size=1,
+#     shuffle=True,
+#     collate_fn=data_collator
+# )
+
+
+# for batch in train_dataloader:
+#     print(batch)
+#     break  
+    
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+
+file_path = './data/clean_dialogue_llama.jsonl'  
+train_dataset = ConversationDataset(file_path, tokenizer, split="train")
+val_dataset = ConversationDataset(file_path, tokenizer, split="val")
+
+
+
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(model, peft_config)
+
+
+
+class CustomDataCollatorWithPadding(DataCollatorWithPadding):
+    def __call__(self, features):
+        labels = [feature['labels'] for feature in features]
+        features = [{k: v for k, v in feature.items() if k != 'labels'} for feature in features]
+        batch = super().__call__(features)
+        max_label_length = max(len(l) for l in labels)
+        padded_labels = torch.full((len(labels), max_label_length), -100)
+        for i, label in enumerate(labels):
+            padded_labels[i, :len(label)] = torch.tensor(label)
+        batch['labels'] = padded_labels
+        return batch
+
+data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
+
+
+fsdp_config = {
+    "fsdp_min_num_params": 20000,
+    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_sharding_strategy": "FULL_SHARD",
+}
+
+training_args = TrainingArguments(
+    output_dir="./llama_dialogue_results",
+    num_train_epochs=3,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    logging_steps=100,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    ddp_backend='nccl',
+    fp16=False, 
+    bf16=True, 
+    fsdp='full_shard auto_wrap',
+    fsdp_config=fsdp_config,
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False,
 )
 
 
-for batch in train_dataloader:
-    print(batch)
-    break  
-    
-# model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
-
-# file_path = './data/clean_dialogue_llama.jsonl'  
-# train_dataset = ConversationDataset(file_path, tokenizer, split="train")
-# val_dataset = ConversationDataset(file_path, tokenizer, split="val")
-
+trainer = DPOTrainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    processing_class=tokenizer,
+    data_collator=data_collator,
+)
 
 
-# peft_config = LoraConfig(
-#     task_type=TaskType.CAUSAL_LM,
-#     inference_mode=False,
-#     r=8,
-#     lora_alpha=32,
-#     lora_dropout=0.1
-# )
-# model = get_peft_model(model, peft_config)
-
-
-
-# class CustomDataCollatorWithPadding(DataCollatorWithPadding):
-#     def __call__(self, features):
-#         labels = [feature['labels'] for feature in features]
-#         features = [{k: v for k, v in feature.items() if k != 'labels'} for feature in features]
-#         batch = super().__call__(features)
-#         max_label_length = max(len(l) for l in labels)
-#         padded_labels = torch.full((len(labels), max_label_length), -100)
-#         for i, label in enumerate(labels):
-#             padded_labels[i, :len(label)] = torch.tensor(label)
-#         batch['labels'] = padded_labels
-#         return batch
-
-# data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
-
-
-# fsdp_config = {
-#     "fsdp_min_num_params": 20000,
-#     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-#     "fsdp_sharding_strategy": "FULL_SHARD",
-# }
-
-# training_args = TrainingArguments(
-#     output_dir="./llama_dialogue_results",
-#     num_train_epochs=3,
-#     per_device_train_batch_size=8,
-#     per_device_eval_batch_size=8,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     logging_steps=100,
-#     learning_rate=2e-5,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     ddp_backend='nccl',
-#     fp16=False, 
-#     bf16=True, 
-#     fsdp='full_shard auto_wrap',
-#     fsdp_config=fsdp_config,
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False,
-# )
-
-
-# trainer = DPOTrainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     processing_class=tokenizer,
-#     data_collator=data_collator,
-# )
-
-
-# trainer.train()
-# trainer.save_model("dialogue_llama_umls_dpo")
+trainer.train()
+trainer.save_model("dialogue_llama_umls_dpo")
