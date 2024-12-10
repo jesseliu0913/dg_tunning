@@ -11,6 +11,16 @@ from transformers import (
     TrainingArguments,
 )
 from peft import PeftModel, LoraConfig, TaskType, PeftConfig, get_peft_model
+from trl import (
+    DPOConfig,
+    DPOTrainer,
+    ModelConfig,
+    ScriptArguments,
+    TrlParser,
+    get_kbit_device_map,
+    get_peft_config,
+    get_quantization_config,
+)
 
 
 import json
