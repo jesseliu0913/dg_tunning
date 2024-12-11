@@ -158,7 +158,7 @@ val_dataset = ConversationDataset(file_path, tokenizer, data_split="val")
 peft_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
     inference_mode=False,
-    r=8,
+    r=16,
     lora_alpha=32,
     lora_dropout=0.1
 )
@@ -175,20 +175,21 @@ fsdp_config = {
 
 training_args = DPOConfig(
     output_dir="./llama_dialogue_results",
-    num_train_epochs=3,
-    per_device_train_batch_size=4,
-    per_device_eval_batch_size=4,
+    num_train_epochs=5,
+    per_device_train_batch_size=2,
+    per_device_eval_batch_size=2,
     gradient_accumulation_steps=1,
-    evaluation_strategy="epoch",
+    evaluation_strategy="steps",
     max_prompt_length=512,
     max_completion_length=512,
     save_strategy="epoch",
-    logging_steps=100,
-    learning_rate=2e-5,
+    logging_steps=50,
+    learning_rate=3e-5,
     warmup_ratio=0.1,
+    warmup_steps=500,
     weight_decay=0.1,
     max_grad_norm=1.0,
-    lr_scheduler_type="cosine",
+    lr_scheduler_type="constant_with_warmup",
     adam_beta1=0.9,
     adam_beta2=0.95,
     adam_epsilon=1e-5,
