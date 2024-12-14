@@ -130,7 +130,7 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./llama_dialogue_results",
-    num_train_epochs=3,
+    num_train_epochs=2,
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
     gradient_accumulation_steps=2,
