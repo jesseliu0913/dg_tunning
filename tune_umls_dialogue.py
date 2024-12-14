@@ -26,6 +26,17 @@ class ConversationDataset(Dataset):
     def _prepare_data(self):
         with open(self.file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
+
+        random.seed(self.seed)
+        random.shuffle(lines)
+        split_idx = int(len(lines) * self.val_split_ratio)
+        if self.split == "train":
+            lines = lines[split_idx:]
+        elif self.split == "val":
+            lines = lines[:split_idx]
+        else:
+            raise ValueError("Invalid split value. Use 'train' or 'val'.")
+            
         for line in lines:
             data = json.loads(line)
             if 'clean_dialogue' in data:
