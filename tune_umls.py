@@ -13,6 +13,7 @@ from datasets import load_dataset
 
 trainset = load_dataset('GBaker/MedQA-USMLE-4-options', split='train')
 train_val_test_split = trainset.train_test_split(test_size=0.1, seed=42) 
+trainset = train_val_test_split['train'] 
 valset = train_val_test_split['test']
 testset = load_dataset('GBaker/MedQA-USMLE-4-options', split='test')
 
