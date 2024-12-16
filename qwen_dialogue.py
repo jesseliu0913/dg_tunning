@@ -87,9 +87,9 @@ class ConversationDataset(Dataset):
 
 
 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")
 
 file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
@@ -141,7 +141,7 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./qwen_dialogue_results",
-    num_train_epochs=3,
+    num_train_epochs=2,
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
     gradient_accumulation_steps=2,
@@ -178,4 +178,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("dialogue_qwen3b_umls")
+trainer.save_model("dialogue_qwen1.5b_umls")
