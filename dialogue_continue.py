@@ -98,7 +98,7 @@ class CustomDataCollatorWithPadding(DataCollatorWithPadding):
 
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-base_model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")
+base_model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
 
 file_path = './data/clean_dialogue_llama.jsonl'
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
