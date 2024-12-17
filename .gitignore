@@ -3,3 +3,6 @@
 /data/*
 /log/*
 /model_weight/*
+/llama_qa_results/*
+/llama8b_mc_ep3/*
+/mc_llama_8b/*
