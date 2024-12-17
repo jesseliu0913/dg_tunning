@@ -18,9 +18,9 @@ valset = train_val_test_split['test']
 testset = load_dataset('GBaker/MedQA-USMLE-4-options', split='test')
 
 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 
 
 peft_config = LoraConfig(
@@ -112,8 +112,8 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./qwen_qa_results",
-    num_train_epochs=2,
+    output_dir="./llama_qa_results",
+    num_train_epochs=3,
     per_device_train_batch_size=4,
     per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
@@ -152,5 +152,5 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("mc_qwen_3bchat")
+trainer.save_model("mc_llama_8b")
 
