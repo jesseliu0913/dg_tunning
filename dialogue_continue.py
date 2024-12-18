@@ -96,15 +96,15 @@ class CustomDataCollatorWithPadding(DataCollatorWithPadding):
         batch['labels'] = padded_labels
         return batch
 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 tokenizer.pad_token = tokenizer.eos_token
-base_model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B-Instruct")
+base_model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B-Instruct")
 
 file_path = './data/clean_dialogue_llama.jsonl'
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
 val_dataset = ConversationDataset(file_path, tokenizer, split="val")
 
-model = PeftModel.from_pretrained(base_model, "JesseLiu/qwen3b_dialogue")
+model = PeftModel.from_pretrained(base_model, "rellabear/dialogue_llama8b_umls")
 model.train()
 
 data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
@@ -116,8 +116,8 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./qwen_dialogue_results",
-    num_train_epochs=1,
+    output_dir="./llama_dialogue_results",
+    num_train_epochs=2,
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
     gradient_accumulation_steps=2,
@@ -135,8 +135,8 @@ training_args = TrainingArguments(
     ddp_backend='nccl',
     fp16=False,
     bf16=True,
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False,
@@ -152,4 +152,4 @@ trainer = Trainer(
 )
 
 trainer.train()
-trainer.save_model("dialogue_qwen3b_umls_updated")
+trainer.save_model("dialogue_llama8b_umls_5ep")
