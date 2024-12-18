@@ -141,14 +141,15 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./qwen_dialogue_results",
-    num_train_epochs=2,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    num_train_epochs=5,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     logging_steps=100,
-    learning_rate=2e-5,
+    # learning_rate=2e-5,
+    learning_rate=5e-5, # for qwen 1.5b, epoch 5
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -159,8 +160,8 @@ training_args = TrainingArguments(
     ddp_backend='nccl',
     fp16=False, 
     bf16=True, 
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False,
@@ -178,4 +179,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("dialogue_qwen1.5b_umls")
+trainer.save_model("dialogue_qwen1.5b_umls_5ep")
