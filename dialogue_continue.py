@@ -9,7 +9,7 @@ from transformers import (
     Trainer,
     TrainingArguments,
 )
-from peft import PeftModel
+from peft import PeftModel, LoraConfig, TaskType, PeftConfig, get_peft_model
 
 class ConversationDataset(Dataset):
     def __init__(self, file_path, tokenizer, split="train", val_split_ratio=0.1, seed=42):
@@ -104,8 +104,18 @@ file_path = './data/clean_dialogue_llama.jsonl'
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
 val_dataset = ConversationDataset(file_path, tokenizer, split="val")
 
-model = PeftModel.from_pretrained(base_model, "rellabear/dialogue_llama8b_umls")
-model.train()
+lora_model = PeftModel.from_pretrained(base_model, "rellabear/dialogue_llama8b_umls")
+previous_model = lora_model.merge_and_unload()
+# model.train()
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(previous_model, peft_config)
+
 
 data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
 
