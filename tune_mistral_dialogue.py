@@ -142,8 +142,8 @@ fsdp_config = {
 training_args = TrainingArguments(
     output_dir="./model_weight/mistral_dialogue_results",
     num_train_epochs=5,
-    per_device_train_batch_size=12,
-    per_device_eval_batch_size=12,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
@@ -179,3 +179,5 @@ trainer = Trainer(
 
 trainer.train()
 trainer.save_model("./model_weight/dialogue_mistral_umls")
+
+# CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
