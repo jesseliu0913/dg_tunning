@@ -97,14 +97,14 @@ val_dataset = ConversationDataset(file_path, tokenizer, split="val")
 
 
 
-peft_config = LoraConfig(
-    task_type=TaskType.CAUSAL_LM,
-    inference_mode=False,
-    r=8,
-    lora_alpha=32,
-    lora_dropout=0.1
-)
-model = get_peft_model(model, peft_config)
+# peft_config = LoraConfig(
+#     task_type=TaskType.CAUSAL_LM,
+#     inference_mode=False,
+#     r=8,
+#     lora_alpha=32,
+#     lora_dropout=0.1
+# )
+# model = get_peft_model(model, peft_config)
 
 # lora_weights_path = "JesseLiu/umls_dialogue"
 # model = PeftModel.from_pretrained(model, lora_weights_path)
@@ -140,15 +140,15 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./qwen_dialogue_results",
-    num_train_epochs=2,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    output_dir="./qwen_dialogue_results_fully",
+    num_train_epochs=5,
+    per_device_train_batch_size=4,
+    per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     logging_steps=100,
-    learning_rate=2e-5,
+    learning_rate=2e-4,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -159,8 +159,8 @@ training_args = TrainingArguments(
     ddp_backend='nccl',
     fp16=False, 
     bf16=True, 
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False,
@@ -178,4 +178,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("dialogue_qwen1.5b_umls")
+trainer.save_model("dialogue_qwen1.5b_umls_fully")

@@ -107,21 +107,22 @@ data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', 
 
 fsdp_config = {
     "fsdp_min_num_params": 20000,
-    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    # "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+    "fsdp_transformer_layer_cls_to_wrap": "Qwen2DecoderLayer",
     "fsdp_sharding_strategy": "FULL_SHARD",
 }
 
 training_args = TrainingArguments(
-    output_dir="./llama_qa_results",
-    num_train_epochs=3,
-    per_device_train_batch_size=4,
-    per_device_eval_batch_size=4,
+    output_dir="./qwen_mc_results",
+    num_train_epochs=5,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     # save_steps=0.4,
     logging_steps=100,
-    learning_rate=2e-5,
+    learning_rate=2e-4,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -152,5 +153,5 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("mc_llama_8b")
+trainer.save_model("mc_qwen1.5b")
 

@@ -1,180 +1,16 @@
-W1216 07:17:25.839000 93344 site-packages/torch/distributed/run.py:793] 
-W1216 07:17:25.839000 93344 site-packages/torch/distributed/run.py:793] *****************************************
-W1216 07:17:25.839000 93344 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W1216 07:17:25.839000 93344 site-packages/torch/distributed/run.py:793] *****************************************
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.10s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.74s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.76s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.77s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.80s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.82s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 15.75s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.81s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.98s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 15.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.00s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 15.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.01s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 16.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.01s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 15.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.02s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 15.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.02s/it]
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 205, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 106, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 160, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 96: './dialogue_qwen3b_umls'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/mnt/dg_tunning/dialogue_continue.py", line 107, in <module>
-    model = PeftModel.from_pretrained(model, "./dialogue_qwen3b_umls")
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/peft_model.py", line 484, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/peft/config.py", line 211, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at './dialogue_qwen3b_umls'
-W1216 07:22:23.064000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93409 closing signal SIGTERM
-W1216 07:22:23.065000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93410 closing signal SIGTERM
-W1216 07:22:23.082000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93411 closing signal SIGTERM
-W1216 07:22:23.084000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93413 closing signal SIGTERM
-W1216 07:22:23.089000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93414 closing signal SIGTERM
-W1216 07:22:23.093000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 93415 closing signal SIGTERM
-E1216 07:22:24.181000 93344 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 3 (pid: 93412) of binary: /root/miniconda3/envs/meditron/bin/python
-Traceback (most recent call last):
-  File "/root/miniconda3/envs/meditron/bin/torchrun", line 8, in <module>
-    sys.exit(main())
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
-    return f(*args, **kwargs)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
-    run(args)
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
-    elastic_launch(
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/root/miniconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-dialogue_continue.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2024-12-16_07:22:23
-  host      : 3f2e085cdcba
-  rank      : 3 (local_rank: 3)
-  exitcode  : 1 (pid: 93412)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
+W1218 23:57:08.942000 3653575 site-packages/torch/distributed/run.py:793] 
+W1218 23:57:08.942000 3653575 site-packages/torch/distributed/run.py:793] *****************************************
+W1218 23:57:08.942000 3653575 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1218 23:57:08.942000 3653575 site-packages/torch/distributed/run.py:793] *****************************************
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
