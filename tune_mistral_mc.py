@@ -153,3 +153,5 @@ trainer = Trainer(
 
 trainer.train()
 trainer.save_model("mistral7b_mc")
+
+# CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 tune_mistral_mc.py > ./log/mc.log 2>&1 &
