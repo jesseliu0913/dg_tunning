@@ -47,12 +47,12 @@ class ConversationDataset(Dataset):
                     inputs = self.tokenizer(
                         full_text,
                         truncation=True,
-                        max_length=512,
+                        max_length=1024,
                     )
                     input_tokens = self.tokenizer(
                         input_text,
                         truncation=True,
-                        max_length=512,
+                        max_length=1024,
                     )
                     input_length = len(input_tokens['input_ids'])
                     labels = inputs['input_ids'].copy()
@@ -141,14 +141,14 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./model_weight/mistral_dialogue_results",
-    num_train_epochs=5,
-    per_device_train_batch_size=12,
-    per_device_eval_batch_size=12,
+    num_train_epochs=3,
+    per_device_train_batch_size=6,
+    per_device_eval_batch_size=6,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     logging_steps=100,
-    learning_rate=5e-4,
+    learning_rate=1e-4,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
