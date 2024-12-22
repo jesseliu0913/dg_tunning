@@ -96,7 +96,6 @@ train_dataset = ConversationDataset(file_path, tokenizer, split="train")
 val_dataset = ConversationDataset(file_path, tokenizer, split="val")
 
 
-
 peft_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
     inference_mode=False,
@@ -142,13 +141,13 @@ fsdp_config = {
 training_args = TrainingArguments(
     output_dir="./model_weight/mistral_dialogue_results",
     num_train_epochs=3,
-    per_device_train_batch_size=6,
-    per_device_eval_batch_size=6,
-    gradient_accumulation_steps=2,
+    per_device_train_batch_size=2,
+    per_device_eval_batch_size=2,
+    gradient_accumulation_steps=6,
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    logging_steps=100,
-    learning_rate=1e-4,
+    logging_steps=10,
+    learning_rate=5e-5,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -157,8 +156,8 @@ training_args = TrainingArguments(
     adam_beta2=0.95,
     adam_epsilon=1e-5,
     ddp_backend='nccl',
-    fp16=False, 
-    bf16=True, 
+    fp16=True, 
+    bf16=False, 
     fsdp='full_shard auto_wrap',
     fsdp_config=fsdp_config,
     save_total_limit=5,
@@ -180,4 +179,4 @@ trainer = Trainer(
 trainer.train()
 trainer.save_model("./model_weight/dialogue_mistral_umls")
 
-# CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
+# CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=29501 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
