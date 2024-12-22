@@ -36,7 +36,7 @@ model = get_peft_model(model, peft_config)
 
 
 class CustomQADataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=512):
+    def __init__(self, data, tokenizer, max_length=1024):
         self.tokenizer = tokenizer
         self.data = data
         self.max_length = max_length
@@ -113,15 +113,15 @@ fsdp_config = {
 
 training_args = TrainingArguments(
     output_dir="./mistral_mc_results",
-    num_train_epochs=5,
-    per_device_train_batch_size=16,
-    per_device_eval_batch_size=16,
-    gradient_accumulation_steps=2,
+    num_train_epochs=1,
+    per_device_train_batch_size=2,
+    per_device_eval_batch_size=2,
+    gradient_accumulation_steps=6,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     # save_steps=0.4,
-    logging_steps=100,
-    learning_rate=5e-4,
+    logging_steps=10,
+    learning_rate=5e-5,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -130,8 +130,8 @@ training_args = TrainingArguments(
     adam_beta2=0.95,
     adam_epsilon=1e-5,
     ddp_backend='nccl',
-    fp16=False, 
-    bf16=True, 
+    fp16=True, 
+    bf16=False, 
     fsdp='full_shard auto_wrap',
     fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",
