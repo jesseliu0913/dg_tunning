@@ -142,7 +142,7 @@ training_args = TrainingArguments(
     output_dir="./mistral_dialogue_results",
     num_train_epochs=3,
     per_device_train_batch_size=4,
-    per_device_eval_batch_size4,
+    per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
