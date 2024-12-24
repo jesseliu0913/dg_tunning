@@ -179,4 +179,4 @@ trainer = Trainer(
 trainer.train()
 trainer.save_model("./dialogue_mistral_umls")
 
-# CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=29501 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
+# CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 torchrun --nproc_per_node=4 --master_port=29501 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
