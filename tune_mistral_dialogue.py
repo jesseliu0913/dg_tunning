@@ -1,3 +1,4 @@
+import os
 import json
 import torch
 import random
@@ -87,9 +88,9 @@ class ConversationDataset(Dataset):
 
 
 
-tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.3")
+tokenizer = AutoTokenizer.from_pretrained("mistralai/Ministral-8B-Instruct-2410")
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.3")
+model = AutoModelForCausalLM.from_pretrained("mistralai/Ministral-8B-Instruct-2410")
 
 file_path = './data/clean_dialogue_llama.jsonl'  
 train_dataset = ConversationDataset(file_path, tokenizer, split="train")
@@ -139,10 +140,10 @@ fsdp_config = {
 }
 
 training_args = TrainingArguments(
-    output_dir="./mistral_dialogue_results",
+    output_dir="./mistral_dialogue8B_results",
     num_train_epochs=3,
     per_device_train_batch_size=4,
-    per_device_eval_batch_size4,
+    per_device_eval_batch_size=4,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
@@ -177,6 +178,6 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model("./dialogue_mistral_umls")
+trainer.save_model("./dialogue_mistral8B_umls")
 
-# CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 torchrun --nproc_per_node=4 --master_port=29501 tune_mistral_dialogue.py > ./log/dialogue.log 2>&1 &
+# CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master-port 29501 tune_mistral_dialogue.py > ./log/dialogue8B.log 2>&1 &
