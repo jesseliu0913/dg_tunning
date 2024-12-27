@@ -1,3 +1,4 @@
 /tune_context/data/*
 /tune_context/logs/*
+/tune_context/wandb/*
 /tune_context/model_weights/*
