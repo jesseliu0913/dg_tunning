@@ -1,5 +1,5 @@
 /wandb/*
 /results/*
-/data/*
+/exp1/data/*
 /log/*
 /model_weight/*
