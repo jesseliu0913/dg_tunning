@@ -1,0 +1,16 @@
+{"time":"2024-12-26T21:37:17.701614767-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-26T21:37:17.701659667-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/jesse/dg_tunning/exp2/tune_context/wandb/run-20241226_213717-tfwymvi7/logs/debug-core.log"}
+{"time":"2024-12-26T21:37:17.921508766-05:00","level":"INFO","msg":"created new stream","id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:17.921623736-05:00","level":"INFO","msg":"stream: started","id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:17.921618566-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:17.921664686-05:00","level":"INFO","msg":"sender: started","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:17.921803856-05:00","level":"INFO","msg":"handler: started","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:18.134727879-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-26T21:37:19.260838045-05:00","level":"INFO","msg":"stream: closing","id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:19.260951425-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-26T21:37:19.261549875-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-26T21:37:19.574624423-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-26T21:37:19.68774217-05:00","level":"INFO","msg":"handler: closed","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:19.68782677-05:00","level":"INFO","msg":"sender: closed","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:19.6877953-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tfwymvi7"}
+{"time":"2024-12-26T21:37:19.68802783-05:00","level":"INFO","msg":"stream: closed","id":"tfwymvi7"}

@@ -1,0 +1,8 @@
+{"time":"2024-12-26T21:49:11.818402257-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-26T21:49:11.818458107-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/jesse/dg_tunning/exp2/tune_context/wandb/run-20241226_214911-rig4sdfb/logs/debug-core.log"}
+{"time":"2024-12-26T21:49:12.039448811-05:00","level":"INFO","msg":"created new stream","id":"rig4sdfb"}
+{"time":"2024-12-26T21:49:12.039581911-05:00","level":"INFO","msg":"stream: started","id":"rig4sdfb"}
+{"time":"2024-12-26T21:49:12.039669121-05:00","level":"INFO","msg":"sender: started","stream_id":"rig4sdfb"}
+{"time":"2024-12-26T21:49:12.039722341-05:00","level":"INFO","msg":"handler: started","stream_id":"rig4sdfb"}
+{"time":"2024-12-26T21:49:12.039674491-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"rig4sdfb"}
+{"time":"2024-12-26T21:49:12.241929568-05:00","level":"INFO","msg":"Starting system monitor"}

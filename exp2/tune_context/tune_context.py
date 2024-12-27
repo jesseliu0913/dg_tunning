@@ -1,3 +1,4 @@
+import os
 import torch
 import argparse
 from torch.utils.data import Dataset, DataLoader
@@ -13,9 +14,9 @@ from datasets import load_dataset
 
 
 parser = argparse.ArgumentParser(description="Casual Tuning based on case report")
-parser.add_argument("--model", type=int, default=None, help="Set model weights")
+parser.add_argument("--model", type=str, default=None, help="Set model weights")
 parser.add_argument("--epoch", type=int, default=3, help="Set Epoch")
-parser.add_argument("--task", type=int, default="llama3.2", help="Set Task Name")
+parser.add_argument("--task", type=str, default="llama3.2", help="Set Task Name")
 parser.add_argument("--batch_size", type=int, default=4, help="Set Batch Size")
 parser.add_argument("--learning_rate", type=float, default=1e-5, help="Set Learning Rate")
 
@@ -103,10 +104,12 @@ for batch in train_dataloader:
 #     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
 #     "fsdp_sharding_strategy": "FULL_SHARD",
 # }
-
+folder_path = "./model_weights"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 
 training_args = TrainingArguments(
-    output_dir=f"{args.task}_inter",
+    output_dir=f"{folder_path}/{args.task}_inter",
     num_train_epochs=args.epoch,
     per_device_train_batch_size=args.batch_size,
     per_device_eval_batch_size=args.batch_size,
@@ -146,4 +149,4 @@ trainer = Trainer(
 
 
 trainer.train()
-trainer.save_model(f"{args.task}_final")
+trainer.save_model(f"{folder_path}/{args.task}_final")

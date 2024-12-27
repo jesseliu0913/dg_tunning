@@ -2,7 +2,7 @@
 export NCCL_P2P_DISABLE=1
 
 LOG_FOLDER="./logs"
-LOG_FILE="$LOG_FOLDER/tune_context.log"
+LOG_FILE="$LOG_FOLDER/tune_context.llama31"
 
 if [ ! -d "$LOG_FOLDER" ]; then
     echo "Log folder does not exist. Creating one..."
@@ -12,8 +12,8 @@ else
 fi
 
 CUDA_VISIBLE_DEVICES=0,1,2,3 nohup torchrun --nproc_per_node=4 tune_context.py \
-    --model "meta-llama/Llama-3.2-3B-Instruct" \
-    --epoch 2 \
-    --task "llama3.2" \
+    --model "meta-llama/Llama-3.1-8B-Instruct" \
+    --epoch 3 \
+    --task "llama3.1" \
     --batch_size 4 \
-    --learning_rate 5e-5 > "$LOG_FILE" 2>&1 &
+    --learning_rate 5e-4 > "$LOG_FILE" 2>&1 &

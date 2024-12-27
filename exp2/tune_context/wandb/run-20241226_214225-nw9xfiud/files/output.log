@@ -1,0 +1,3 @@
+  0%|          | 0/404 [00:00<?, ?it/s]/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: cuDNN SDPA backward got grad_output.strides() != output.strides(), attempting to materialize a grad_output with matching strides... (Triggered internally at ../aten/src/ATen/native/cudnn/MHA.cpp:674.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  0%|          | 1/404 [00:03<21:36,  3.22s/it]

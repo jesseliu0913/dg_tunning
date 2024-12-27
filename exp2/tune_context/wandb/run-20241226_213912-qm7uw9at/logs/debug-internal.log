@@ -1,0 +1,16 @@
+{"time":"2024-12-26T21:39:12.572244917-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-26T21:39:12.572273037-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/jesse/dg_tunning/exp2/tune_context/wandb/run-20241226_213912-qm7uw9at/logs/debug-core.log"}
+{"time":"2024-12-26T21:39:12.790820123-05:00","level":"INFO","msg":"created new stream","id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:12.790897073-05:00","level":"INFO","msg":"stream: started","id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:12.790977563-05:00","level":"INFO","msg":"handler: started","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:12.790999763-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:12.791060483-05:00","level":"INFO","msg":"sender: started","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:12.998474699-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-26T21:39:14.450942862-05:00","level":"INFO","msg":"stream: closing","id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:14.451013132-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-26T21:39:14.452141661-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-26T21:39:14.80615543-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-26T21:39:14.935011447-05:00","level":"INFO","msg":"handler: closed","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:14.935055567-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:14.935096717-05:00","level":"INFO","msg":"sender: closed","stream_id":"qm7uw9at"}
+{"time":"2024-12-26T21:39:14.935270987-05:00","level":"INFO","msg":"stream: closed","id":"qm7uw9at"}
