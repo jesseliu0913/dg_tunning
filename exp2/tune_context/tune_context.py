@@ -98,12 +98,11 @@ for batch in train_dataloader:
     break
 """
 
-
-fsdp_config = {
-    "fsdp_min_num_params": 20000,
-    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-    "fsdp_sharding_strategy": "FULL_SHARD",
-}
+# fsdp_config = {
+#     "fsdp_min_num_params": 20000,
+#     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
+#     "fsdp_sharding_strategy": "FULL_SHARD",
+# }
 
 
 training_args = TrainingArguments(
@@ -127,8 +126,8 @@ training_args = TrainingArguments(
     ddp_backend='nccl',
     fp16=False, 
     bf16=True, 
-    fsdp='full_shard auto_wrap',
-    fsdp_config=fsdp_config,
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",
     save_total_limit=5,
     report_to='wandb',
