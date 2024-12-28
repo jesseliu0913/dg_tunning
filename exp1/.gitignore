@@ -1,4 +1,4 @@
-/tune_dialogue/ata/*
+/tune_dialogue/data/*
 /log/*
 /model_weight/*
 /wandb/*
