@@ -1,0 +1,4 @@
+/data/*
+/log/*
+/model_weight/*
+/wandb/*

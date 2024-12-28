@@ -15,6 +15,6 @@ CUDA_VISIBLE_DEVICES=4,6,7 nohup torchrun --nproc_per_node=3 tune_context.py \
     --model "Qwen/Qwen2.5-3B-Instruct" \
     --epoch 2 \
     --task "qwen2.5" \
-    --batch_size 4 \
+    --batch_size 2 \
     --learning_rate 5e-5 > "$LOG_FILE" 2>&1 &
 

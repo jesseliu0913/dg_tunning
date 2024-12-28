@@ -2,3 +2,8 @@
 /tune_context/logs/*
 /tune_context/wandb/*
 /tune_context/model_weights/*
+
+/tune_dialogue/data/*
+/tune_dialogue/logs/*
+/tune_dialogue/wandb/*
+/tune_dialogue/model_weights/*

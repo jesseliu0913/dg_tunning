@@ -18,13 +18,14 @@ parser.add_argument("--model", type=str, default=None, help="Set model weights")
 parser.add_argument("--epoch", type=int, default=3, help="Set Epoch")
 parser.add_argument("--task", type=str, default="llama3.2", help="Set Task Name")
 parser.add_argument("--batch_size", type=int, default=4, help="Set Batch Size")
+parser.add_argument("--max_length", type=int, default=2048, help="Set max_length")
 parser.add_argument("--learning_rate", type=float, default=1e-5, help="Set Learning Rate")
 
 args = parser.parse_args()
 
 
 dataset = load_dataset('json', data_files='./data/raw_case.jsonl')['train']
-train_val_test_split = dataset.train_test_split(test_size=0.2, seed=42) 
+train_val_test_split = dataset.train_test_split(test_size=0.1, seed=42) 
 trainset = train_val_test_split['train']
 valset = train_val_test_split['test']
 
@@ -68,8 +69,8 @@ class CustomQADataset(Dataset):
         return tokenized_input
 
 
-train_dataset = CustomQADataset(trainset, tokenizer)
-val_dataset = CustomQADataset(valset, tokenizer)
+train_dataset = CustomQADataset(trainset, tokenizer, max_length=args.max_length)
+val_dataset = CustomQADataset(valset, tokenizer, max_length=args.max_length)
 
 
 data_collator = DataCollatorForLanguageModeling(

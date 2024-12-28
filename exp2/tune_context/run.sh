@@ -11,9 +11,9 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 nohup torchrun --nproc_per_node=4 tune_context.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3 nohup torchrun --master_port=29501 --nproc_per_node=4 tune_context.py \
     --model "meta-llama/Llama-3.2-3B-Instruct" \
     --epoch 2 \
     --task "llama3.2" \
-    --batch_size 4 \
+    --batch_size 2 \
     --learning_rate 5e-5 > "$LOG_FILE" 2>&1 &
