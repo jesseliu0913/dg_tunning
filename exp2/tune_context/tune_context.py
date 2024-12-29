@@ -32,7 +32,7 @@ valset = train_val_test_split['test']
 tokenizer = AutoTokenizer.from_pretrained(args.model)
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained(args.model)
-
+model.gradient_checkpointing_enable()  
 
 peft_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
@@ -42,7 +42,7 @@ peft_config = LoraConfig(
     lora_dropout=0.1
 )
 model = get_peft_model(model, peft_config)
-
+model.print_trainable_parameters()
 
 class CustomQADataset(Dataset):
     def __init__(self, data, tokenizer, max_length=2048):
@@ -114,22 +114,23 @@ training_args = TrainingArguments(
     num_train_epochs=args.epoch,
     per_device_train_batch_size=args.batch_size,
     per_device_eval_batch_size=args.batch_size,
-    gradient_accumulation_steps=2,
+    gradient_accumulation_steps=6,
+    gradient_checkpointing=True,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     # save_steps=0.4,
-    logging_steps=100,
+    logging_steps=10,
     learning_rate=args.learning_rate,
     warmup_ratio=0.1,
-    weight_decay=0.1,
-    max_grad_norm=1.0,
+    weight_decay=0.01,
+    max_grad_norm=0.5,
     lr_scheduler_type="cosine",
     adam_beta1=0.9,
-    adam_beta2=0.95,
+    adam_beta2=0.999,
     adam_epsilon=1e-5,
     ddp_backend='nccl',
-    fp16=False, 
-    bf16=True, 
+    fp16=True, 
+    bf16=False, 
     # fsdp='full_shard auto_wrap',
     # fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",

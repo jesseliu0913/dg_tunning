@@ -1,4 +1,5 @@
 /tune_dialogue/data/*
+/tune_dialogue/wandb/*
 /log/*
 /model_weight/*
 /wandb/*
