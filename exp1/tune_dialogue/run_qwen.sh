@@ -11,7 +11,7 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=4,5,6,7 nohup torchrun --nproc_per_node=4 tune_umls_dialogue.py \
+CUDA_VISIBLE_DEVICES=4 nohup torchrun --nproc_per_node=1 tune_umls_dialogue.py \
     --model "Qwen/Qwen2.5-3B-Instruct" \
     --epoch 2 \
     --task "qwen2.5" \

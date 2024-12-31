@@ -1,56 +1,126 @@
-W1228 20:50:50.974000 588872 site-packages/torch/distributed/run.py:793] 
-W1228 20:50:50.974000 588872 site-packages/torch/distributed/run.py:793] *****************************************
-W1228 20:50:50.974000 588872 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W1228 20:50:50.974000 588872 site-packages/torch/distributed/run.py:793] *****************************************
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.60s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.57s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:20,  6.87s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:20,  6.83s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.39s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.43s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:13<00:13,  6.54s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:13<00:12,  6.47s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.46s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.49s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.55s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:06,  6.73s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  4.58s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.27s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  4.56s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.29s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  4.60s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.34s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  4.73s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.41s/it]
+W1230 23:26:48.160000 1712486 site-packages/torch/distributed/run.py:793] 
+W1230 23:26:48.160000 1712486 site-packages/torch/distributed/run.py:793] *****************************************
+W1230 23:26:48.160000 1712486 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1230 23:26:48.160000 1712486 site-packages/torch/distributed/run.py:793] *****************************************
+current model is: meta-llama/Llama-3.1-8B-Instruct
+current model is: meta-llama/Llama-3.1-8B-Instruct
+current model is: meta-llama/Llama-3.1-8B-Instruct
+current model is: meta-llama/Llama-3.1-8B-Instruct
+Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:  25%|██▌       | 1/4 [01:58<05:54, 118.33s/it]Downloading shards:  25%|██▌       | 1/4 [01:58<05:55, 118.34s/it]Downloading shards:  25%|██▌       | 1/4 [01:58<05:55, 118.34s/it]Downloading shards:  25%|██▌       | 1/4 [01:58<05:55, 118.37s/it]Downloading shards:  50%|█████     | 2/4 [03:57<03:57, 118.95s/it]Downloading shards:  50%|█████     | 2/4 [03:57<03:57, 118.96s/it]Downloading shards:  50%|█████     | 2/4 [03:57<03:57, 118.96s/it]Downloading shards:  50%|█████     | 2/4 [03:57<03:57, 118.98s/it]Downloading shards:  75%|███████▌  | 3/4 [05:54<01:58, 118.12s/it]Downloading shards:  75%|███████▌  | 3/4 [05:54<01:58, 118.13s/it]Downloading shards:  75%|███████▌  | 3/4 [05:54<01:58, 118.12s/it]Downloading shards:  75%|███████▌  | 3/4 [05:54<01:58, 118.13s/it]Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 82.37s/it] Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 95.60s/it]
+Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 82.36s/it] Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 95.60s/it]
+Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 82.36s/it] Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 95.60s/it]
+Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 82.37s/it] Downloading shards: 100%|██████████| 4/4 [06:22<00:00, 95.61s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:16,  5.43s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:16,  5.44s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:16,  5.52s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:11<00:11,  5.64s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:11<00:11,  5.65s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:11<00:11,  5.70s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.02s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:16<00:05,  5.65s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:16<00:05,  5.67s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:17<00:05,  5.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:05,  5.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  3.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.57s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  3.98s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.58s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.61s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.21s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.90s/it]
 /home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
   warnings.warn(
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-When using FSDP full shard, instead of using `gradient_checkpointing` in TrainingArguments, please use `activation_checkpointing` in `fsdp_config`. The former introduces a redundant AllGather operation in backward pass. Reference: https://github.com/huggingface/transformers/issues/30404
-/playpen/xinyu/jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-When using FSDP full shard, instead of using `gradient_checkpointing` in TrainingArguments, please use `activation_checkpointing` in `fsdp_config`. The former introduces a redundant AllGather operation in backward pass. Reference: https://github.com/huggingface/transformers/issues/30404
-/playpen/xinyu/jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-When using FSDP full shard, instead of using `gradient_checkpointing` in TrainingArguments, please use `activation_checkpointing` in `fsdp_config`. The former introduces a redundant AllGather operation in backward pass. Reference: https://github.com/huggingface/transformers/issues/30404
-/playpen/xinyu/jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:202: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
 /home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
   warnings.warn(
-When using FSDP full shard, instead of using `gradient_checkpointing` in TrainingArguments, please use `activation_checkpointing` in `fsdp_config`. The former introduces a redundant AllGather operation in backward pass. Reference: https://github.com/huggingface/transformers/issues/30404
-/playpen/xinyu/jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:202: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
-wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
-`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
-`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
-`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
-wandb: Currently logged in as: l-zijie. Use `wandb login --relogin` to force relogin
-wandb: Tracking run with wandb version 0.19.1
-wandb: Run data is saved locally in /playpen/xinyu/jesse/dg_tunning/exp1/tune_dialogue/wandb/run-20241228_205428-ks1ulu9a
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run ./model_weights/llama3.1_inter
-wandb: ⭐️ View project at https://wandb.ai/l-zijie/huggingface
-wandb: 🚀 View run at https://wandb.ai/l-zijie/huggingface/runs/ks1ulu9a
-  0%|          | 0/18885 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: cuDNN SDPA backward got grad_output.strides() != output.strides(), attempting to materialize a grad_output with matching strides... (Triggered internally at ../aten/src/ATen/native/cudnn/MHA.cpp:674.)
-  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: cuDNN SDPA backward got grad_output.strides() != output.strides(), attempting to materialize a grad_output with matching strides... (Triggered internally at ../aten/src/ATen/native/cudnn/MHA.cpp:674.)
-  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: cuDNN SDPA backward got grad_output.strides() != output.strides(), attempting to materialize a grad_output with matching strides... (Triggered internally at ../aten/src/ATen/native/cudnn/MHA.cpp:674.)
-  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: cuDNN SDPA backward got grad_output.strides() != output.strides(), attempting to materialize a grad_output with matching strides... (Triggered internally at ../aten/src/ATen/native/cudnn/MHA.cpp:674.)
-  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-  0%|          | 1/18885 [00:18<94:40:06, 18.05s/it]W1228 20:55:03.455000 588872 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 588943 closing signal SIGTERM
-W1228 20:55:03.455000 588872 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 588944 closing signal SIGTERM
-W1228 20:55:03.455000 588872 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 588945 closing signal SIGTERM
-E1228 20:55:03.921000 588872 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: -9) local_rank: 0 (pid: 588942) of binary: /home/xinyuzh/anaconda3/envs/meditron/bin/python
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:202: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py:202: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py", line 212, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/trainer.py", line 2164, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/trainer.py", line 2313, in _inner_training_loop
+[rank0]:     self.model = self.accelerator.prepare(self.model)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1339, in prepare
+[rank0]:     result = tuple(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1340, in <genexpr>
+[rank0]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1215, in _prepare_one
+[rank0]:     return self.prepare_model(obj, device_placement=device_placement)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1512, in prepare_model
+[rank0]:     model = FSDP(model, **kwargs)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
+[rank0]:     _auto_wrap(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 101, in _auto_wrap
+[rank0]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:   [Previous line repeated 2 more times]
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 563, in _recursive_wrap
+[rank0]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 492, in _wrap
+[rank0]:     return wrapper_cls(module, **kwargs)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
+[rank0]:     _init_param_handle_from_module(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py", line 636, in _init_param_handle_from_module
+[rank0]:     _init_param_handle_from_params(state, managed_params, fully_sharded_module)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py", line 661, in _init_param_handle_from_params
+[rank0]:     handle.shard()
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 913, in shard
+[rank0]:     sharded_flat_param, numel_padded = FlatParamHandle._get_shard(
+[rank0]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 1077, in _get_shard
+[rank0]:     shard = chunk.clone()
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 210.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 186.12 MiB is free. Process 1722242 has 41.85 GiB memory in use. Including non-PyTorch memory, this process has 5.35 GiB memory in use. Of the allocated memory 4.67 GiB is allocated by PyTorch, and 32.19 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/playpen/xinyu/Jesse/dg_tunning/exp1/tune_dialogue/tune_umls_dialogue.py", line 212, in <module>
+[rank1]:     trainer.train()
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/trainer.py", line 2164, in train
+[rank1]:     return inner_training_loop(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/trainer.py", line 2313, in _inner_training_loop
+[rank1]:     self.model = self.accelerator.prepare(self.model)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1339, in prepare
+[rank1]:     result = tuple(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1340, in <genexpr>
+[rank1]:     self._prepare_one(obj, first_pass=True, device_placement=d) for obj, d in zip(args, device_placement)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1215, in _prepare_one
+[rank1]:     return self.prepare_model(obj, device_placement=device_placement)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/accelerate/accelerator.py", line 1512, in prepare_model
+[rank1]:     model = FSDP(model, **kwargs)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 483, in __init__
+[rank1]:     _auto_wrap(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_wrap_utils.py", line 101, in _auto_wrap
+[rank1]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 545, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:   [Previous line repeated 2 more times]
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 563, in _recursive_wrap
+[rank1]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/wrap.py", line 492, in _wrap
+[rank1]:     return wrapper_cls(module, **kwargs)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 509, in __init__
+[rank1]:     _init_param_handle_from_module(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py", line 636, in _init_param_handle_from_module
+[rank1]:     _init_param_handle_from_params(state, managed_params, fully_sharded_module)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_init_utils.py", line 661, in _init_param_handle_from_params
+[rank1]:     handle.shard()
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 913, in shard
+[rank1]:     sharded_flat_param, numel_padded = FlatParamHandle._get_shard(
+[rank1]:   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/fsdp/_flat_param.py", line 1077, in _get_shard
+[rank1]:     shard = chunk.clone()
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 210.00 MiB. GPU 1 has a total capacity of 47.40 GiB of which 186.31 MiB is free. Process 1722576 has 41.85 GiB memory in use. Including non-PyTorch memory, this process has 5.35 GiB memory in use. Of the allocated memory 4.67 GiB is allocated by PyTorch, and 32.19 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W1230 23:36:58.678906927 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+W1230 23:36:59.819000 1712486 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1712569 closing signal SIGTERM
+W1230 23:36:59.820000 1712486 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1712571 closing signal SIGTERM
+W1230 23:36:59.821000 1712486 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1712572 closing signal SIGTERM
+E1230 23:37:02.807000 1712486 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 1712570) of binary: /home/xinyuzh/anaconda3/envs/meditron/bin/python
 Traceback (most recent call last):
   File "/home/xinyuzh/anaconda3/envs/meditron/bin/torchrun", line 8, in <module>
     sys.exit(main())
@@ -65,18 +135,18 @@ Traceback (most recent call last):
   File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
     raise ChildFailedError(
 torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-=======================================================
+============================================================
 tune_umls_dialogue.py FAILED
--------------------------------------------------------
+------------------------------------------------------------
 Failures:
   <NO_OTHER_FAILURES>
--------------------------------------------------------
+------------------------------------------------------------
 Root Cause (first observed failure):
 [0]:
-  time      : 2024-12-28_20:55:03
-  host      : unites3.cs.unc.edu
-  rank      : 0 (local_rank: 0)
-  exitcode  : -9 (pid: 588942)
+  time      : 2024-12-30_23:36:59
+  host      : unites4.cs.unc.edu
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 1712570)
   error_file: <N/A>
-  traceback : Signal 9 (SIGKILL) received by PID 588942
-=======================================================
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

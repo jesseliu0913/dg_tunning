@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FOLDER1="./tune_context/data"
-FOLDER2="./tune_dialogue/data"
+FOLDER2="./tune_context/data"
+FOLDER1="./tune_dialogue/data"
 
 if [ ! -d "$FOLDER1" ]; then
     echo "Folder '$FOLDER1' does not exist. Creating it."

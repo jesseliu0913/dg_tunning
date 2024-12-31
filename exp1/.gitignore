@@ -3,3 +3,4 @@
 /log/*
 /model_weight/*
 /wandb/*
+/tune_dialogue/model_weight/*

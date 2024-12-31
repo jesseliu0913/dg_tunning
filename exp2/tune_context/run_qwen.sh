@@ -16,6 +16,6 @@ CUDA_VISIBLE_DEVICES=4,5,6,7 nohup torchrun --master_port=29501 --nproc_per_node
     --epoch 2 \
     --task "qwen2.5" \
     --batch_size 2 \
-    --learning_rate 2e-6 \
+    --learning_rate 2e-5 \
     --max_length 2048 > "$LOG_FILE" 2>&1 &
 
