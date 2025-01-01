@@ -11,11 +11,11 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=4,5,6,7 nohup torchrun --nproc_per_node=4 tune_dialogue.py \
+CUDA_VISIBLE_DEVICES=4,5,7 nohup torchrun --nproc_per_node=3 tune_dialogue.py \
     --model "Qwen/Qwen2.5-3B-Instruct" \
     --epoch 2 \
     --task "qwen2.5" \
     --batch_size 2 \
-    --learning_rate 2e-5 \
-    --max_length 2048 > "$LOG_FILE" 2>&1 &
+    --learning_rate 1e-5 \
+    --max_length 1024 > "$LOG_FILE" 2>&1 &
 

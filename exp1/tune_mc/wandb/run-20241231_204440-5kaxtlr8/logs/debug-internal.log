@@ -1,0 +1,16 @@
+{"time":"2024-12-31T20:44:40.424458966-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2024-12-31T20:44:40.424487546-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/jesse/dg_tunning/exp1/tune_mc/wandb/run-20241231_204440-5kaxtlr8/logs/debug-core.log"}
+{"time":"2024-12-31T20:44:40.537591946-05:00","level":"INFO","msg":"created new stream","id":"5kaxtlr8"}
+{"time":"2024-12-31T20:44:40.537641176-05:00","level":"INFO","msg":"stream: started","id":"5kaxtlr8"}
+{"time":"2024-12-31T20:44:40.537673896-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T20:44:40.537732056-05:00","level":"INFO","msg":"sender: started","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T20:44:40.537756706-05:00","level":"INFO","msg":"handler: started","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T20:44:40.732669897-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-31T21:47:16.920111405-05:00","level":"INFO","msg":"stream: closing","id":"5kaxtlr8"}
+{"time":"2024-12-31T21:47:16.920148485-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-31T21:47:16.920939725-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-31T21:47:17.228278972-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-31T21:47:17.484866727-05:00","level":"INFO","msg":"handler: closed","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T21:47:17.484914237-05:00","level":"INFO","msg":"sender: closed","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T21:47:17.484897627-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"5kaxtlr8"}
+{"time":"2024-12-31T21:47:17.485015247-05:00","level":"INFO","msg":"stream: closed","id":"5kaxtlr8"}

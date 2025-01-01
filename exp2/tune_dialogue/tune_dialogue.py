@@ -103,7 +103,7 @@ class ConversationDataset(Dataset):
 tokenizer = AutoTokenizer.from_pretrained(args.model)
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained(args.model)
-model.gradient_checkpointing_enable()  
+# model.gradient_checkpointing_enable()  
 
 file_path = './data/clean_dialogue_case.jsonl'  
 train_dataset = ConversationDataset(file_path, tokenizer, split="train", max_length=args.max_length)
@@ -149,22 +149,22 @@ training_args = TrainingArguments(
     per_device_train_batch_size=args.batch_size,
     per_device_eval_batch_size=args.batch_size,
     gradient_accumulation_steps=6,
-    gradient_checkpointing=True,
+    # gradient_checkpointing=True,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     # save_steps=0.4,
     logging_steps=10,
     learning_rate=args.learning_rate,
     warmup_ratio=0.1,
-    weight_decay=0.01,
-    max_grad_norm=0.5,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
     lr_scheduler_type="cosine",
     adam_beta1=0.9,
-    adam_beta2=0.999,
+    adam_beta2=0.95,
     adam_epsilon=1e-5,
     ddp_backend='nccl',
     fp16=False, 
-    bf16=True, 
+    bf16=False, 
     # fsdp='full_shard auto_wrap',
     # fsdp_config=fsdp_config,
     # deepspeed="ds_config.json",
