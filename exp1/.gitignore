@@ -4,3 +4,6 @@
 /model_weight/*
 /wandb/*
 /tune_dialogue/model_weight/*
+/tune_mc/wandb/*
+/tune_mc/qwen_qa_results/*
+/tune_mc/qwen2.5_final/*
