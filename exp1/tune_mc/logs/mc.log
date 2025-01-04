@@ -1,0 +1,53 @@
+W1231 01:38:44.047000 1878955 site-packages/torch/distributed/run.py:793] 
+W1231 01:38:44.047000 1878955 site-packages/torch/distributed/run.py:793] *****************************************
+W1231 01:38:44.047000 1878955 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1231 01:38:44.047000 1878955 site-packages/torch/distributed/run.py:793] *****************************************
+Generating train split:   0%|          | 0/10178 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 10178/10178 [00:00<00:00, 88116.69 examples/s]Generating train split: 100%|██████████| 10178/10178 [00:00<00:00, 87748.64 examples/s]
+Generating test split:   0%|          | 0/1273 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1273/1273 [00:00<00:00, 91510.26 examples/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.46s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.73s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.43s/it]
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_mc/tune_umls.py:144: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.46s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.65s/it]
+/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/playpen/xinyu/Jesse/dg_tunning/exp1/tune_mc/tune_umls.py:144: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[rank0]:[E1231 01:54:57.369542470 ProcessGroupNCCL.cpp:1484] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL's watchdog got stuck for 480 seconds without making progress in monitoring enqueued collectives. This typically indicates a NCCL/CUDA API (e.g., CudaEventDestroy) hang blocking the watchdog, and could be triggered by another thread holding the GIL inside a CUDA api (for example, CudaEventDestroy), or other deadlock-prone behaviors.If you suspect the watchdog is not actually stuck and a longer timeout would help, you can either increase the timeout (TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC) to a larger value or disable the heartbeat monitor (TORCH_NCCL_ENABLE_MONITORING=0).If either of aforementioned helps, feel free to file an issue to PyTorch about the short timeout or false positive abort; otherwise, please attempt to debug the hang. 
+E1231 02:01:34.052000 1878955 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: -9) local_rank: 0 (pid: 1879045) of binary: /home/xinyuzh/anaconda3/envs/meditron/bin/python
+Traceback (most recent call last):
+  File "/home/xinyuzh/anaconda3/envs/meditron/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/xinyuzh/anaconda3/envs/meditron/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+========================================================
+tune_umls.py FAILED
+--------------------------------------------------------
+Failures:
+[1]:
+  time      : 2024-12-31_02:01:34
+  host      : unites4.cs.unc.edu
+  rank      : 1 (local_rank: 1)
+  exitcode  : -9 (pid: 1879046)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 1879046
+--------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-12-31_02:01:34
+  host      : unites4.cs.unc.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : -9 (pid: 1879045)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 1879045
+========================================================
