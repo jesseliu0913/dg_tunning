@@ -103,12 +103,9 @@ print("current model is:", args.model)
 tokenizer = AutoTokenizer.from_pretrained(args.model)
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained(args.model)
-model.gradient_checkpointing_enable()  
-model.config.use_cache = False  # Important for gradient checkpointing
-model.enable_input_require_grads()  # Enable input gradients for LoRA
 
-# file_path = './data/clean_dialogue_llama.jsonl' 
-file_path = "/playpen/xinyu/Jesse/dg_tunning/exp2/tune_dialogue/data/clean_dialogue_case.jsonl" 
+file_path = './data/clean_dialogue_llama.jsonl' 
+# file_path = "/playpen/xinyu/Jesse/dg_tunning/exp2/tune_dialogue/data/clean_dialogue_case.jsonl" 
 train_dataset = ConversationDataset(file_path, tokenizer, split="train", max_length=args.max_length)
 val_dataset = ConversationDataset(file_path, tokenizer, split="val", max_length=args.max_length)
 
@@ -146,16 +143,17 @@ folder_path = "./model_weights"
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 
+
 training_args = TrainingArguments(
-    output_dir="./qwen_dialogue_results",
-    num_train_epochs=2,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    output_dir=f"{folder_path}/{args.task}_inter",
+    num_train_epochs=args.epoch,
+    per_device_train_batch_size=args.batch_size,
+    per_device_eval_batch_size=args.batch_size,
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    logging_steps=10,
-    learning_rate=2e-5,
+    logging_steps=100,
+    learning_rate=args.learning_rate,
     warmup_ratio=0.1,
     weight_decay=0.1,
     max_grad_norm=1.0,
@@ -163,6 +161,7 @@ training_args = TrainingArguments(
     adam_beta1=0.9,
     adam_beta2=0.95,
     adam_epsilon=1e-5,
+    # gradient_checkpointing=True,
     ddp_backend='nccl',
     fp16=False, 
     bf16=False, 
@@ -172,34 +171,6 @@ training_args = TrainingArguments(
     report_to='wandb',
     ddp_find_unused_parameters=False,
 )
-
-# training_args = TrainingArguments(
-#     output_dir=f"{folder_path}/{args.task}_inter",
-#     num_train_epochs=args.epoch,
-#     per_device_train_batch_size=args.batch_size,
-#     per_device_eval_batch_size=args.batch_size,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     logging_steps=100,
-#     learning_rate=args.learning_rate,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     gradient_checkpointing=True,
-#     ddp_backend='nccl',
-#     fp16=True, 
-#     bf16=True, 
-#     # fsdp='full_shard auto_wrap',
-#     # fsdp_config=fsdp_config,
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False,
-# )
 
 
 trainer = Trainer(
