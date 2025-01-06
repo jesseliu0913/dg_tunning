@@ -151,22 +151,26 @@ train_dataset = ConcatDataset([mc_train_dataset, context_train_dataset])
 val_dataset = ConcatDataset([mc_val_dataset, context_val_dataset])
 
 
-"""
+'''
 # Test dataloader
 train_dataloader = DataLoader(
-    combined_train,
+    mc_train_dataset,
     batch_size=1,
     shuffle=True,
     collate_fn=data_collator
 )
 
 val_dataloader = DataLoader(
-    combined_val,
+    val_dataset,
     batch_size=8,
     shuffle=True,
     collate_fn=data_collator
 )
-"""
+
+for idx, item in enumerate(train_dataloader):
+    print(idx, item)
+    break
+'''
 
 peft_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,

@@ -11,7 +11,7 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=6,7 nohup torchrun --master_port=29500 --nproc_per_node=2 tune_combine.py \
+CUDA_VISIBLE_DEVICES=4,6,7 nohup torchrun --master_port=29500 --nproc_per_node=3 tune_combine.py \
     --model "meta-llama/Llama-3.2-3B-Instruct" \
     --epoch 2 \
     --task "llama3.2" \
