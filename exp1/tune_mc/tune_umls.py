@@ -114,9 +114,9 @@ fsdp_config = {
 training_args = TrainingArguments(
     output_dir="./qwen_qa_results",
     num_train_epochs=2,
-    per_device_train_batch_size=2,
-    per_device_eval_batch_size=2,
-    gradient_accumulation_steps=6,
+    per_device_train_batch_size=4,
+    per_device_eval_batch_size=4,
+    gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     # save_steps=0.4,
@@ -154,5 +154,5 @@ trainer = Trainer(
 trainer.train()
 trainer.save_model("qwen2.5_final")
 
-# CUDA_VISIBLE_DEVICES=5,6,7 torchrun --master_port=29501 --nproc_per_node=3 tune_umls.py > ./logs/mc.log 2>&1 &
+# CUDA_VISIBLE_DEVICES=2,3 torchrun --master_port=29501 --nproc_per_node=2 tune_umls.py > ./logs/mc.log 2>&1 &
 
