@@ -1,0 +1,8 @@
+{"time":"2025-01-05T21:45:24.565164642-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-05T21:45:24.565190472-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/Jesse/dg_tunning/combine_exp/tune_dialogue/wandb/run-20250105_214524-jalnr9hl/logs/debug-core.log"}
+{"time":"2025-01-05T21:45:24.676636275-05:00","level":"INFO","msg":"created new stream","id":"jalnr9hl"}
+{"time":"2025-01-05T21:45:24.676681925-05:00","level":"INFO","msg":"stream: started","id":"jalnr9hl"}
+{"time":"2025-01-05T21:45:24.676758395-05:00","level":"INFO","msg":"handler: started","stream_id":"jalnr9hl"}
+{"time":"2025-01-05T21:45:24.677109944-05:00","level":"INFO","msg":"sender: started","stream_id":"jalnr9hl"}
+{"time":"2025-01-05T21:45:24.677152364-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"jalnr9hl"}
+{"time":"2025-01-05T21:45:24.872462486-05:00","level":"INFO","msg":"Starting system monitor"}

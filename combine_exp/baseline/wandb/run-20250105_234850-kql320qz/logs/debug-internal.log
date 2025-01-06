@@ -1,0 +1,8 @@
+{"time":"2025-01-05T23:48:50.239236627-05:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-05T23:48:50.239267737-05:00","level":"INFO","msg":"created symlink","path":"/playpen/xinyu/Jesse/dg_tunning/combine_exp/baseline/wandb/run-20250105_234850-kql320qz/logs/debug-core.log"}
+{"time":"2025-01-05T23:48:50.351069054-05:00","level":"INFO","msg":"created new stream","id":"kql320qz"}
+{"time":"2025-01-05T23:48:50.351133374-05:00","level":"INFO","msg":"stream: started","id":"kql320qz"}
+{"time":"2025-01-05T23:48:50.351170794-05:00","level":"INFO","msg":"sender: started","stream_id":"kql320qz"}
+{"time":"2025-01-05T23:48:50.351180524-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"kql320qz"}
+{"time":"2025-01-05T23:48:50.351262964-05:00","level":"INFO","msg":"handler: started","stream_id":"kql320qz"}
+{"time":"2025-01-05T23:48:50.500060531-05:00","level":"INFO","msg":"Starting system monitor"}
