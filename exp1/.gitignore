@@ -1,9 +1,11 @@
 /tune_dialogue/data/*
 /tune_dialogue/wandb/*
+/tune_dialogue/log/*
 /log/*
 /model_weight/*
 /wandb/*
 /tune_dialogue/model_weight/*
 /tune_mc/wandb/*
+/tune_mc/log/*
 /tune_mc/qwen_qa_results/*
 /tune_mc/qwen2.5_final/*

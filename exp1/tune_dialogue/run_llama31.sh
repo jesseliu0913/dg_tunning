@@ -11,7 +11,7 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 nohup torchrun --nproc_per_node=4 tune_umls_dialogue.py \
+CUDA_VISIBLE_DEVICES=2 nohup torchrun --nproc_per_node=1 tune_dialogue.py \
     --model "meta-llama/Llama-3.1-8B-Instruct" \
     --epoch 3 \
     --task "llama3.1" \

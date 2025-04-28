@@ -31,8 +31,6 @@ peft_config = LoraConfig(
     lora_dropout=0.1
 )
 model = get_peft_model(model, peft_config)
-# lora_weights_path = "JesseLiu/umls_mc"
-# model = PeftModel.from_pretrained(model, lora_weights_path)
 
 
 class CustomQADataset(Dataset):
@@ -105,11 +103,6 @@ data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding='longest', 
 # print("First example input IDs:", batch['input_ids'][0])
 # print("First example labels:", batch['labels'][0])
 
-fsdp_config = {
-    "fsdp_min_num_params": 20000,
-    "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
-    "fsdp_sharding_strategy": "FULL_SHARD",
-}
 
 training_args = TrainingArguments(
     output_dir="./qwen_qa_results",
@@ -119,7 +112,6 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    # save_steps=0.4,
     logging_steps=10,
     learning_rate=1e-5,
     warmup_ratio=0.1,
@@ -132,9 +124,6 @@ training_args = TrainingArguments(
     ddp_backend='nccl',
     fp16=False, 
     bf16=False, 
-    # fsdp='full_shard auto_wrap',
-    # fsdp_config=fsdp_config,
-    # deepspeed="ds_config.json",
     save_total_limit=5,
     report_to='wandb',
     ddp_find_unused_parameters=False  
