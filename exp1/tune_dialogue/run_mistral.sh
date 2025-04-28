@@ -11,10 +11,10 @@ else
     echo "Log folder exists."
 fi
 
-CUDA_VISIBLE_DEVICES=5,6,7,8 nohup torchrun --master_port=29501 --nproc_per_node=4 tune_umls_dialogue.py \
+CUDA_VISIBLE_DEVICES=5 nohup torchrun --master_port=29502 --nproc_per_node=1 tune_dialogue.py \
     --model "mistralai/Mistral-7B-Instruct-v0.3" \
     --epoch 2 \
     --task "mistral7b" \
-    --batch_size 1 \
-    --learning_rate 1e-5 \
-    --max_length 2048 > "$LOG_FILE" 2>&1 &
+    --batch_size 2 \
+    --learning_rate 5e-4 \
+    --max_length 1024 > "$LOG_FILE" 2>&1 &

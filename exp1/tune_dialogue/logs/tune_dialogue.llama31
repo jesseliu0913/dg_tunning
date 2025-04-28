@@ -1,97 +1,17 @@
 current model is: meta-llama/Llama-3.1-8B-Instruct
-
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.33it/s]
-Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.35it/s]
-Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.35it/s]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.76it/s]
-Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.58it/s]
-Number of samples in train_dataset: 58928
-inp Doctor: Hi, good to see you. So, you were referred to us because you had some bleeding from your tracheostomy stoma, right?
-Patient: Yes, that's right. But it stopped before I even got here. Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-gt  Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Hi, good to see you. So, you were referred to us because you had some bleeding from your tracheostomy stoma, right?
-Patient: Yes, that's right. But it stopped before I even got here.
-Doctor: Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-Patient: Yes, that's correct. We performed a bronchoscopy, which is a scope into your airway, and it showed an ulcer in your trachea, right where the innominate artery sits. We also did a CT scan with contrast and it confirmed that the innominate artery was right up against the front of your trachea. Based on that, we were concerned about a tracheoinnominate fistula, or TIF.
-gt  We performed a bronchoscopy, which is a scope into your airway, and it showed an ulcer in your trachea, right where the innominate artery sits. We also did a CT scan with contrast and it confirmed that the innominate artery was right up against the front of your trachea. Based on that, we were concerned about a tracheoinnominate fistula, or TIF.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Hi, good to see you. So, you were referred to us because you had some bleeding from your tracheostomy stoma, right?
-Patient: Yes, that's right. But it stopped before I even got here.
-Doctor: Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-Patient: Yes, that's correct.
-Doctor: We performed a bronchoscopy, which is a scope into your airway, and it showed an ulcer in your trachea, right where the innominate artery sits. We also did a CT scan with contrast and it confirmed that the innominate artery was right up against the front of your trachea. Based on that, we were concerned about a tracheoinnominate fistula, or TIF.
-Patient: A what? A tracheoinnominate fistula, or TIF, is when there's an abnormal connection between your trachea and the innominate artery. So, we decided the best course of action was to surgically transect, or divide, the innominate artery.
-gt  A tracheoinnominate fistula, or TIF, is when there's an abnormal connection between your trachea and the innominate artery. So, we decided the best course of action was to surgically transect, or divide, the innominate artery.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Hi, good to see you. So, you were referred to us because you had some bleeding from your tracheostomy stoma, right?
-Patient: Yes, that's right. But it stopped before I even got here.
-Doctor: Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-Patient: Yes, that's correct.
-Doctor: We performed a bronchoscopy, which is a scope into your airway, and it showed an ulcer in your trachea, right where the innominate artery sits. We also did a CT scan with contrast and it confirmed that the innominate artery was right up against the front of your trachea. Based on that, we were concerned about a tracheoinnominate fistula, or TIF.
-Patient: A what?
-Doctor: A tracheoinnominate fistula, or TIF, is when there's an abnormal connection between your trachea and the innominate artery. So, we decided the best course of action was to surgically transect, or divide, the innominate artery.
-Patient: So, what did you do exactly? We positioned you on your back with your neck extended, and made an incision along your neck. We carefully separated the muscles in your neck to get to the right common carotid artery, the right subclavian artery, and the innominate artery. We opened the innominate artery, but we didn't actually see the fistula itself. However, because of the risk, we proceeded with the plan.
-gt  We positioned you on your back with your neck extended, and made an incision along your neck. We carefully separated the muscles in your neck to get to the right common carotid artery, the right subclavian artery, and the innominate artery. We opened the innominate artery, but we didn't actually see the fistula itself. However, because of the risk, we proceeded with the plan.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Hi, good to see you. So, you were referred to us because you had some bleeding from your tracheostomy stoma, right?
-Patient: Yes, that's right. But it stopped before I even got here.
-Doctor: Okay. I understand you had the tracheostomy done about four years ago because of hypoxic encephalopathy?
-Patient: Yes, that's correct.
-Doctor: We performed a bronchoscopy, which is a scope into your airway, and it showed an ulcer in your trachea, right where the innominate artery sits. We also did a CT scan with contrast and it confirmed that the innominate artery was right up against the front of your trachea. Based on that, we were concerned about a tracheoinnominate fistula, or TIF.
-Patient: A what?
-Doctor: A tracheoinnominate fistula, or TIF, is when there's an abnormal connection between your trachea and the innominate artery. So, we decided the best course of action was to surgically transect, or divide, the innominate artery.
-Patient: So, what did you do exactly?
-Doctor: We positioned you on your back with your neck extended, and made an incision along your neck. We carefully separated the muscles in your neck to get to the right common carotid artery, the right subclavian artery, and the innominate artery. We opened the innominate artery, but we didn't actually see the fistula itself. However, because of the risk, we proceeded with the plan.
-Patient: So, you cut the artery? Yes, we transected it. We then closed off the ends of the artery with sutures. Everything went well after the surgery. You didn't have any more bleeding, no infection, and at your three-year follow-up, there were no issues like aneurysms at the site where we closed off the artery.
-gt  Yes, we transected it. We then closed off the ends of the artery with sutures. Everything went well after the surgery. You didn't have any more bleeding, no infection, and at your three-year follow-up, there were no issues like aneurysms at the site where we closed off the artery.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Good morning, please have a seat. So, what brings you in today?
-Patient: Well, Doctor, I've had this reddish discoloration on the left side of my face since I was born, and my vision in my left eye has been poor since childhood. Also, for the past ten years, I've been experiencing weakness in my right arm and leg. Okay, I see. Let's take a look. (Examines the patient's face). I notice a slightly darker, reddish area on the left side of your face, covering your forehead, cheek, upper lip, and chin. There's also a small, skin-colored bump on your left cheek, and some tiny bumps between your eyebrows and near the inner corner of your left eye. It also appears the left side of your face is slightly larger than the right. Can you move your right arm and leg for me? (Observes the patient's movements). I see some weakness on your right side. Now, open your mouth, please. (Examines the mouth). There's a red patch on the left side of your inner cheek and the roof of your mouth.
-gt  Okay, I see. Let's take a look. (Examines the patient's face). I notice a slightly darker, reddish area on the left side of your face, covering your forehead, cheek, upper lip, and chin. There's also a small, skin-colored bump on your left cheek, and some tiny bumps between your eyebrows and near the inner corner of your left eye. It also appears the left side of your face is slightly larger than the right. Can you move your right arm and leg for me? (Observes the patient's movements). I see some weakness on your right side. Now, open your mouth, please. (Examines the mouth). There's a red patch on the left side of your inner cheek and the roof of your mouth.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Good morning, please have a seat. So, what brings you in today?
-Patient: Well, Doctor, I've had this reddish discoloration on the left side of my face since I was born, and my vision in my left eye has been poor since childhood. Also, for the past ten years, I've been experiencing weakness in my right arm and leg.
-Doctor: Okay, I see. Let's take a look. (Examines the patient's face). I notice a slightly darker, reddish area on the left side of your face, covering your forehead, cheek, upper lip, and chin. There's also a small, skin-colored bump on your left cheek, and some tiny bumps between your eyebrows and near the inner corner of your left eye. It also appears the left side of your face is slightly larger than the right. Can you move your right arm and leg for me? (Observes the patient's movements). I see some weakness on your right side. Now, open your mouth, please. (Examines the mouth). There's a red patch on the left side of your inner cheek and the roof of your mouth. Let's also take a look at your eyes. (Examines the eyes). The left eye has a red patch, appears larger than the right, and I can see some abnormalities there. Can you see anything out of the left eye? I see you only have light perception. The pressure in your left eye is very high, at 64 mm Hg. Also, I can see some cracks in the inner surface of the cornea. The right eye looks normal.
-gt  Let's also take a look at your eyes. (Examines the eyes). The left eye has a red patch, appears larger than the right, and I can see some abnormalities there. Can you see anything out of the left eye? I see you only have light perception. The pressure in your left eye is very high, at 64 mm Hg. Also, I can see some cracks in the inner surface of the cornea. The right eye looks normal.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Good morning, please have a seat. So, what brings you in today?
-Patient: Well, Doctor, I've had this reddish discoloration on the left side of my face since I was born, and my vision in my left eye has been poor since childhood. Also, for the past ten years, I've been experiencing weakness in my right arm and leg.
-Doctor: Okay, I see. Let's take a look. (Examines the patient's face). I notice a slightly darker, reddish area on the left side of your face, covering your forehead, cheek, upper lip, and chin. There's also a small, skin-colored bump on your left cheek, and some tiny bumps between your eyebrows and near the inner corner of your left eye. It also appears the left side of your face is slightly larger than the right. Can you move your right arm and leg for me? (Observes the patient's movements). I see some weakness on your right side. Now, open your mouth, please. (Examines the mouth). There's a red patch on the left side of your inner cheek and the roof of your mouth.
-Doctor: Let's also take a look at your eyes. (Examines the eyes). The left eye has a red patch, appears larger than the right, and I can see some abnormalities there. Can you see anything out of the left eye? I see you only have light perception. The pressure in your left eye is very high, at 64 mm Hg. Also, I can see some cracks in the inner surface of the cornea. The right eye looks normal. Based on what you've told me and what I've seen during the examination, along with a biopsy taken from the bump on your cheek showing abnormal blood vessels, and a CT scan of your brain revealing calcifications and shrinkage on the left side, enlargement of blood vessel network in the brain, and changes to the bones of your skull, it appears you have Sturge-Weber Syndrome, or SWS.
-gt  Based on what you've told me and what I've seen during the examination, along with a biopsy taken from the bump on your cheek showing abnormal blood vessels, and a CT scan of your brain revealing calcifications and shrinkage on the left side, enlargement of blood vessel network in the brain, and changes to the bones of your skull, it appears you have Sturge-Weber Syndrome, or SWS.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Good morning, please have a seat. So, what brings you in today?
-Patient: Well, Doctor, I've had this reddish discoloration on the left side of my face since I was born, and my vision in my left eye has been poor since childhood. Also, for the past ten years, I've been experiencing weakness in my right arm and leg.
-Doctor: Okay, I see. Let's take a look. (Examines the patient's face). I notice a slightly darker, reddish area on the left side of your face, covering your forehead, cheek, upper lip, and chin. There's also a small, skin-colored bump on your left cheek, and some tiny bumps between your eyebrows and near the inner corner of your left eye. It also appears the left side of your face is slightly larger than the right. Can you move your right arm and leg for me? (Observes the patient's movements). I see some weakness on your right side. Now, open your mouth, please. (Examines the mouth). There's a red patch on the left side of your inner cheek and the roof of your mouth.
-Doctor: Let's also take a look at your eyes. (Examines the eyes). The left eye has a red patch, appears larger than the right, and I can see some abnormalities there. Can you see anything out of the left eye? I see you only have light perception. The pressure in your left eye is very high, at 64 mm Hg. Also, I can see some cracks in the inner surface of the cornea. The right eye looks normal.
-Doctor: Based on what you've told me and what I've seen during the examination, along with a biopsy taken from the bump on your cheek showing abnormal blood vessels, and a CT scan of your brain revealing calcifications and shrinkage on the left side, enlargement of blood vessel network in the brain, and changes to the bones of your skull, it appears you have Sturge-Weber Syndrome, or SWS.
-Patient: Sturge-Weber Syndrome? What does that mean? It's a rare neurological disorder that affects the skin, brain, and eyes. That explains the birthmark, the eye problems, and the weakness on your right side. We will focus on managing the glaucoma in your left eye and the weakness in your right arm and leg with medication. We will monitor your condition closely and adjust the treatment as needed.
-gt  It's a rare neurological disorder that affects the skin, brain, and eyes. That explains the birthmark, the eye problems, and the weakness on your right side. We will focus on managing the glaucoma in your left eye and the weakness in your right arm and leg with medication. We will monitor your condition closely and adjust the treatment as needed.
-
-————————————————————————————————————————————————————————————
-
-inp Doctor: Good morning, Mr. Tanaka. What brings you in today?
-Mr. Tanaka: Good morning, Doctor. I've been having pain and noticed a growth on my lower left gums. Okay, I see. And how long has this been going on?
-gt  Okay, I see. And how long has this been going on?
-
-————————————————————————————————————————————————————————————
-
-DONE
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.17it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.26it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.68it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.49it/s]
+22143 2413
+/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:176: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+wandb: Using wandb-core as the SDK backend. Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: l-zijie. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.18.5
+wandb: Run data is saved locally in /playpen/jesse/dg_tunning/exp1/tune_dialogue/wandb/run-20250428_184034-o17jsien
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ./model_weights/llama3.1_inter
+wandb: ⭐️ View project at https://wandb.ai/l-zijie/huggingface
+wandb: 🚀 View run at https://wandb.ai/l-zijie/huggingface/runs/o17jsien
+  0%|          | 0/16608 [00:00<?, ?it/s]  0%|          | 1/16608 [00:02<10:30:00,  2.28s/it]  0%|          | 2/16608 [00:04<9:48:50,  2.13s/it]   0%|          | 3/16608 [00:05<8:39:06,  1.88s/it]  0%|          | 4/16608 [00:07<7:29:06,  1.62s/it]  0%|          | 5/16608 [00:09<8:17:48,  1.80s/it]  0%|          | 6/16608 [00:11<8:25:43,  1.83s/it]  0%|          | 7/16608 [00:13<8:39:52,  1.88s/it]  0%|          | 8/16608 [00:14<8:23:47,  1.82s/it]  0%|          | 9/16608 [00:16<7:46:59,  1.69s/it]  0%|          | 10/16608 [00:18<8:18:48,  1.80s/it]  0%|          | 11/16608 [00:19<8:02:37,  1.74s/it]  0%|          | 12/16608 [00:21<8:35:58,  1.87s/it]  0%|          | 13/16608 [00:23<8:00:40,  1.74s/it]  0%|          | 14/16608 [00:24<7:31:08,  1.63s/it]

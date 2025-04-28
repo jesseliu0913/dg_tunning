@@ -83,29 +83,19 @@ class ConversationDataset(Dataset):
         return self.examples[idx]
 
     def preprocess_conversation(self, conversation):
-        lines = conversation.strip().split('\n')
-        
         input_texts = []
         output_texts = []
-        current_context = []
-        
-        for i in range(len(lines)):
-            line = lines[i].strip()       
-            if not line:  
-                continue
-                
-            if line.startswith("Doctor:"):
-                if current_context:
-                    input_text = "\n".join(current_context)
-                    output_text = line[len("Doctor:"):].strip()
-                    
-                    input_texts.append(input_text)
-                    output_texts.append(output_text)
-                
-                current_context.append(line)
-            else:
-                current_context.append(line)
-        
+        for i in range(len(conversation)):
+            line = conversation[i].strip()
+            if line:
+                if line.startswith("Doctor:"):
+                    if i == 0 or conversation[i - 1].strip().startswith("Doctor:"):
+                        continue
+                    else:
+                        input_text = ' '.join(conversation[:i]).strip()
+                        output_text = line[len("Doctor:"):].strip()
+                        input_texts.append(input_text)
+                        output_texts.append(output_text)
         return input_texts, output_texts
 
 
@@ -114,19 +104,19 @@ tokenizer = AutoTokenizer.from_pretrained(args.model)
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained(args.model)
 
-file_path = './data/mc2dialogue.jsonl' 
+file_path = '/playpen/jesse/dg_tunning/exp1/tune_dialogue/data/mc2dialogue.jsonl' 
 train_dataset = ConversationDataset(file_path, tokenizer, split="train", max_length=args.max_length)
 val_dataset = ConversationDataset(file_path, tokenizer, split="val", max_length=args.max_length)
-print(f"Number of samples in train_dataset: {len(train_dataset)}")
+print(len(train_dataset), len(val_dataset))
 
-# peft_config = LoraConfig(
-#     task_type=TaskType.CAUSAL_LM,
-#     inference_mode=False,
-#     r=8,
-#     lora_alpha=32,
-#     lora_dropout=0.1
-# )
-# model = get_peft_model(model, peft_config)
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(model, peft_config)
 
 
 class CustomDataCollatorWithPadding(DataCollatorWithPadding):
@@ -143,89 +133,57 @@ class CustomDataCollatorWithPadding(DataCollatorWithPadding):
 
 data_collator = CustomDataCollatorWithPadding(tokenizer=tokenizer)
 
-from torch.utils.data import DataLoader
-
-def make_test_dataloader(dataset, collator, batch_size=4):
-    return DataLoader(dataset, batch_size=batch_size, shuffle=False, collate_fn=collator)
-
-test_loader = make_test_dataloader(val_dataset, data_collator, batch_size=args.batch_size)
-
-count = 0
-for batch in test_loader:
-    input_ids = batch["input_ids"]
-    labels = batch["labels"]
-
-    decoded_inputs = tokenizer.batch_decode(input_ids, skip_special_tokens=True)
-    decoded_labels = []
-    for lbl in labels:
-        filtered = [tok for tok in lbl.tolist() if tok != -100]
-        decoded_labels.append(tokenizer.decode(filtered, skip_special_tokens=True))
-
-    for inp, gt in zip(decoded_inputs, decoded_labels):
-        print("inp", inp)
-        print("gt", gt)
-        print("\n" + ("—" * 60) + "\n")
-        count += 1
-        if count >= 10:
-            print("DONE")
-            break
-    if count >= 10:
-        break
-
-
-
-
 # fsdp_config = {
 #     "fsdp_min_num_params": 20000,
 #     "fsdp_transformer_layer_cls_to_wrap": "LlamaDecoderLayer",
 #     "fsdp_sharding_strategy": "FULL_SHARD",
 # }
 
-# folder_path = "./model_weights"
-# if not os.path.exists(folder_path):
-#     os.makedirs(folder_path)
+folder_path = "./model_weights"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 
 
-# training_args = TrainingArguments(
-#     output_dir=f"{folder_path}/{args.task}_inter",
-#     num_train_epochs=args.epoch,
-#     per_device_train_batch_size=args.batch_size,
-#     per_device_eval_batch_size=args.batch_size,
-#     gradient_accumulation_steps=2,
-#     evaluation_strategy="epoch",
-#     save_strategy="epoch",
-#     logging_steps=100,
-#     learning_rate=args.learning_rate,
-#     warmup_ratio=0.1,
-#     weight_decay=0.1,
-#     max_grad_norm=1.0,
-#     lr_scheduler_type="cosine",
-#     adam_beta1=0.9,
-#     adam_beta2=0.95,
-#     adam_epsilon=1e-5,
-#     # gradient_checkpointing=True,
-#     ddp_backend='nccl',
-#     fp16=False, 
-#     bf16=False, 
-#     # fsdp='full_shard auto_wrap',
-#     # fsdp_config=fsdp_config,
-#     save_total_limit=5,
-#     report_to='wandb',
-#     ddp_find_unused_parameters=False,
-# )
+training_args = TrainingArguments(
+    output_dir=f"{folder_path}/{args.task}_inter",
+    num_train_epochs=args.epoch,
+    per_device_train_batch_size=args.batch_size,
+    per_device_eval_batch_size=args.batch_size,
+    gradient_accumulation_steps=2,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    logging_steps=100,
+    learning_rate=args.learning_rate,
+    warmup_ratio=0.1,
+    weight_decay=0.1,
+    max_grad_norm=1.0,
+    lr_scheduler_type="cosine",
+    adam_beta1=0.9,
+    adam_beta2=0.95,
+    adam_epsilon=1e-5,
+    # gradient_checkpointing=True,
+    ddp_backend='nccl',
+    fp16=False, 
+    bf16=False, 
+    # fsdp='full_shard auto_wrap',
+    # fsdp_config=fsdp_config,
+    save_total_limit=5,
+    report_to='wandb',
+    ddp_find_unused_parameters=False,
+)
 
 
-# trainer = Trainer(
-#     model=model,
-#     args=training_args,
-#     train_dataset=train_dataset,
-#     eval_dataset=val_dataset,
-#     tokenizer=tokenizer,
-#     data_collator=data_collator,
-# )
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator,
+)
 
 
-# trainer.train()
-# trainer.save_model(f"{folder_path}/{args.task}_final")
+trainer.train()
+trainer.save_model(f"{folder_path}/{args.task}_final")
 
 

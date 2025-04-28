@@ -1,0 +1,45 @@
+current model is: mistralai/Mistral-7B-Instruct-v0.3
+Traceback (most recent call last):
+  File "/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py", line 103, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(args.model)
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 920, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2213, in from_pretrained
+    return cls._from_pretrained(
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2447, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/models/llama/tokenization_llama_fast.py", line 157, in __init__
+    super().__init__(
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/tokenization_utils_fast.py", line 107, in __init__
+    raise ValueError(
+ValueError: Cannot instantiate this tokenizer from a slow version. If it's based on sentencepiece, make sure you have sentencepiece installed.
+E0428 18:40:43.252000 1620978 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 1621259) of binary: /home/jesseliu/miniconda3/envs/maze/bin/python
+Traceback (most recent call last):
+  File "/home/jesseliu/miniconda3/envs/maze/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+tune_dialogue.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-28_18:40:43
+  host      : unites5.cs.unc.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1621259)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

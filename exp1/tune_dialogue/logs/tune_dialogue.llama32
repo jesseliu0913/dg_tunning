@@ -1,122 +1,17 @@
-W0428 16:32:13.337000 1304518 site-packages/torch/distributed/run.py:793] 
-W0428 16:32:13.337000 1304518 site-packages/torch/distributed/run.py:793] *****************************************
-W0428 16:32:13.337000 1304518 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W0428 16:32:13.337000 1304518 site-packages/torch/distributed/run.py:793] *****************************************
 current model is: meta-llama/Llama-3.2-3B-Instruct
-current model is: meta-llama/Llama-3.2-3B-Instruct
-current model is: meta-llama/Llama-3.2-3B-Instruct
-current model is: meta-llama/Llama-3.2-3B-Instruct
-Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [01:25<01:25, 85.99s/it]Downloading shards:  50%|█████     | 1/2 [01:25<01:25, 85.97s/it]Downloading shards:  50%|█████     | 1/2 [01:25<01:25, 85.69s/it]Downloading shards:  50%|█████     | 1/2 [01:26<01:26, 86.01s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 51.92s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 57.03s/it]
-Downloading shards: 100%|██████████| 2/2 [01:53<00:00, 51.80s/it]Downloading shards: 100%|██████████| 2/2 [01:53<00:00, 56.89s/it]
-Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 51.94s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 57.05s/it]
-Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 51.97s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 57.07s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.51s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.80s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.78s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.52s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.77s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.78s/it]
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.78s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.27it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.98it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.83it/s]
+22143 2413
 /home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
   warnings.warn(
-/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:176: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
   trainer = Trainer(
-/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py:175: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
-  trainer = Trainer(
-[rank3]: Traceback (most recent call last):
-[rank3]:   File "/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py", line 185, in <module>
-[rank3]:     trainer.train()
-[rank3]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
-[rank3]:     return inner_training_loop(
-[rank3]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2151, in _inner_training_loop
-[rank3]:     train_dataloader = self.get_train_dataloader()
-[rank3]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 970, in get_train_dataloader
-[rank3]:     dataloader_params["sampler"] = self._get_train_sampler()
-[rank3]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 940, in _get_train_sampler
-[rank3]:     return RandomSampler(self.train_dataset)
-[rank3]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/utils/data/sampler.py", line 164, in __init__
-[rank3]:     raise ValueError(
-[rank3]: ValueError: num_samples should be a positive integer value, but got num_samples=0
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py", line 185, in <module>
-[rank0]:     trainer.train()
-[rank0]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
-[rank0]:     return inner_training_loop(
-[rank0]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2151, in _inner_training_loop
-[rank0]:     train_dataloader = self.get_train_dataloader()
-[rank0]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 970, in get_train_dataloader
-[rank0]:     dataloader_params["sampler"] = self._get_train_sampler()
-[rank0]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 940, in _get_train_sampler
-[rank0]:     return RandomSampler(self.train_dataset)
-[rank0]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/utils/data/sampler.py", line 164, in __init__
-[rank0]:     raise ValueError(
-[rank0]: ValueError: num_samples should be a positive integer value, but got num_samples=0
-[rank1]: Traceback (most recent call last):
-[rank1]:   File "/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py", line 185, in <module>
-[rank1]:     trainer.train()
-[rank1]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
-[rank1]:     return inner_training_loop(
-[rank1]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2151, in _inner_training_loop
-[rank1]:     train_dataloader = self.get_train_dataloader()
-[rank1]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 970, in get_train_dataloader
-[rank1]:     dataloader_params["sampler"] = self._get_train_sampler()
-[rank1]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 940, in _get_train_sampler
-[rank1]:     return RandomSampler(self.train_dataset)
-[rank1]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/utils/data/sampler.py", line 164, in __init__
-[rank1]:     raise ValueError(
-[rank1]: ValueError: num_samples should be a positive integer value, but got num_samples=0
-[rank0]:[W428 16:34:29.825421694 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank2]: Traceback (most recent call last):
-[rank2]:   File "/playpen/jesse/dg_tunning/exp1/tune_dialogue/tune_dialogue.py", line 185, in <module>
-[rank2]:     trainer.train()
-[rank2]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2122, in train
-[rank2]:     return inner_training_loop(
-[rank2]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 2151, in _inner_training_loop
-[rank2]:     train_dataloader = self.get_train_dataloader()
-[rank2]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 970, in get_train_dataloader
-[rank2]:     dataloader_params["sampler"] = self._get_train_sampler()
-[rank2]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/transformers/trainer.py", line 940, in _get_train_sampler
-[rank2]:     return RandomSampler(self.train_dataset)
-[rank2]:   File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/utils/data/sampler.py", line 164, in __init__
-[rank2]:     raise ValueError(
-[rank2]: ValueError: num_samples should be a positive integer value, but got num_samples=0
-W0428 16:34:30.086000 1304518 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1304635 closing signal SIGTERM
-W0428 16:34:30.086000 1304518 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1304636 closing signal SIGTERM
-W0428 16:34:30.087000 1304518 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 1304637 closing signal SIGTERM
-E0428 16:34:30.629000 1304518 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 3 (pid: 1304638) of binary: /home/jesseliu/miniconda3/envs/maze/bin/python
-Traceback (most recent call last):
-  File "/home/jesseliu/miniconda3/envs/maze/bin/torchrun", line 8, in <module>
-    sys.exit(main())
-  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
-    return f(*args, **kwargs)
-  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
-    run(args)
-  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
-    elastic_launch(
-  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/home/jesseliu/miniconda3/envs/maze/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-tune_dialogue.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2025-04-28_16:34:30
-  host      : unites5.cs.unc.edu
-  rank      : 3 (local_rank: 3)
-  exitcode  : 1 (pid: 1304638)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+wandb: Using wandb-core as the SDK backend. Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: l-zijie. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.18.5
+wandb: Run data is saved locally in /playpen/jesse/dg_tunning/exp1/tune_dialogue/wandb/run-20250428_184049-gx7q9ecx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ./model_weights/llama3.2_inter
+wandb: ⭐️ View project at https://wandb.ai/l-zijie/huggingface
+wandb: 🚀 View run at https://wandb.ai/l-zijie/huggingface/runs/gx7q9ecx
+  0%|          | 0/11072 [00:00<?, ?it/s]  0%|          | 1/11072 [00:01<4:03:44,  1.32s/it]  0%|          | 2/11072 [00:02<3:21:50,  1.09s/it]  0%|          | 3/11072 [00:02<2:50:31,  1.08it/s]  0%|          | 4/11072 [00:03<2:24:42,  1.27it/s]  0%|          | 5/11072 [00:04<2:36:59,  1.17it/s]  0%|          | 6/11072 [00:05<2:36:56,  1.18it/s]  0%|          | 7/11072 [00:06<2:40:08,  1.15it/s]  0%|          | 8/11072 [00:07<2:35:15,  1.19it/s]  0%|          | 9/11072 [00:07<2:24:27,  1.28it/s]  0%|          | 10/11072 [00:08<2:33:28,  1.20it/s]  0%|          | 11/11072 [00:09<2:29:21,  1.23it/s]  0%|          | 12/11072 [00:10<2:32:58,  1.20it/s]
